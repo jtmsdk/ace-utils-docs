@@ -1,0 +1,10 @@
+.doc-functions {
+    font-size: var(--ace-font-size-s);
+
+    p:first-child { margin-top: 0; }
+    p:last-child { margin-bottom: 0; }
+
+    .doc-params {
+        margin-top: 1rem;
+    }
+}

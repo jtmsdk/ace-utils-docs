@@ -1,0 +1,4 @@
+.doc-tag {
+    font-family: var(--ace-font-family-code);
+    color: var(--ace-doc-color-tag);
+}

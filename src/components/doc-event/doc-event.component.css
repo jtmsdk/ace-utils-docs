@@ -1,0 +1,4 @@
+.doc-event {
+    font-family: var(--ace-font-family-code);
+    color: var(--ace-doc-color-event);
+}

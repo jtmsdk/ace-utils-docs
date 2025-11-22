@@ -1,0 +1,33 @@
+@import "@ace/index.css";
+@import "./components/";
+@import "./pages/";
+
+:root {
+    --ace-doc-color-tag: var(--ace-color-matgreen-50);
+    --ace-doc-color-param: var(--ace-color-matgreen-50);
+    --ace-doc-color-value: var(--ace-color-matblue-50);
+    --ace-doc-color-event: var(--ace-color-matgreen-50);
+    --ace-doc-color-function: var(--ace-color-matgreen-50);
+    --ace-doc-color-directive: var(--ace-color-matgreen-50);
+}
+
+app {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    width: 100vw;
+    height: 100vh;
+
+    .header {
+        flex-shrink: 0;
+    }
+    .body {
+        position: relative;
+        flex-grow: 1;
+        display: flex;
+        flex-wrap: nowrap;
+        box-sizing: border-box;
+        width: 100%;
+        overflow: hidden;
+    }
+}

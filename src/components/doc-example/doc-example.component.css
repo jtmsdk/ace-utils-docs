@@ -1,0 +1,64 @@
+@import "doc-example-editor/doc-example-editor";
+@import "doc-example-preview/doc-example-preview";
+
+
+.doc-example {
+    display: block;
+    position: relative;
+    margin: 2rem 0;
+    border: var(--ace-border);
+    border-radius: 6px;
+    overflow: hidden;
+    
+    .doc-example-header {
+        border-bottom: var(--ace-border);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 8px;
+        background: var(--ace-color-gray-98);
+        color: black;
+        
+        .doc-example-name {
+            font-size: 1.1rem;
+        }
+        
+        .doc-example-controls {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+
+            * {
+                padding: 3px 6px;
+                border-radius: var(-border-radius-s);
+                user-select: none;
+                cursor: pointer;
+                &.active {
+                    background: var(--ace-background-active);
+                    color: white;
+                }
+            }
+        }
+        
+        .doc-example-descriptioncontainer {
+            width: 100%;
+            font-size: var(-font-size-s);
+            
+            .doc-example-params {
+                margin: 0.5rem 0;
+
+                .doc-expander {
+                    font-size: 0.8rem;
+                }
+                .doc-params {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .doc-example-editor {
+        border-bottom: var(--ace-border);
+    }
+}

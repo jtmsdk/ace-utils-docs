@@ -1,0 +1,19 @@
+.doc-api {
+    font-size: var(--ace-font-size-s);
+    
+    h2 {
+        margin-bottom: 1.5rem;
+    }
+    .doc-desc {
+        margin: 0 !important;
+        p:first-of-type {
+            margin-top: 0;
+        }
+    }
+    .ace-tabs {
+        margin-bottom: 1rem;
+    }
+    ul, ol {
+        margin: 0.5rem auto;
+    }
+}

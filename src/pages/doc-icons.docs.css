@@ -1,0 +1,65 @@
+.doc-page-icons {
+    position: relative;
+    
+	.control-panel {
+        display: block;
+        position: -webkit-sticky; /* Safari */
+        position: sticky;
+        z-index: 2;
+		top: 0;
+        
+		padding: 1rem 0;
+        background: rgba(255,255,255,0.9);
+        
+        .ace-searchinput {
+            width: 8rem;
+        }
+        button {
+            padding-left: 6px;
+            padding-right: 6px;
+        }
+	}
+    
+    .icons {
+        --iconSize: 32px;
+        --iconColor: currentColor;
+        --iconBg: transparent;
+        
+        display: flex;
+        flex-wrap: wrap;
+        margin: 2rem 0;
+        
+        .icon {
+            display: inline-block;
+            width: 100px;
+            margin: 20px;
+            text-align: center;
+            transition: all 0.1s linear;
+            user-select: none;
+            cursor: pointer;
+
+            label {
+                display: block;
+                width: 100%;
+                margin-top: 1em;
+                text-align: center;
+                font-size: 0.7em;
+            }
+            .ace-icon {
+                transition: all 0.15s linear;
+                width: var(--iconSize);
+                height: var(--iconSize);
+                color: var(--iconColor);
+                background: var(--iconBg);
+            }
+            
+            &:hover {
+                transform: scale(1.3);
+            }
+            &:active {
+                transition-duration: 0s;
+                transform: scale(1);
+            }
+        }
+    }
+}

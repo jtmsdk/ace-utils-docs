@@ -1,0 +1,20 @@
+.doc-header {
+    display: flex;
+    box-sizing: border-box;
+    flex-wrap: nowrap;
+    align-items: center;
+    border-bottom: var(--ace-border);
+    gap: 1rem;
+
+    .doc-header-link {
+        display: block;
+        border: 0;
+        
+        h1 {
+            display: block;
+            color: var(--ace-color-gray-50);
+            font-weight: 200;
+            font-size: 1.6rem;
+        }
+    }
+}

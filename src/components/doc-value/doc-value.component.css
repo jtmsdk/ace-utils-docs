@@ -1,0 +1,5 @@
+.doc-value {
+    font-family: var(--ace-font-family-code);
+    font-style: italic;
+    color: var(--ace-doc-color-value);
+}

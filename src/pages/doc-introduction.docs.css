@@ -1,0 +1,27 @@
+.doc-page-introduction {
+    .feature {
+        border-radius: 4px;
+        border: 1px solid var(--ace-color-matgreen-80);
+        background: var(--ace-color-matgreen-98);
+        margin-bottom: 1rem;
+        padding: 1rem;
+
+        h2 {
+            display: flex;
+            align-items: center;    
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin: 0;
+            gap: 1rem;
+
+            svg {
+                color: var(--ace-color-matgreen-70);
+                height: 1.5em;
+                width: 1.5em;
+            }
+        }
+        p:last-child {
+            margin-bottom: 0;
+        }
+    }
+}

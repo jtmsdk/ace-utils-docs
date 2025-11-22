@@ -1,0 +1,4 @@
+.doc-directive {
+    font-family: var(--ace-font-family-code);
+    color: var(--ace-doc-color-directive);
+}
