@@ -1,14 +1,12 @@
-import attachIcon from '@ace.icons/attach.svg?inline';
-import commentInverseIcon from '@ace.icons/comment-inverse.svg?inline';
-import cameraInverseIcon from '@ace.icons/camera-inverse.svg?inline';
-import checkmarkRoundIcon from '@ace.icons/checkmark-round.svg?inline';
-import youtubeIcon from '@ace.icons/youtube.svg?inline';
-import {AceIcon} from '@ace/components';
+import attachIcon from '@ace.icons/attach.svg?no-inline';
+import commentInverseIcon from '@ace.icons/comment-inverse.svg?no-inline';
+import cameraInverseIcon from '@ace.icons/camera-inverse.svg?no-inline';
+import checkmarkRoundIcon from '@ace.icons/checkmark-round.svg?no-inline';
+import youtubeIcon from '@ace.icons/youtube.svg?no-inline';
 
-const name = 'ace-icon';
 const meta = {
     id: 'ace-icon.component',
-    name: name,
+    name: 'ace-icon',
     title: 'Icon',
     desc: `Renders an inline SVG icon.`
 };
@@ -99,7 +97,7 @@ export default {
             `
         },
         api: {
-            name: name,
+            name: 'ace-icon',
             type: 'component',
             params: [
                 {

@@ -1,13 +1,11 @@
-import {AceButton} from '@ace/components';
-import previousRoundIcon from '@ace.icons/previous-round.svg';
-import stopRoundIcon from '@ace.icons/stop-round.svg';
-import playRoundIcon from '@ace.icons/play-round.svg';
-import nextRoundIcon from '@ace.icons/next-round.svg';
+import previousRoundIcon from '@ace.icons/previous-round.svg?no-inline';
+import stopRoundIcon from '@ace.icons/stop-round.svg?no-inline';
+import playRoundIcon from '@ace.icons/play-round.svg?no-inline';
+import nextRoundIcon from '@ace.icons/next-round.svg?no-inline';
 
-const name = 'ace-button';
 const meta = {
     id: 'ace-button.component',
-    name: name,
+    name: 'ace-button',
     title: `Button`,
     desc: `Renders action buttons.`
 };
@@ -21,7 +19,7 @@ export default {
             </doc-meta>
 
             <doc-desc>
-                Use <doc-tag>${name}</doc-tag> to render action buttons.
+                Use <doc-tag>ace-button</doc-tag> to render action buttons.
             </doc-desc>
 
             <doc-api 
@@ -36,7 +34,7 @@ export default {
     data: () => ({
         meta,
         api: {
-            name: name,
+            name: 'ace-button',
             type: 'component',
             params: [
                 {
@@ -77,7 +75,7 @@ export default {
                 },
                 {
                     name: 'transparent', type: 'boolean', default: 'false',
-                    desc: `If true, makes the background transparent, leaving only button text.`
+                    desc: `If true, creates a transparent text-only button.`
                 },
                 {
                     name: 'round', type: 'boolean', default: 'false',
@@ -138,7 +136,7 @@ export default {
                             </ace-button>
             
                             <ace-button round
-                                icon="${stopRoundIcon}">
+                                icon="${playRoundIcon}">
                             </ace-button>
             
                             <ace-button round

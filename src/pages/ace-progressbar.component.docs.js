@@ -1,9 +1,6 @@
-import {AceProgressbar} from '@ace/components';
-
-const name = 'ace-progressbar';
 const meta = {
     id: 'ace-progressbar.component',
-    name: name,
+    name: 'ace-progressbar',
     title: 'Progressbar',
     desc: `Renders a progress bar.`
 };
@@ -18,7 +15,7 @@ export default {
 
             <doc-desc>
                 <p>
-                    Use <doc-tag>${name}</doc-tag> to render a progress bar.
+                    Use <doc-tag>ace-progressbar</doc-tag> to render a progress bar.
                 </p>
             </doc-desc>
 
@@ -34,7 +31,7 @@ export default {
     data: () => ({
         meta,
         api: {
-            name: name,
+            name: 'ace-progressbar',
             type: 'component',
             params: [
                 {
@@ -63,9 +60,9 @@ export default {
                 js: `
                     {
                         template: \`
-                            <${name}
+                            <ace-progressbar
                                 :value="value">
-                            </${name}>
+                            </ace-progressbar>
             
                             <br>
                             

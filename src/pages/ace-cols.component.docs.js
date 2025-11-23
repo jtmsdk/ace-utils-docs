@@ -1,9 +1,6 @@
-import {AceCols} from '@ace/components';
-
-const name = 'ace-cols';
 const meta = {
     id: 'ace-cols.component',
-    name: name,
+    name: 'ace-cols',
     title: 'Columns',
     desc: `Renders responsive columns which collapse based on available space.`
 }
@@ -18,7 +15,7 @@ export default {
 
             <doc-desc>
                 <p>
-                    Use <doc-tag>${name}</doc-tag> to render responsive (CSS grid based) column layout, which can be collapsed using break points. The component responds to available space in container; not the overall device/viewport width.
+                    Use <doc-tag>ace-cols</doc-tag> to render responsive (CSS grid based) column layout, which can be collapsed using break points. The component responds to available space in container; not the overall device/viewport width.
                 </p>
             </doc-desc>
 
@@ -34,7 +31,7 @@ export default {
     data: () => ({
         meta,
         api: {
-            name: name,
+            name: 'ace-cols',
             type: 'component',
             params: [
                 {
@@ -76,8 +73,7 @@ export default {
                             <p>
                                 Initially 4 column grid, collapses to 2 at 700px and to 1 at 500px.
                             </p>
-            
-                            <${name} 
+                            <ace-cols 
                                 cols="4"
                                 cols-700="2"
                                 cols-500="1">
@@ -85,7 +81,7 @@ export default {
                                     class="box">
                                     {{n}}
                                 </div>
-                            </${name}>    
+                            </ace-cols>    
                         \`
                     }
                 `,

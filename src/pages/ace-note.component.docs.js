@@ -1,9 +1,6 @@
-import {AceNote} from '@ace/components';
-
-const name = 'ace-note';
 const meta = {
     id: 'ace-note.component',
-    name: name,
+    name: 'ace-note',
     title: 'Note',
     desc: `Renders a highlighted block of content providing additional information.`
 };
@@ -18,7 +15,7 @@ export default {
 
             <doc-desc>
                 <p>
-                    Use <doc-tag>${name}</doc-tag> to render a block of content used for highlighting additional information regarding current context.
+                    Use <doc-tag>ace-note</doc-tag> to render a block of content used for highlighting additional information regarding current context.
                 </p>
             </doc-desc>
 
@@ -34,8 +31,14 @@ export default {
     data: () => ({
         meta,
         api: {
-            name: name,
+            name: 'ace-note',
             type: 'component',
+            params: [
+                {
+                    name: 'header', type: 'string',
+                    desc: `Optional header text for the note.`
+                }
+            ],
             slots: [
                 {
                     name: 'default',

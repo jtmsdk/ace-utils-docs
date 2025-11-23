@@ -1,5 +1,3 @@
-import {AceThumbs} from '@ace/components';
-
 const meta = {
     id: 'ace-thumbs.component',
     name: 'ace-thumbs',

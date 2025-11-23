@@ -1,9 +1,6 @@
-import {AceLink} from '@ace/components';
-
-const name = 'ace-link';
 const meta = {
     id: 'ace-link.component',
-    name: name,
+    name: 'ace-link',
     title: 'Link',
     desc: `Renders a hyperlink or router-link.`
 };
@@ -18,7 +15,7 @@ export default {
 
             <doc-desc>
                 <p>
-                    Use <doc-tag>${name}</doc-tag> to render hyperlinks and router-links.
+                    Use <doc-tag>ace-link</doc-tag> to render hyperlinks and router-links.
                 </p>
             </doc-desc>
 

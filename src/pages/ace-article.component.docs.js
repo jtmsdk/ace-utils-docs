@@ -1,12 +1,9 @@
-import {AceArticle} from '@ace/components';
-
-const name = 'ace-article';
 const meta = {
     id: 'ace-article.component',
-    name: name,
+    name: 'ace-article',
     title: 'Article',
     desc: `Renders an article, a self contained document or blog post, styled for readability.`
-}
+};
 
 export default {
     meta,
@@ -18,7 +15,7 @@ export default {
 
             <doc-desc>
                 <p>
-                    Use <doc-tag>${name}</doc-tag> to render an article &mdash; a self contained document or blog post, styled for readability.
+                    Use <doc-tag>ace-article</doc-tag> to render an article &mdash; a self contained document or blog post, styled for readability.
                 </p>
             </doc-desc>
 
@@ -34,7 +31,7 @@ export default {
     data: () => ({
         meta,
         api: {
-            name: name,
+            name: 'ace-article',
             type: 'component',
             params: [
                 {
@@ -83,7 +80,7 @@ export default {
                 js: `
                     {
                         template: \`
-                            <${name}
+                            <ace-article
                                 :title="title"
                                 :subtitle="subtitle"
                                 :date="date"
@@ -111,7 +108,7 @@ export default {
                                     {{lorem}}
                                 </p>
 
-                            </${name}>
+                            </ace-article>
                         \`,
                         data: () => ({
                             title: 'This is h1 title',

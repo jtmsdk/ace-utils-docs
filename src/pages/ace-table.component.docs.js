@@ -1,12 +1,9 @@
-import {AceTable} from '@ace/components';
-
-const name = 'ace-table';
 const meta = {
     id: 'ace-table.component',
-    name: name,
+    name: 'ace-table',
     title: 'Table',
     desc: `Renders a table element.`
-}
+};
 
 export default {
     meta,
@@ -35,7 +32,7 @@ export default {
         meta,
         api: [
             {
-                name: name,
+                name: 'ace-table',
                 type: 'component',
                 params: [
                     { 

@@ -1,9 +1,6 @@
-import {AceFocustrap} from '@ace/directives';
-
-const name = 'v-ace-focustrap';
 const meta = {
     id: 'ace-focustrap.directive',
-    name: name,
+    name: 'v-ace-focustrap',
     title: 'Focustrap',
     desc: `Prevents tab-navigation focus from leaving the target element.`
 };
@@ -18,7 +15,7 @@ export default {
 
             <doc-desc>
                 <p>
-                    Use <doc-directive>${name}</doc-directive> directive to trap tab-navigation focus inside the target container. I.e. prevents focus from leaving the element when navigating with tab key.
+                    Use <doc-directive>v-ace-focustrap</doc-directive> directive to trap tab-navigation focus inside the target container. I.e. prevents focus from leaving the element when navigating with tab key.
                 </p>
             </doc-desc>
 

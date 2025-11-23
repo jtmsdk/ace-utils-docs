@@ -1,9 +1,6 @@
-import {AceSearch} from '@ace/components';
-
-const name = 'ace-search';
 const meta = {
     id: 'ace-search.component',
-    name: name,
+    name: 'ace-search',
     title: 'Search',
     desc: `Renders a search field.`
 };
@@ -18,7 +15,7 @@ export default {
 
             <doc-desc>
                 <p>
-                    Use <doc-tag>${name}</doc-tag> to render a search field.
+                    Use <doc-tag>ace-search</doc-tag> to render a search field.
                 </p>
             </doc-desc>
 
@@ -34,7 +31,7 @@ export default {
     data: () => ({
         meta,
         api: {
-            name: name,
+            name: 'ace-search',
             type: 'component',
             params: [
                 { 
@@ -71,106 +68,40 @@ export default {
         },
         examples: [
             {
-                name: 'Filtering items',
-                desc: `
-                    <p>
-                        When filtering already loaded items, bind the search value with <doc-directive>v-model</doc-directive> and filter the resulting items with a computed property.
-                    </p>
-                `,
+                name: 'Example',
                 js: `
                     {
                         template: \`
-                            <${name} 
-                                v-model="search"
-                                placeholder="Filter names">
-                            </${name}>
-            
-                            <br>
-            
-                            <ace-msg
-                                type="info" icon=""
-                                v-for="name in filteredNames"
-                                style="margin: 2px">
-                                {{name}}
-                            </ace-msg>
+                            <ace-search 
+                                placeholder="Search..."
+                                @search="onSearch"
+                                @clear="onClear">
+                            </ace-search>
                         \`,
-                        data: () => ({
-                            search: '',
-                            names: [
-                                'Anna', 'Annica', 'Andrew',
-                                'James', 'Jane', 'Janelle',
-                                'John', 'Johanna', 'Johannes',
-                                'Jennifer', 'Jeremy', 'Jeremiah',
-                                'Michael', 'Miranda',
-                                'Patrick', 'Patricia',
-                                'Mary', 'Mark', 'Marianna'
-                            ]
-                        }),
-                        computed: {
-                            filteredNames() {
-                                return this.names
-                                    .filter(name => name.toLowerCase()
-                                        .includes(this.search.toLowerCase()));
+                        methods: {
+                            onSearch(e) {
+                                console.log('Search', e);
+                            },
+                            onClear(e) {
+                                console.log('Clear', e);
                             }
                         }
                     }   
                 `
             },
             {
-                name: 'Searching items',
-                desc: `
-                    <p>
-                        When searching with async calls, it is recommended to use value debouncing or explicit search trigger with Enter key. While async call is loading, you can display a load indicator in the search field.
-                    </p>
-                `,
+                name: 'Load indicator',
                 js: ` 
                     {
                         template: \`
-                            <${name}
-                                @search="onsearch"
-                                :loading="isLoading"
-                                placeholder="Search names">
-                            </${name}>
-
-                            <br>
-            
-                            <ace-msg
-                                type="info" icon=""
-                                v-for="item in results"
-                                style="margin: 2px">
-                                {{item}}
-                            </ace-msg>
+                            <ace-search
+                                v-model="text"
+                                :loading="text">
+                            </ace-search>
                         \`,
                         data: () => ({
-                            isLoading: false,
-                            results: []
-                        }),
-                        methods: {
-                            onsearch(txt) {
-                                this.isLoading = true;
-                                this.mockFetch(txt)
-                                    .then(res => this.results = res)
-                                    .finally(() => this.isLoading = false);
-                            },
-                            mockFetch(txt = '') {
-                                let names = [
-                                    'Anna', 'Annica', 'Andrew',
-                                    'James', 'Jane', 'Janelle',
-                                    'John', 'Johanna', 'Johannes',
-                                    'Jennifer', 'Jeremy', 'Jeremiah',
-                                    'Michael', 'Miranda',
-                                    'Patrick', 'Patricia',
-                                    'Mary', 'Mark', 'Marianna'
-                                ];
-                                return new Promise(res => {
-                                    let result = names
-                                        .filter(name => name.toLowerCase()
-                                        .includes(txt.toLowerCase()));
-
-                                    setTimeout(() => res(result), 1000);
-                                });
-                            }
-                        }
+                            text: ''
+                        })
                     }   
                 `
             }

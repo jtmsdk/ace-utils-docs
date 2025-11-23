@@ -45,7 +45,7 @@ export default {
                 <div class="feature">
                     <h2>
                         <ace-icon src="${packageIcon}"></ace-icon>
-                        <span>ES+ modules</span>
+                        <span>ES modules</span>
                     </h2>
                     <p>
                         Utilizes ES modules, import maps and code-splitting with dynamic imports.
@@ -58,7 +58,7 @@ export default {
                         <span>Simplicity</span>
                     </h2>
                     <p>
-                        Import and use. No complex configuration necessary.
+                        Import and use. No complex setup involved.
                     </p>
                 </div>
 

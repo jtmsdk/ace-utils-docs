@@ -1,9 +1,6 @@
-import {AceLightbox} from '@ace/components';
-
-const name = 'ace-lightbox';
 const meta = {
     id: 'ace-lightbox.component',
-    name: name,
+    name: 'ace-lightbox',
     title: 'Lightbox',
     desc: `Renders a slide-show image viewer.`
 };
@@ -18,7 +15,7 @@ export default {
 
             <doc-desc>
                 <p>
-                    Use <doc-tag>${name}</doc-tag> to render a slide-show viewer for images and videos. Lightbox items can be provided with <doc-param>items</doc-param> param or using the default slot. See also <doc-link id="ace-lightbox.directive">lightbox directive</doc-link> for more convenient lightbox use.
+                    Use <doc-tag>ace-lightbox</doc-tag> to render a slide-show viewer for images and videos. Lightbox items can be provided with <doc-param>items</doc-param> param or using the default slot. See also <doc-link id="ace-lightbox.directive">lightbox directive</doc-link> for more convenient lightbox use.
                 </p>
             </doc-desc>
 
@@ -64,7 +61,7 @@ export default {
         `,
         api: [
             {
-                name: name,
+                name: 'ace-lightbox',
                 type: 'component',
                 params: [
                     {
@@ -116,6 +113,10 @@ export default {
                     {
                         name: 'alt', type: 'string',
                         desc: `Alternate text for image in case it cannot be displayed.`
+                    },
+                    {
+                        name: 'component', type: 'object',
+                        desc: `A component object to be rendered as the lightbox item. If provided, overrides other item params.`
                     }
                 ]
             }

@@ -1,10 +1,8 @@
-import plusRoundIcon from '@ace.icons/plus-round-inverse.svg?inline';
-import {AceModal} from '@ace/components';
+import plusRoundIcon from '@ace.icons/plus-round-inverse.svg?no-inline';
 
-const name = 'ace-modal';
 const meta = {
     id: 'ace-modal.component',
-    name: name,
+    name: 'ace-modal',
     title: 'Modal',
     desc: `Renders a modal popup.`
 };
@@ -33,7 +31,7 @@ export default {
     data: () => ({
         meta,
         api: {
-            name: name,
+            name: 'ace-modal',
             type: 'component',
             params: [
                 {
@@ -41,8 +39,8 @@ export default {
                     desc: `Optional ID for the opened modal element.`
                 },
                 {
-                    name: 'appendTo', type: 'HTMLElement', default: 'body',
-                    desc: `Target element into which modal is appended. By default document body.`
+                    name: 'appendTo', type: 'HTMLElement', default: 'default',
+                    desc: `Target element into which modal is appended. By default app specific container.`
                 },
                 {
                     name: 'animation', type: 'string', default: 'default',
@@ -57,8 +55,8 @@ export default {
                     desc: `CSS grid place-items value for positioning the modal content.`
                 },
                 {
-                    name: 'padding', type: 'string', default: '10vh 2rem',
-                    desc: `CSS padding for the modal container.`
+                    name: 'margin', type: 'string', default: '10vh 2rem',
+                    desc: `CSS margin for the modal content.`
                 }
             ],
             slots: [
@@ -99,10 +97,10 @@ export default {
                                 <ace-dialog
                                     type="info"
                                     size="medium">
-                                    <template v-slot:header>
+                                    <template #header>
                                         This is modal dialog
                                     </template>
-                                    <template v-slot:body>
+                                    <template #body>
                                         <p>
                                             This is a dialog element placed inside 
                                             modal container. Underlying UI cannot 
@@ -110,7 +108,7 @@ export default {
                                             closed.
                                         </p>
                                     </template>
-                                    <template v-slot:footer>
+                                    <template #footer>
                                         <ace-button primary
                                             @click="isOpen=false">
                                             Close

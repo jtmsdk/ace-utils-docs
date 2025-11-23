@@ -1,9 +1,6 @@
-import {AceFigure} from '@ace/components';
-
-const name = 'ace-figure';
 const meta = {
     id: 'ace-figure.component',
-    name: name,
+    name: 'ace-figure',
     title: 'Figure',
     desc: `Renders captions and headers for images and other media.`
 };
@@ -18,7 +15,7 @@ export default {
 
             <doc-desc>
                 <p>
-                    Use <doc-tag>${name}</doc-tag> to render captions and title headers for images and other media.
+                    Use <doc-tag>ace-figure</doc-tag> to render captions and title headers for images and other media.
                 </p>
             </doc-desc>
 
@@ -35,7 +32,7 @@ export default {
         meta,
         api: {
             type: 'component',
-            name: name,
+            name: 'ace-figure',
             params: [
                 {
                     name: 'header', type: 'string',

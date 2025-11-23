@@ -1,9 +1,6 @@
-import { AceAccordion } from "@ace/components";
-
-const name = 'ace-accordion';
 const meta = {
     id: 'ace-accordion.component',
-    name: name,
+    name: 'ace-accordion',
     title: 'Accordion',
     desc: `Renders a list of collapsible and expandable containers.`
 };
@@ -18,7 +15,7 @@ export default {
 
             <doc-desc>
                 <p>
-                    Use <doc-tag>${name}</doc-tag> to render a list of collapsible and expandable containers. 
+                    Use <doc-tag>ace-accordion</doc-tag> to render a list of collapsible and expandable containers. 
                 </p>
             </doc-desc>
 
@@ -35,7 +32,7 @@ export default {
         meta,
         api: [
             {
-                name: name,
+                name: 'ace-accordion',
                 type: 'component',
                 params: [
                     {
@@ -46,12 +43,12 @@ export default {
                 slots: [
                     {
                         name: 'default',
-                        desc: `Accordion items; one or more <doc-tag>${name}-item</doc-tag> components.`
+                        desc: `Accordion items; one or more <doc-tag>ace-accordion-item</doc-tag> components.`
                     }
                 ]
             },
             {
-                name: `${name}-item`,
+                name: `ace-accordion-item`,
                 type: 'component',
                 params: [
                     {
@@ -76,16 +73,16 @@ export default {
                 js: `
                     {
                         template: \`
-                            <${name}>
-                                <${name}-item v-for="item in items">
+                            <ace-accordion>
+                                <ace-accordion-item v-for="item in items">
                                     <template #header>
                                         {{item.header}}
                                     </template>
                                     <template #body>
                                         {{item.body}}
                                     </template>
-                                </${name}-item>
-                            </${name}>
+                                </ace-accordion-item>
+                            </ace-accordion>
                         \`,
                         data: () => ({
                             items: [

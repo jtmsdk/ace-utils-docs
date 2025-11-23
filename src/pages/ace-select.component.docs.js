@@ -1,17 +1,14 @@
-import windowsIcon from '@ace.icons/windows.svg?inline';
-import linuxIcon from '@ace.icons/linux.svg?inline';
-import androidIcon from '@ace.icons/android.svg?inline';
-import menuIcon from '@ace.icons/menu.svg?inline';
-import penIcon from '@ace.icons/pen.svg?inline';
-import copyIcon from '@ace.icons/copy.svg?inline';
-import xIcon from '@ace.icons/x.svg?inline';
+import windowsIcon from '@ace.icons/windows.svg?no-inline';
+import linuxIcon from '@ace.icons/linux.svg?no-inline';
+import androidIcon from '@ace.icons/android.svg?no-inline';
+import menuIcon from '@ace.icons/menu.svg?no-inline';
+import penIcon from '@ace.icons/pen.svg?no-inline';
+import copyIcon from '@ace.icons/copy.svg?no-inline';
+import xIcon from '@ace.icons/x.svg?no-inline';
 
-import {AceSelect} from '@ace/components';
-
-const name = 'ace-select';
 const meta = {
     id: 'ace-select.component',
-    name: name,
+    name: 'ace-select',
     title: 'Select',
     desc: `Renders a select input or dropdown.`
 };
@@ -26,7 +23,7 @@ export default {
 
             <doc-desc>
                 <p>
-                    Use <doc-tag>${name}</doc-tag> to render a select input or a dropdown. Used for selecting value options or triggering actions from a list of available options.
+                    Use <doc-tag>ace-select</doc-tag> to render a select input or a dropdown. Used for selecting value options or triggering actions from a list of available options.
                 </p>
             </doc-desc>
 
@@ -43,7 +40,7 @@ export default {
         meta,
         api: [
             {
-                name: name,
+                name: 'ace-select',
                 type: 'component',
                 params: [
                     {

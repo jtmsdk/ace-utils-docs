@@ -1,12 +1,10 @@
-import downloadIcon from '@ace.icons/download.svg?inline';
-import shareIcon from '@ace.icons/share.svg?inline';
-import removeIcon from '@ace.icons/x.svg?inline';
-import * as AceMenu from '@ace/components';
+import downloadIcon from '@ace.icons/download.svg?no-inline';
+import shareIcon from '@ace.icons/share.svg?no-inline';
+import removeIcon from '@ace.icons/x.svg?no-inline';
 
-const name = 'ace-menu';
 const meta = {
     id: 'ace-menu.component',
-    name: name,
+    name: 'ace-menu',
     title: 'Menu',
     desc: `Renders a general purpose menu element.`
 };
@@ -21,7 +19,7 @@ export default {
 
             <doc-desc>
                 <p>
-                    Use <doc-tag>${name}</doc-tag> to render a general purpose menu that contains one or more <doc-tag>ace-option</doc-tag> items. Used in navigation, context menus and drop menus.
+                    Use <doc-tag>ace-menu</doc-tag> to render a general purpose menu that contains one or more <doc-tag>ace-option</doc-tag> items. Used in navigation, context menus and drop menus.
                 </p>    
             </doc-desc>
 
@@ -38,7 +36,7 @@ export default {
         meta,
         api: [
             {
-                name: name,
+                name: 'ace-menu',
                 type: 'component',
                 desc: `<p>Renders the menu root component inside which all of the following components below can be added.</p>`,
                 slots: [

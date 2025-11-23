@@ -1,10 +1,6 @@
-import {AceAlert} from '@ace/components';
-
-const name = 'ace-alert';
-const closeEvent = 'close';
 const meta = {
     id: 'ace-alert.component',
-    name: name,
+    name: 'ace-alert',
     title: 'Alert',
     desc: `Renders notification or alert that draws user attention.`
 };
@@ -19,7 +15,7 @@ export default {
 
             <doc-desc>
                 <p>
-                    Use <doc-tag>${name}</doc-tag> to render notifications and alerts that draw user attention. See <doc-link id="ace-alert.service">alert service</doc-link> for programmatic use.
+                    Use <doc-tag>ace-alert</doc-tag> to render notifications and alerts that draw user attention. See <doc-link id="ace-alert.service">alert service</doc-link> for programmatic use.
                 </p>
             </doc-desc>
 
@@ -35,7 +31,7 @@ export default {
     data: () => ({
         meta,
         api: {
-            name: name,
+            name: 'ace-alert',
             type: 'component',
             params: [
                 { 
@@ -55,7 +51,7 @@ export default {
                 },
                 {
                     name: 'closeable', type: 'boolean', default: true,
-                    desc: `If true, close-button is shown in the alert. Clicking it emits <doc-event>${closeEvent}</doc-event> event.`
+                    desc: `If true, close-button is shown in the alert. Clicking it emits <doc-event>close</doc-event> event.`
                 }
             ],
             slots: [
@@ -74,7 +70,7 @@ export default {
             ],
             events: [
                 {
-                    name: closeEvent, value: 'this',
+                    name: 'close', value: 'this',
                     desc: `Emitted when user tries to close the alert. The alert message component instance is passed as the $event object.`
                 }
             ]

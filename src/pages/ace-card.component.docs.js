@@ -1,9 +1,6 @@
-import {AceCard} from '@ace/components';
-
-const name = 'ace-card';
 const meta = {
     id: 'ace-card.component',
-    name: name,
+    name: 'ace-card',
     title: 'Card',
     desc: `Renders a multi-purpose layout container.`
 };
@@ -18,7 +15,7 @@ export default {
 
             <doc-desc>
                 <p>
-                    Use <doc-tag>${name}</doc-tag> to render card containers. Card containers group related data and actions and are often clickable.
+                    Use <doc-tag>ace-card</doc-tag> to render card containers. Card containers group related data and actions and are often clickable.
                 </p>
             </doc-desc>
 
@@ -34,7 +31,7 @@ export default {
     data: () => ({
         meta,
         api: {
-            name: name,
+            name: 'ace-card',
             type: 'component',
             params: [
                 {

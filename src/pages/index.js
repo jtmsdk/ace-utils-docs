@@ -25,7 +25,6 @@ import AceMenuDoc from './ace-menu.component.docs';
 import AceModalDoc from './ace-modal.component.docs';
 import AceModalServiceDoc from './ace-modal.service.docs';
 import AceMsgDoc from './ace-msg.component.docs';
-import AceNavbarDoc from './ace-navbar.component.docs';
 import AceNoteDoc from './ace-note.component.docs';
 import AceParallaxDoc from './ace-parallax.component.docs';
 import AcePopperDoc from './ace-popper.component.docs';
@@ -33,6 +32,7 @@ import AceProgressbarDoc from './ace-progressbar.component.docs';
 import AceSearchDoc from './ace-search.component.docs';
 import AceSelectDoc from './ace-select.component.docs';
 import AceSpinnerDoc from './ace-spinner.component.docs';
+import aceSpinnerServiceDocs from './ace-spinner.service.docs';
 import AceSwitchDoc from './ace-switch.component.docs';
 import AceTableDoc from './ace-table.component.docs';
 import AceTabsDoc from './ace-tabs.component.docs';
@@ -92,7 +92,6 @@ export const sections = [
             AceMenuDoc,
             AceModalDoc,
             AceMsgDoc,
-            AceNavbarDoc,
             AceNoteDoc,
             AceParallaxDoc,
             AcePopperDoc,
@@ -121,7 +120,8 @@ export const sections = [
         title: 'Services',
         items: [
             AceAlertServiceDoc,
-            AceModalServiceDoc
+            AceModalServiceDoc,
+            aceSpinnerServiceDocs
         ]
     }
 ];

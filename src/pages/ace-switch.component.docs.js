@@ -1,9 +1,6 @@
-import {AceSwitch} from '@ace/components';
-
-const name = 'ace-switch';
 const meta = {
     id: 'ace-switch.component',
-    name: name,
+    name: 'ace-switch',
     title: 'Switch',
     desc: `Renders a toggle switch input.`
 };
@@ -18,7 +15,7 @@ export default {
 
             <doc-desc>
                 <p>
-                    Use <doc-tag>${name}</doc-tag> to render a toggle switch input.
+                    Use <doc-tag>ace-switch</doc-tag> to render a toggle switch input.
                 </p>
             </doc-desc>
 
@@ -34,7 +31,7 @@ export default {
     data: () => ({
         meta,
         api: {
-            name: name,
+            name: 'ace-switch',
             type: 'component',
             params: [
                 {
@@ -81,17 +78,17 @@ export default {
                 js: `
                     {
                         template: \`
-                            <${name} v-model="value1">
+                            <ace-switch v-model="value1">
                                 First (value={{''+value1}})
-                            </${name}>
+                            </ace-switch>
                             <br>
-                            <${name} v-model="value2">
+                            <ace-switch v-model="value2">
                                 Second (value={{''+value2}})
-                            </${name}>
+                            </ace-switch>
                             <br>
-                            <${name} v-model="value3">
+                            <ace-switch v-model="value3">
                                 Third (value={{''+value3}})
-                            </${name}>
+                            </ace-switch>
                         \`,
                         data: () => ({
                             value1: null,
@@ -99,11 +96,10 @@ export default {
                             value3: true
                         })
                     }
-                    
                 `
             },
             {
-                name: 'size',
+                name: 'Size',
                 desc: `
                     <p>
                         Use <doc-param>size</doc-param> param to increase or decrese the size of the toggle switch control.
@@ -112,12 +108,11 @@ export default {
                 js: `
                     {
                         template: \`
-                            <${name} 
+                            <ace-switch 
                                 size="80px">
-                            </${name}>
+                            </ace-switch>
                         \`
                     }
-                    
                 `
             }
         ]

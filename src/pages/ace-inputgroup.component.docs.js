@@ -1,11 +1,9 @@
-import searchIcon from '@ace.icons/search.svg?inline';
-import dotsIcon from '@ace.icons/dots.svg?inline';
-import {AceInputgroup} from '@ace/components';
+import searchIcon from '@ace.icons/search.svg?no-inline';
+import dotsIcon from '@ace.icons/dots.svg?no-inline';
 
-const name = 'ace-inputgroup';
 const meta = {
     id: 'ace-inputgroup.component',
-    name: name,
+    name: 'ace-inputgroup',
     title: 'Input group',
     desc: `Renders a group of inputs or buttons, joined together with no space between.`
 };
@@ -20,7 +18,7 @@ export default {
 
             <doc-desc>
                 <p>
-                    Use <doc-tag>${name}</doc-tag> to render a group of inputs or buttons, joined together with no space between.
+                    Use <doc-tag>ace-inputgroup</doc-tag> to render a group of inputs or buttons, joined together with no space between.
                 </p>
             </doc-desc>
 
@@ -36,7 +34,7 @@ export default {
     data: () => ({
         meta,
         api: {
-            name: name,
+            name: 'ace-inputgroup',
             type: 'component',
             slots: [
                 {
@@ -50,7 +48,7 @@ export default {
                 js: `
                     {
                         template: \`
-                            <${name}>
+                            <ace-inputgroup>
                                 <ace-input
                                     placeholder="Search">
                                 </ace-input>
@@ -60,7 +58,7 @@ export default {
                                 <ace-button
                                     icon="${dotsIcon}">
                                 </ace-button>
-                            </${name}>
+                            </ace-inputgroup>
                         \`
                     }
                     

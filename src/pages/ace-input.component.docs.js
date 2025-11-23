@@ -1,7 +1,6 @@
-const name = 'ace-input';
 const meta = {
     id: 'ace-input.component',
-    name: name,
+    name: 'ace-input',
     title: 'Input',
     desc: `Renders an input field.`
 };
@@ -43,7 +42,7 @@ export default {
     data: () => ({
         meta,
         api: {
-            name: name,
+            name: 'ace-input',
             type: 'component',
             params: [
                 {
@@ -218,11 +217,11 @@ export default {
                 js: `
                     {
                         template: \`
-                            <${name}
+                            <ace-input
                                 type="color"
                                 v-model="value">
                                 value: {{''+value}}
-                            </${name}>                        
+                            </ace-input>                        
                         \`,
                         data: () => ({
                             value: null

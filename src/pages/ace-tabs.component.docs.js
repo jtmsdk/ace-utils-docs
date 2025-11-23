@@ -1,11 +1,8 @@
-import {AceTabs} from '@ace/components';
-
-const name = 'ace-tabs';
 const meta = {
     id: 'ace-tabs.component',
-    name: name,
+    name: 'ace-tabs',
     title: 'Tabs',
-    desc: `Renders tab navigation buttons.`
+    desc: `Renders tab buttons.`
 };
 
 export default {
@@ -18,7 +15,7 @@ export default {
 
             <doc-desc>
                 <p>
-                    Use <doc-tag>${name}</doc-tag> to render tab navigation buttons.
+                    Use <doc-tag>ace-tabs</doc-tag> to render tab navigation buttons.
                 </p>
             </doc-desc>
 
@@ -35,7 +32,7 @@ export default {
         meta,
         api: [
             {
-                name: name,
+                name: 'ace-tabs',
                 type: 'component',
                 desc: `<p>Renders the tab list container.</p>`,
                 params: [

@@ -1,9 +1,6 @@
-import {AceMsg} from '@ace/components';
-
-const name = 'ace-msg';
 const meta = {
     id: 'ace-msg.component',
-    name: name,
+    name: 'ace-msg',
     title: 'Message',
     desc: `Renders an inline message used for highlighting information.`
 };
@@ -18,7 +15,7 @@ export default {
 
             <doc-desc>
                 <p>
-                    Use <doc-tag>${name}</doc-tag> to render inline messages for highlighting information.
+                    Use <doc-tag>ace-msg</doc-tag> to render inline messages for highlighting information.
                 </p>
             </doc-desc>
             
@@ -34,7 +31,7 @@ export default {
     data: () => ({
         meta,
         api: {
-            name: name,
+            name: 'ace-msg',
             type: 'component',
             params: [
                 {
@@ -55,8 +52,8 @@ export default {
                     desc: `If <doc-value>true</doc-value>, renders the message in text variant style.`
                 },
                 {
-                    name: 'small', type: 'boolean', default: false,
-                    desc: `If <doc-value>true</doc-value>, renders the message in smaller variant style.`
+                    name: 'size', type: 'string', default: 'medium',
+                    desc: `Options: <doc-value>small</doc-value>, <doc-value>medium</doc-value>, <doc-value>large</doc-value>. Renders the message in the specified size variant style.`
                 }
             ],
             slots: [
@@ -73,7 +70,7 @@ export default {
                         template: \`
                             <div 
                                 v-for="type in types">
-                                <ace-msg filled
+                                <ace-msg
                                     :type="type">
                                     This is {{type}}
                                 </ace-msg>
@@ -91,18 +88,13 @@ export default {
                 `
             },
             {
-                name: 'Small messages',
-                desc: `
-                    <p>
-                        Add <doc-param>filled</doc-param> modifier to make the message appear smaller.
-                    </p>
-                `,
+                name: 'Size',
                 js: `
                     {
                         template: \`
                             <div 
                                 v-for="type in types">
-                                <ace-msg small filled
+                                <ace-msg size="small"
                                     :type="type">
                                     This is {{type}}
                                 </ace-msg>

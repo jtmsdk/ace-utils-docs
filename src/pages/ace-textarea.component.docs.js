@@ -1,9 +1,6 @@
-import {AceTextarea} from '@ace/components';
-
-const name = 'ace-textarea';
 const meta = {
     id: 'ace-textarea.component',
-    name: name,
+    name: 'ace-textarea',
     title: 'Textarea',
     desc: `Renders a multiline text input field.`
 };
@@ -18,7 +15,7 @@ export default {
 
             <doc-desc>
                 <p>
-                    Use <doc-tag>${name}</doc-tag> to render a multiline text input field.
+                    Use <doc-tag>ace-textarea</doc-tag> to render a multiline text input field.
                 </p>
             </doc-desc>
 
@@ -34,7 +31,7 @@ export default {
     data: () => ({
         meta,
         api: {
-            name: name,
+            name: 'ace-textarea',
             type: 'component',
             params: [
                 {
@@ -86,10 +83,10 @@ export default {
                 js: `
                     {
                         template: \`
-                            <${name}
+                            <ace-textarea
                                 autoresize
                                 v-model="value">
-                            </${name}>
+                            </ace-textarea>
                         \`,
                         data: () => ({
                             value: ''

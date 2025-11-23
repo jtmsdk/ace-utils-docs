@@ -1,9 +1,6 @@
-import {AceFooter} from '@ace/components';
-
-const name = 'ace-footer';
 const meta = {
     id: 'ace-footer.component',
-    name: name,
+    name: 'ace-footer',
     title: 'Footer',
     desc: `Renders footer section shown at the bottom of pages.`
 };
@@ -18,7 +15,7 @@ export default {
 
             <doc-desc>
                 <p>
-                    Use <doc-tag>${name}</doc-tag> to render footer section used at the bottom of pages.
+                    Use <doc-tag>ace-footer</doc-tag> to render footer section used at the bottom of pages.
                 </p>
             </doc-desc>
             
@@ -34,7 +31,7 @@ export default {
     data: () => ({
         meta,
         api: {
-            name: name,
+            name: 'ace-footer',
             type: 'component',
             slots: [
                 {
@@ -48,9 +45,9 @@ export default {
                 js: `
                     {
                         template: \`
-                            <${name}>
+                            <ace-footer>
                                 &copy; {{year}} John Doe | Powered by ace utils
-                            </${name}>
+                            </ace-footer>
                         \`,
                         data: () => ({
                             year: (new Date()).getFullYear()

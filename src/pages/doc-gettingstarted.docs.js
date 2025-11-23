@@ -21,7 +21,7 @@ export default {
 
             <ace-msg 
                 type="info">
-                ace utils is not is not available for public use.
+                Ace-Utils is not yet available for public use.
             </ace-msg>
         </doc-page>
     `

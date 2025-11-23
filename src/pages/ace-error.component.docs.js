@@ -1,9 +1,6 @@
-import {AceError} from '@ace/components';
-
-const name = 'ace-error';
 const meta = {
     id: 'ace-error.component',
-    name: name,
+    name: 'ace-error',
     title: 'Error',
     desc: `Renders an error message used on error pages.`
 };
@@ -18,7 +15,7 @@ export default {
 
             <doc-desc>
                 <p>
-                    Use <doc-tag>${name}</doc-tag> to render error messages. Used mainly on error pages.
+                    Use <doc-tag>ace-error</doc-tag> to render error messages. Used mainly on error pages.
                 </p>
             </doc-desc>
 
@@ -34,7 +31,7 @@ export default {
     data: () => ({
         meta,
         api: {
-            name: name,
+            name: 'ace-error',
             type: 'component',
             params: [
                 {
@@ -48,9 +45,9 @@ export default {
                 js: `
                     {
                         template: \`
-                            <${name}
+                            <ace-error
                                 :error="error">
-                            </${name}>
+                            </ace-error>
                         \`,
                         data: () => ({
                             error: null

@@ -1,9 +1,6 @@
-import {AcePopper} from '@ace/components';
-
-const name = 'ace-popper';
 const meta = {
     id: 'ace-popper.component',
-    name: name,
+    name: 'ace-popper',
     title: 'Popper',
     desc: `Renders a popup that can be positioned relative to other elements or coordinates.`
 };
@@ -18,7 +15,7 @@ export default {
 
             <doc-desc>
                 <p>
-                    Use <doc-tag>${name}</doc-tag> to render non-blocking popup content, such as tooltips and popovers. Allows positioning the popups relative to other elements or viewport coordinates.
+                    Use <doc-tag>ace-popper</doc-tag> to render non-blocking popup content, such as tooltips and popovers. Allows positioning the popups relative to other elements or viewport coordinates.
                 </p>
             </doc-desc>
 
@@ -34,7 +31,7 @@ export default {
     data: () => ({
         meta,
         api: {
-            name: name,
+            name: 'ace-popper',
             type: 'component',
             params: [
                 {

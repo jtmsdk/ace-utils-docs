@@ -1,9 +1,6 @@
-import {AceBlockquote} from '@ace/components';
-
-const name = 'ace-blockquote';
 const meta = {
     id: 'ace-blockquote.component',
-    name: name,
+    name: 'ace-blockquote',
     title: 'Blockquote',
     desc: `Renders a block-style quote centered inside parent container.`
 }
@@ -18,7 +15,7 @@ export default {
 
             <doc-desc>
                 <p>
-                    Use <doc-tag>${name}</doc-tag> to render a block-style quote, centered inside parent container.
+                    Use <doc-tag>ace-blockquote</doc-tag> to render a block-style quote, centered inside parent container.
                 </p>
             </doc-desc>
 
@@ -34,7 +31,7 @@ export default {
     data: () => ({
         meta,
         api: {
-            name: name,
+            name: 'ace-blockquote',
             type: 'component',
             params: [
                 {

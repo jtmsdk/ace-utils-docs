@@ -9,6 +9,7 @@
     .doc-header-link {
         display: block;
         border: 0;
+        text-decoration: none;
         
         h1 {
             display: block;

@@ -1,9 +1,6 @@
-import {AceLightbox} from '@ace/directives';
-
-const name = 'v-ace-lightbox';
 const meta = {
     id: 'ace-lightbox.directive',
-    name: name,
+    name: 'v-ace-lightbox',
     title: 'Lightbox',
     desc: `Attaches a lightbox instance to the target element.`
 };
@@ -18,7 +15,7 @@ export default {
 
             <doc-desc>
                 <p>
-                    Use <doc-directive>${name}</doc-directive> to bind a <doc-link id="ace-lightbox.component">lightbox</doc-link> instance to the target element or media.
+                    Use <doc-directive>v-ace-lightbox</doc-directive> to bind a <doc-link id="ace-lightbox.component">lightbox</doc-link> instance to the target element or media.
                 </p>
             </doc-desc>
 
@@ -35,7 +32,7 @@ export default {
         meta,
         api: [
             {
-                name: `${name}:arg="value"`,
+                name: `v-ace-lightbox:arg="value"`,
                 type: 'directive',
                 params: [
                     {

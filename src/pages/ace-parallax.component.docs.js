@@ -1,9 +1,6 @@
-import {AceParallax} from '@ace/components';
-
-const name = 'ace-parallax';
 const meta = {
     id: 'ace-parallax.component',
-    name: name,
+    name: 'ace-parallax',
     title: 'Parallax',
     desc: `Renders a parallax-scrolling layer container.`
 }
@@ -18,7 +15,7 @@ export default {
 
             <doc-desc>
                 <p>
-                    Use <doc-tag>${name}</doc-tag> to render a parallax-scrolling container. Uses CSS 3D transforms and animation frames for performant effect. 
+                    Use <doc-tag>ace-parallax</doc-tag> to render a parallax-scrolling container. Uses CSS 3D transforms and animation frames for performant effect. 
                 </p>
             </doc-desc>
 

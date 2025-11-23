@@ -1,12 +1,10 @@
-import sendIcon from '@ace.icons/send.svg';
-import {AceForm} from '@ace/components';
-import aceAlertService from '@ace/services/ace-alert.service';
+import sendIcon from '@ace.icons/send.svg?no-inline';
+import aceAlertService from 'ace-alert.service';
 window.aceAlertService = aceAlertService;
 
-const name = 'ace-form';
 const meta = {
     id: 'ace-form.component',
-    name: name,
+    name: 'ace-form',
     title: 'Form',
     desc: `Renders a form element.`
 };
@@ -21,7 +19,7 @@ export default {
 
             <doc-desc>
                 <p>
-                    Use <doc-tag>${name}</doc-tag> to render a form element.
+                    Use <doc-tag>ace-form</doc-tag> to render a form element.
                 </p>
             </doc-desc>
 
@@ -37,7 +35,7 @@ export default {
     data: () => ({
         meta,
         api: {
-            name: name,
+            name: 'ace-form',
             type: 'component',
             params: [
                 {
@@ -98,7 +96,7 @@ export default {
                     // import aceAlertService from 'ace-alert.service';
                     {
                         template: \`
-                            <${name} ref="form"
+                            <ace-form ref="form"
                                 @submit.prevent="submit()">
             
                                 <ace-input
@@ -126,7 +124,7 @@ export default {
                                         <span>Submit</span>
                                     </ace-button>
                                 </template>
-                            </${name}>
+                            </ace-form>
                         \`,
                         methods: {
                             submit() {

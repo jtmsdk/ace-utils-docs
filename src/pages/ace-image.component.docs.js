@@ -1,11 +1,9 @@
-import {AceImage} from '@ace/components';
-import aceAlertService from '@ace/services/ace-alert.service';
+import aceAlertService from 'ace-alert.service';
 window.aceAlertService = aceAlertService;
 
-const name = 'ace-image';
 const meta = {
     id: 'ace-image.component',
-    name: name,
+    name: 'ace-image',
     title: 'Image',
     desc: `Renders an image.`
 };
@@ -20,7 +18,7 @@ export default {
 
             <doc-desc>
                 <p>
-                    Use <doc-tag>${name}</doc-tag> to render an image.
+                    Use <doc-tag>ace-image</doc-tag> to render an image.
                 </p>
             </doc-desc>
 
@@ -36,7 +34,7 @@ export default {
     data: () => ({
         meta,
         api: {
-            name: name,
+            name: 'ace-image',
             type: 'component',
             params: [
                 {

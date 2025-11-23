@@ -1,48 +1,49 @@
+import aceSpinnerService from 'ace-spinner.service';
+window.aceSpinnerService = aceSpinnerService;
 
-import {ComButton} from 'com-button.component';
-import comSpinnerService from 'com-spinner.service';
-window.comSpinnerService = comSpinnerService;
-
-const name = 'comSpinnerService';
+const meta = {
+    id: 'ace-spinner.service',
+    name: 'ace-spinner.service',
+    title: 'Spinner service',
+    desc: `Used for displaying spinners programmatically.`
+};
 
 export default {
+    meta,
     template: `
-        <doc-meta
-            :meta="meta">
-        </doc-meta>
-        
-        <doc-desc>
-            <p>
-                Use <doc-service>${name}</doc-service> for opening <doc-link id="com-spinner.component">spinner</doc-link> instances programmatically. Spinners opened this way are mainly used for blocking parts of the UI or the whole UI while app is loading.
-            </p>
-        </doc-desc>
-        
-        <com-codeblock 
-            :code="usage">
-        </com-codeblock>
+        <doc-page>
+            <doc-meta
+                :meta="meta">
+            </doc-meta>
+            
+            <doc-desc>
+                <p>
+                    Use <doc-service>ace-spinner.service</doc-service> for opening <doc-link id="ace-spinner.component">spinner</doc-link> instances programmatically. Spinners opened this way are mainly used for blocking parts of the UI or the whole UI while app is loading.
+                </p>
+            </doc-desc>
+            
+            <ace-codeblock 
+                :code="usage">
+            </ace-codeblock>
 
-        <doc-api
-            :api="api">
-        </doc-api>
+            <doc-api
+                :api="api">
+            </doc-api>
 
-        <doc-examples
-            :examples="examples">
-        </doc-examples>
+            <doc-examples
+                :examples="examples">
+            </doc-examples>
+        </doc-page>
     `,
     data: () => ({
-        meta: {
-            id: name,
-            name: name,
-            title: 'Spinner service',
-            desc: `Used for displaying spinners programmatically.`
-        },
+        meta,
         usage: `
-            import comSpinnerService from 'com-spinner.service';
+            import service from 'ace-spinner.service';
             
             // Create and open a new spinner inside target
             // container using open() method.
             
-            let spinnerHook = comSpinnerService.open({
+            let spinnerHook = service.open({
                 appendTo: document.getElementById('myTarget'),
                 position: 'absolute'
             });
@@ -53,7 +54,7 @@ export default {
             spinnerHook.close();
         `,
         api: {
-            name: name,
+            name: 'ace-spinner.service',
             type: 'service',
             functions: [
                 {
@@ -115,26 +116,22 @@ export default {
                 name: 'Default use',
                 desc: `
                     <p>
-                        By default, if no parameters are passed for <code>open()</code> method, a default fullscreen spinner is opened. This spinner blocks the entire application UI until closed. Fullscreen spinner should be used when application is loading data or current view and must not be interrupted.
+                        By default, if no parameters are passed for <code>open()</code> call, a default fullscreen spinner is opened. This spinner blocks the entire application UI until closed.
                     </p>
                 `,
-                components: {
-                    ComButton
-                },
                 js: `
-                    // import comSpinnerService from 'com-spinner.service';
+                    // import aceSpinnerService from 'ace-spinner.service';
                     
                     {
                         template: \`
-                            <com-button 
-                                @click.stop.prevent="open()"
-                                icon="plus-round-inverse">
+                            <ace-button 
+                                @click.stop.prevent="open()">
                                 Open spinner
-                            </com-button>
+                            </ace-button>
                         \`,
                         methods: {
                             open(event) {
-                                let spinner = comSpinnerService.open();
+                                let spinner = aceSpinnerService.open();
                                 setTimeout(() => window.onclick = () => {
                                     spinner.close();
                                 });
@@ -147,22 +144,18 @@ export default {
                 name: 'Opening in container',
                 desc: `
                     <p>
-                        Spinners can also be opened inside specific target containers. This allows you to block parts of the UI while the rest of the app can still be interacted with.
+                        Spinners can be opened into target containers. This allows you to block parts of the UI while the rest of the app can still be interacted with. If you do this, remember to close the spinner when the parent component is unmounted.
                     </p>
                 `,
-                components: {
-                    ComButton
-                },
                 js: `
-                    // import comSpinnerService from 'com-spinner.service';
+                    // import aceSpinnerService from 'ace-spinner.service';
                     
                     {
                         template: \`
-                            <com-button 
-                                @click="toggle()"
-                                icon="plus-round-inverse">
+                            <ace-button 
+                                @click="toggle()">
                                 Toggle spinner
-                            </com-button>
+                            </ace-button>
 
                             <div id="myTarget"></div>
                         \`,
@@ -174,14 +167,16 @@ export default {
                                 if (this.spinner) {
                                     this.spinner.close();
                                     this.spinner = null;
-                                } else {
-                                    this.spinner = comSpinnerService.open({
-                                        appendTo: document.getElementById('myTarget'),
-                                        position: 'absolute',
-                                        size: '80px'
-                                    });
+                                    return;
                                 }
+                                this.spinner = aceSpinnerService.open({
+                                    appendTo: document.getElementById('myTarget'),
+                                    size: '80px'
+                                });
                             }
+                        },
+                        beforeUnmount() {
+                            this.spinner?.close();
                         }
                     }
                 `,

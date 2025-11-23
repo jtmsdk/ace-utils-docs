@@ -1,15 +1,13 @@
-import plusRoundIcon from '@ace.icons/plus-round-inverse.svg?inline';
-import aceModalService from '@ace/services/ace-modal.service';
-import {AceDialog} from '@ace/components';
-//@ts-ignore
+import plusRoundIcon from '@ace.icons/plus-round-inverse.svg?no-inline';
+import aceModalService from 'ace-modal.service';
+import {AceDialog} from 'ace-dialog.component';
+
 window.aceModalService = aceModalService;
-//@ts-ignore
 window.AceDialog = AceDialog;
 
-const name = 'aceModalService';
 const meta = {
     id: 'ace-modal.service',
-    name: name,
+    name: 'ace-modal.service',
     title: 'Modal service',
     desc: `Used for opening modals programmatically.`
 };
@@ -24,7 +22,7 @@ export default {
 
             <doc-desc>
                 <p>
-                    Use <doc-service>${name}</doc-service> for opening <doc-link id="ace-modal.component">modal</doc-link> instances programmatically, directly from/within application logic without having to place them in any template.
+                    Use <doc-service>ace-modal.service</doc-service> for opening <doc-link id="ace-modal.component">modal</doc-link> instances programmatically, directly from/within application logic without having to place them in any template.
                 </p>
             </doc-desc>
 
@@ -44,13 +42,13 @@ export default {
     data: () => ({
         meta,
         usage: `
-            import aceModalService from 'ace-modal.service';
+            import service from 'ace-modal.service';
             
             // Open new modal instance using open() method.
             // The method returns a hook for the opened
             // modal instance.
             
-            let modalHook = aceModalService.open({
+            let modalHook = service.open({
                 component: {
                     data: () => ({...}),
                     template: \`...\`,
@@ -73,7 +71,7 @@ export default {
             });
         `,
         api: {
-            name: name,
+            name: 'ace-modal.service',
             type: 'service',
             functions: [
                 {
@@ -97,8 +95,8 @@ export default {
                             desc: `Target element into which the modal is appended. By default a toolkit specific container.`
                         },
                         {
-                            name: 'animation', type: 'string',
-                            desc: `CSS animation for the modal content. Use "none" to disable.`
+                            name: 'position', type: 'string', default: 'fixed',
+                            desc: `CSS position for the opened modal container.`
                         },
                         {
                             name: 'background', type: 'string',
@@ -108,9 +106,13 @@ export default {
                             name: 'placeItems', type: 'string',
                             desc: `CSS grid place-items value for positioning the modal content.`
                         },
+                                                {
+                            name: 'animation', type: 'string',
+                            desc: `CSS animation for the modal content. Use "none" to disable.`
+                        },
                         {
-                            name: 'padding', type: 'string', 
-                            desc: `CSS padding for modal container.`
+                            name: 'margin', type: 'string', 
+                            desc: `CSS margin for modal content.`
                         },
                         {
                             name: 'onclose', type: 'function',
@@ -146,12 +148,12 @@ export default {
             {
                 js: `
                     // import aceModalService from 'ace-modal.service';
-                    // import {ComDialog} from 'ace-dialog.component';
+                    // import {AceDialog} from 'ace-dialog.component';
                     
                     {
                         template: \`
                             <ace-button 
-                                @click="open(type)"
+                                @click="open()"
                                 icon="${plusRoundIcon}">
                                 Open modal
                             </ace-button>
@@ -176,7 +178,7 @@ export default {
                                                 type="info"
                                                 size="medium"
                                                 header="This is modal dialog"
-                                                body="Lorem ipsum yada yada etc."
+                                                body="Lorem ipsum etc."
                                                 :buttons="buttons">
                                             </ace-dialog>
                                         \`

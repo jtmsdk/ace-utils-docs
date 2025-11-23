@@ -1,10 +1,9 @@
-import aceAlertService from '@ace/services/ace-alert.service';
+import aceAlertService from 'ace-alert.service';
 window.aceAlertService = aceAlertService;
 
-const name = 'aceAlertService';
 const meta = {
     id: 'ace-alert.service',
-    name: name,
+    name: 'ace-alert.service',
     title: 'Alert service',
     desc: `Used for displaying alert notifications programmatically.`
 }
@@ -19,7 +18,7 @@ export default {
             
             <doc-desc>
                 <p>
-                    Use <doc-service>${name}</doc-service> for displaying <doc-link id="ace-alert.component">alert</doc-link> notifications programmatically. Alert notifications are used for action feedback and information tips.
+                    Use <doc-service>ace-alert.service</doc-service> for displaying <doc-link id="ace-alert.component">alert</doc-link> notifications programmatically. Alert notifications are used for action feedback and information tips.
                 </p>
             </doc-desc>
 
@@ -39,16 +38,16 @@ export default {
     data: () => ({
         meta,
         usage: `
-            import aceAlertService from 'ace-alert.service';
+            import service from 'ace-alert.service';
             
-            aceAlertService.open({
+            service.open({
                 type: 'success',
                 header: 'Message sent',
                 body: 'Thank you for your feedback!'
             });
         `,
         api: {
-            name: name,
+            name: 'ace-alert.service',
             type: 'service',
             functions: [
                 {

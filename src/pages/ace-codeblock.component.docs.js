@@ -1,9 +1,6 @@
-import {AceCodeblock} from '@ace/components';
-
-const name = 'ace-codeblock';
 const meta = {
     id: 'ace-codeblock.component',
-    name: name,
+    name: 'ace-codeblock',
     title: 'Codeblock',
     desc: `Renders a block of code with syntax highlighting.`
 };
@@ -18,7 +15,7 @@ export default {
 
             <doc-desc>
                 <p> 
-                    Use <doc-tag>${name}</doc-tag> to render a block of code with syntax highlighting using <a href="https://prismjs.com/">prism.js</a> library.
+                    Use <doc-tag>ace-codeblock</doc-tag> to render a block of code with syntax highlighting using <a href="https://prismjs.com/">prism.js</a> library.
                 </p>
             </doc-desc>
 
@@ -34,7 +31,7 @@ export default {
     data: () => ({
         meta,
         api: {
-            name: name,
+            name: 'ace-codeblock',
             type: 'component',
             params: [
                 {

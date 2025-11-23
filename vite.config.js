@@ -12,8 +12,7 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      // 'vue': 'vue/dist/vue.esm-bundler.js',
-      // 'vue-router': path.resolve(__dirname, 'node_modules/vue-router/dist/vue-router.esm-bundler.js'),
+      'vue-router': path.resolve(__dirname, 'node_modules/vue-router'),
       ...paths
     },
   },

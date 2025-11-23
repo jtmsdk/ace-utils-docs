@@ -1,10 +1,10 @@
-import { SETTINGS } from '@ace/settings';
-import { escape } from '@ace/services/ace-utils.service';
+import {SETTINGS} from '@ace/settings';
+import {escape} from '@ace/services/ace-utils.service';
 import attachIcon from '@ace.icons/attach.svg';
 import aceAlertService from '@ace/services/ace-alert.service';
 
-// Get all .svg files from folder
-const files = [];
+// Get all .svg files
+const files = import.meta.glob('@ace.icons/*.svg', { eager: true, query: '?url', import: 'default' });
 
 // Extract icon names and paths from files
 let icons = Object.keys(files).map((key) => {
@@ -47,13 +47,6 @@ export default {
             </doc-meta>
 
             <doc-desc>
-                <p>
-                    <ace-msg 
-                        type="info">
-                        Toolkit icons by <a href="https://iconmonstr.com/">iconmonstr.com</a>
-                    </ace-msg>
-                </p>
-
                 <p>
                     Com:mon toolkit uses SVG files to render inline SVG icons. All icons are rendered using <doc-link id="ace-icon.component">ace-icon</doc-link> component.
                 </p>

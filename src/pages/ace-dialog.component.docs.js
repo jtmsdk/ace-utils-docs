@@ -1,9 +1,6 @@
-import {AceDialog} from '@ace/components';
-
-const name = 'ace-dialog';
 const meta = {
     id: 'ace-dialog.component',
-    name: name,
+    name: 'ace-dialog',
     title: 'Dialog',
     desc: `Renders a dialog element used with modals.`
 };
@@ -18,7 +15,7 @@ export default {
 
             <doc-desc>
                 <p>
-                    Use <doc-tag>${name}</doc-tag> to render a dialog element. Used mainly in combination with <doc-link id="ace-modal.component">modal</doc-link> to create modal dialogs.
+                    Use <doc-tag>ace-dialog</doc-tag> to render a dialog element. Used mainly in combination with <doc-link id="ace-modal.component">modal</doc-link> to create modal dialogs.
                 </p>
             </doc-desc>
 
@@ -34,7 +31,7 @@ export default {
     data: () => ({
         meta,
         api: {
-            name: name,
+            name: 'ace-dialog',
             type: 'component',
             params: [
                 { 
@@ -98,7 +95,7 @@ export default {
                 js: `
                     {
                         template: \`
-                            <${name} 
+                            <ace-dialog 
                                 v-for="type in types"
                                 :type="type">
                                 <template v-slot:header>
@@ -113,7 +110,7 @@ export default {
                                         Close
                                     </ace-button>
                                 </template>
-                            </${name}>
+                            </ace-dialog>
                         \`,
                         data: () => ({
                             types: [
@@ -143,7 +140,7 @@ export default {
                 js: `
                     {
                         template: \`
-                            <${name} 
+                            <ace-dialog 
                                 type="info"
                                 :size="selected">
                                 <template v-slot:header>
@@ -158,7 +155,7 @@ export default {
                                         Close
                                     </ace-button>
                                 </template>
-                            </${name}>
+                            </ace-dialog>
 
                             <br>
                             
