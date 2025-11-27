@@ -26,6 +26,17 @@ export default {
                 :api="api">
             </doc-api>
 
+            <h2>Import</h2>
+
+            <p>
+                Import button and register it as global or local component.
+            </p>
+
+            <ace-codeblock
+                :code="code.import"
+                lang="javascript">
+            </ace-codeblock>
+
             <doc-examples 
                 :examples="examples">
             </doc-examples>
@@ -88,6 +99,17 @@ export default {
                     desc: `The button label content.`
                 }
             ]
+        },
+        code: {
+            import: `
+                import {AceButton} from 'ace-button.component';
+
+                const MyComponent = {
+                    components: {
+                        AceButton
+                    }
+                };
+            `
         },
         examples: [
             {

@@ -16,7 +16,7 @@ export const DocHeader = {
                 class="doc-header-link" 
                 to="/">
                 <h1>
-                    Ace-Utils
+                    {{app.name}}
                 </h1> 
             </router-link>
         </header>

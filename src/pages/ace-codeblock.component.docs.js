@@ -60,7 +60,7 @@ export default {
                                 </p>
                 
                                 <ace-codeblock 
-                                    language="html"
+                                    lang="html"
                                     :code="html">
                                 </ace-codeblock>
                 

@@ -1,5 +1,5 @@
 import path from 'path';
-import {paths} from '../ace-utils/importmap.js';
+import {paths} from '../ace-utils/src/importmap.js';
 import {defineConfig} from 'vite';
 import vue from '@vitejs/plugin-vue';
 import vueDevTools from 'vite-plugin-vue-devtools';
@@ -12,8 +12,9 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
+      ...paths,
+      'vue': 'vue/dist/vue.esm-bundler.js',
       'vue-router': path.resolve(__dirname, 'node_modules/vue-router'),
-      ...paths
     },
   },
 })

@@ -20,6 +20,7 @@ const app = createSiteApp({
         }
     },
     data: () => ({
+        name: 'Ace-utils',
         sections: sections,
         isMenuOpen: true,
         isMenuCollapsed: false,

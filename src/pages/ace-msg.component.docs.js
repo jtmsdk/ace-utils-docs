@@ -40,12 +40,13 @@ export default {
                         <doc-value>info</doc-value>,
                         <doc-value>success</doc-value>,
                         <doc-value>warning</doc-value>,
-                        <doc-value>critical</doc-value>
+                        <doc-value>critical</doc-value>. 
+                        Anything else results in default generic message style.
                     `
                 },
                 {
                     name: 'icon', type: 'string', 
-                    desc: `Icon for the message. Overrides the icon associated with type.`
+                    desc: `Icon for the message. Overrides the icon associated with type. Use null or empty string to disable the icon.`
                 },
                 {
                     name: 'text', type: 'boolean', default: false,
@@ -72,12 +73,13 @@ export default {
                                 v-for="type in types">
                                 <ace-msg
                                     :type="type">
-                                    This is {{type}}
+                                    This is {{''+type}}
                                 </ace-msg>
                             </div>
                         \`,
                         data: () => ({
                             types: [
+                                undefined,
                                 'info',
                                 'success',
                                 'warning',
@@ -96,12 +98,13 @@ export default {
                                 v-for="type in types">
                                 <ace-msg size="small"
                                     :type="type">
-                                    This is {{type}}
+                                    This is {{''+type}}
                                 </ace-msg>
                             </div>
                         \`,
                         data: () => ({
                             types: [
+                                undefined,
                                 'info',
                                 'success',
                                 'warning',
@@ -121,12 +124,13 @@ export default {
                                 style="margin-bottom: 4px">
                                 <ace-msg text
                                     :type="type">
-                                    This is {{type}}
+                                    This is {{''+type}}
                                 </ace-msg>
                             </div>
                         \`,
                         data: () => ({
                             types: [
+                                undefined,
                                 'info',
                                 'success',
                                 'warning',

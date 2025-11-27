@@ -15,13 +15,24 @@ export default {
 
             <doc-desc>
                 <p>
-                    Use <doc-tag>ace-blockquote</doc-tag> to render a block-style quote, centered inside parent container.
+                    Use <doc-tag>ace-blockquote</doc-tag> to render block-style quotes.
                 </p>
             </doc-desc>
 
             <doc-api
                 :api="api">
             </doc-api>
+
+            <h2>Import</h2>
+
+            <p>
+                Import blockquote and register it as global or local component.
+            </p>
+
+            <ace-codeblock
+                :code="code.import"
+                lang="javascript">
+            </ace-codeblock>
 
             <doc-examples
                 :examples="examples">
@@ -69,6 +80,17 @@ export default {
                     desc: `The quote caption, including author, source, date, and description.`
                 }
             ]
+        },
+        code: {
+            import: `
+                import {AceBlockquote} from 'ace-blockquote.component';
+
+                const MyComponent = {
+                    components: {
+                        AceBlockquote
+                    }
+                }
+            ` 
         },
         examples: [
             {

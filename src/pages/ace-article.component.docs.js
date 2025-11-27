@@ -15,13 +15,24 @@ export default {
 
             <doc-desc>
                 <p>
-                    Use <doc-tag>ace-article</doc-tag> to render an article &mdash; a self contained document or blog post, styled for readability.
+                    Use <doc-tag>ace-article</doc-tag> to render an article &mdash; a self contained document or blog post.
                 </p>
             </doc-desc>
 
             <doc-api
                 :api="api">
             </doc-api>
+
+            <h2>Import</h2>
+
+            <p>
+                Import article and register it as global or local component.
+            </p>
+
+            <ace-codeblock
+                :code="code.import"
+                lang="javascript">
+            </ace-codeblock>
 
             <doc-examples
                 :examples="examples">
@@ -74,6 +85,17 @@ export default {
                     desc: `The article body content.`
                 }
             ]
+        },
+        code: {
+            import: `
+                import {AceArticle} from 'ace-article.component';
+
+                const MyComponent = {
+                    components: {
+                        AceArticle
+                    }
+                };
+            `
         },
         examples: [
             {

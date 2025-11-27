@@ -29,7 +29,8 @@ export default {
             <doc-desc>
 
                 <p>
-                    Ace-utils is a web frontend toolkit and design system for <a href="https://vuejs.org/" target="_blank">Vue 3</a> apps.
+                    Ace-Utils is a web frontend toolkit for 
+                    <a href="https://vuejs.org/" target="_blank">Vue 3</a> apps.
                 </p>
                 
                 <div class="feature">
@@ -38,7 +39,7 @@ export default {
                         <span>SPAs, PWAs</span>
                     </h2>
                     <p>
-                        Responsive SPAs & PWAs that rely on client side routing. 
+                        Intended for responsive SPAs & PWAs that rely on client side routing. 
                     </p>
                 </div>
 
@@ -48,7 +49,7 @@ export default {
                         <span>ES modules</span>
                     </h2>
                     <p>
-                        Utilizes ES modules, import maps and code-splitting with dynamic imports.
+                        Uses ES modules, import maps and code-splitting with dynamic imports.
                     </p>
                 </div>
 
@@ -58,7 +59,7 @@ export default {
                         <span>Simplicity</span>
                     </h2>
                     <p>
-                        Import and use. No complex setup involved.
+                        No complex setup; build tools are optional.
                     </p>
                 </div>
 

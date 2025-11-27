@@ -23,6 +23,17 @@ export default {
                 :api="api">
             </doc-api>
 
+            <h2>Import</h2>
+
+            <p>
+                Import alert and register it as global or local component.
+            </p>
+
+            <ace-codeblock
+                :code="code.import"
+                lang="javascript">
+            </ace-codeblock>
+
             <doc-examples
                 :examples="examples">
             </doc-examples>
@@ -74,6 +85,17 @@ export default {
                     desc: `Emitted when user tries to close the alert. The alert message component instance is passed as the $event object.`
                 }
             ]
+        },
+        code: {
+            import: `
+                import {AceAlert} from 'ace-alert.component';
+
+                const MyComponent = {
+                    components: {
+                        AceAlert
+                    }
+                }
+            `
         },
         examples: [
             {

@@ -1,8 +1,9 @@
 .doc-page-introduction {
+
     .feature {
         border-radius: 4px;
-        border: 1px solid var(--ace-color-matgreen-80);
-        background: var(--ace-color-matgreen-98);
+        border: 1px solid var(--ace-color-matgreen-70);
+        background: var(--ace-color-matgreen-97);
         margin-bottom: 1rem;
         padding: 1rem;
 
@@ -15,7 +16,7 @@
             gap: 1rem;
 
             svg {
-                color: var(--ace-color-matgreen-70);
+                color: var(--ace-color-matgreen-60);
                 height: 1.5em;
                 width: 1.5em;
             }

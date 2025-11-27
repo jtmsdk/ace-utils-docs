@@ -23,7 +23,7 @@ export default {
         <doc-page class="doc-page-welcome">
             <header>
                 <h1>Ace-Utils</h1>
-                <h2>Frontend Toolkit & Design System</h2>
+                <h2>Frontend Toolkit | Design System</h2>
                 <ace-msg icon="">
                     &copy; {{year}} Jussi Mänttäri
                 </ace-msg>

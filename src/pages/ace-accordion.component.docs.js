@@ -15,13 +15,24 @@ export default {
 
             <doc-desc>
                 <p>
-                    Use <doc-tag>ace-accordion</doc-tag> to render a list of collapsible and expandable containers. 
+                    Use <doc-tag>ace-accordion</doc-tag> and <doc-tag>ace-accordion-item</doc-tag> to render a list of collapsible and expandable containers.
                 </p>
             </doc-desc>
 
             <doc-api
                 :api="api">
             </doc-api>
+
+            <h2>Import</h2>
+
+            <p>
+                Import accordion components and register them as global or local components.
+            </p>
+
+            <ace-codeblock
+                :code="code.import"
+                lang="javascript">
+            </ace-codeblock>
 
             <doc-examples
                 :examples="examples">
@@ -68,6 +79,18 @@ export default {
                 ]
             }
         ],
+        code: {
+            import: `
+                import {AceAccordion, AceAccordionItem} from 'ace-accordion.component';
+
+                const MyComponent = {
+                    components: {
+                        AceAccordion,
+                        AceAccordionItem
+                    }
+                }
+            `
+        },
         examples: [
             {
                 js: `

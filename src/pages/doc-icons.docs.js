@@ -1,19 +1,18 @@
-import {SETTINGS} from '@ace/settings';
-import {escape} from '@ace/services/ace-utils.service';
 import attachIcon from '@ace.icons/attach.svg';
+import {escape, copyToClipboard} from '@ace/services/ace-utils.service';
 import aceAlertService from '@ace/services/ace-alert.service';
 
 // Get all .svg files
 const files = import.meta.glob('@ace.icons/*.svg', { eager: true, query: '?url', import: 'default' });
 
-// Extract icon names and paths from files
+// Extract icon names and paths to display previews
 let icons = Object.keys(files).map((key) => {
     let fileName = key.split('/').pop() || '';
     return {
+        src: files[key],
         fileName: fileName,
         name: fileName.replace('.svg', ''),
-        src: files[key],
-        import: `${SETTINGS.PATHS.ICONS}/${fileName}`
+        import : `@ace.icons/${fileName}`
     };
 });
 
@@ -48,7 +47,8 @@ export default {
 
             <doc-desc>
                 <p>
-                    Com:mon toolkit uses SVG files to render inline SVG icons. All icons are rendered using <doc-link id="ace-icon.component">ace-icon</doc-link> component.
+                    Ace-Utils ships with following SVG icons, which you use with
+                    <doc-link id="ace-icon.component">ace-icon</doc-link> component. Click or double-click the icons below to copy their source or HTML snippet to clipboard.
                 </p>
 
                 <div class="control-panel">
@@ -96,12 +96,6 @@ export default {
                         </label>
                     </div>
                 </div>
-
-                <!-- clipboard input -->
-                <input type="text" 
-                    style="opacity: 0; pointer-events: none;"
-                    id="clipboard" 
-                    value="">
             </doc-desc>
         </doc-page>
     `,
@@ -116,10 +110,7 @@ export default {
             this.copy(`<ace-icon src="${icon.import}"></ace-icon>`);
         },
         copy(value) {
-            let input = document.querySelector("input#clipboard");
-            input.setAttribute('value', value);
-            input.select();
-            document.execCommand('copy');
+            copyToClipboard(value);
             aceAlertService.closeAll();
             aceAlertService.open({
                 icon: attachIcon,
