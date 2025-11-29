@@ -2,25 +2,22 @@ import crossplatformIcon from '@ace.icons/crossplatform.svg';
 import packageIcon from '@ace.icons/package.svg';
 import coffeeHeartIcon from '@ace.icons/coffee-heart.svg';
 import arrowRightIcon from '@ace.icons/arrow-right.svg';
-import {AceIcon, AceButton} from '@ace/components';
 
 const meta = {
     id: 'introduction',
     name: 'Introduction',
     title: 'Introduction',
-    desc: `Introduction to common toolkit and design system.`
+    desc: `Introduction to the toolkit.`
 };
 export default {
     meta,
-    components: {
-        AceButton,
-        AceIcon
-    },
+    inject: ['app'],
     data: () => ({
         meta
     }),
     template: `
-        <doc-page class="doc-page-introduction"> 
+        <doc-page 
+            id="doc-introduction-page"> 
             
             <doc-meta
                 :meta="meta">
@@ -29,7 +26,7 @@ export default {
             <doc-desc>
 
                 <p>
-                    Ace-Utils is a web frontend toolkit for 
+                    {{app.name}} is a web frontend toolkit for 
                     <a href="https://vuejs.org/" target="_blank">Vue 3</a> apps.
                 </p>
                 
@@ -39,7 +36,7 @@ export default {
                         <span>SPAs, PWAs</span>
                     </h2>
                     <p>
-                        Intended for responsive SPAs & PWAs that rely on client side routing. 
+                        For responsive SPAs & PWAs that rely on client side routing. 
                     </p>
                 </div>
 
@@ -59,7 +56,7 @@ export default {
                         <span>Simplicity</span>
                     </h2>
                     <p>
-                        No complex setup; build tools are optional.
+                        Easy to use and customize. No build tools required.
                     </p>
                 </div>
 

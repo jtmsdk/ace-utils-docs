@@ -2,7 +2,7 @@
     from { transform: rotateX(0deg); }
     to { transform: rotateX(360deg); }
 }
-.doc-page-welcome { 
+#doc-welcome-page { 
     display: flex;
     flex-direction: column;
     gap: 3rem;

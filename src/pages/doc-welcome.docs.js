@@ -7,6 +7,7 @@ export default {
         name: 'welcome',
         title: 'Welcome'
     },
+    inject: ['app'],
     data: () => ({
         lines: [
             'SPAs, PWAs',
@@ -20,10 +21,12 @@ export default {
         }
     },
     template: `
-        <doc-page class="doc-page-welcome">
+        <doc-page 
+            id="doc-welcome-page">
+
             <header>
-                <h1>Ace-Utils</h1>
-                <h2>Frontend Toolkit | Design System</h2>
+                <h1>{{app.name}}</h1>
+                <h2>Frontend Toolkit</h2>
                 <ace-msg icon="">
                     &copy; {{year}} Jussi Mänttäri
                 </ace-msg>
