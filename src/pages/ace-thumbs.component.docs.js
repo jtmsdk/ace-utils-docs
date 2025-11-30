@@ -15,7 +15,7 @@ export default {
 
             <doc-desc>
                 <p>
-                    Use <doc-tag>ace-thumbs</doc-tag> to render a set or gallery of thumbnails. Use <doc-tag>ace-thumb</doc-tag> to render a single thumbnail. While the thumbnail gallery is automatically bound to a <doc-link id="ace-lightbox.component">lightbox</doc-link> instance, individual thumbnails have no built-in functionality.
+                    Use <code tag>ace-thumbs</code> to render a set or gallery of thumbnails. Use <code tag>ace-thumb</code> to render a single thumbnail. While the thumbnail gallery is automatically bound to a <doc-link id="ace-lightbox.component">lightbox</doc-link> instance, individual thumbnails have no built-in functionality.
                 </p>
             </doc-desc>
 
@@ -117,7 +117,7 @@ export default {
                 name: 'Single thumbnail',
                 desc: `
                     <p>
-                        The <doc-tag>ace-thumb</doc-tag> renders a single thumbnail. Single thumbnail has no built-in functionality; you can customize and attach any desired behavior to it.
+                        The <code tag>ace-thumb</code> renders a single thumbnail. Single thumbnail has no built-in functionality; you can customize and attach any desired behavior to it.
                     </p>
                 `,
                 js: `
@@ -136,7 +136,7 @@ export default {
                 name: 'Set of thumbnails',
                 desc: `
                     <p>
-                        The <doc-tag>ace-thumbs</doc-tag> creates a set of thumbnails. If <doc-param>items</doc-param> param is provided, the thumbnails are automatically bound to a lightbox. If the thumbnails are provided using slot, you need to attach the desired behavior manually.
+                        The <code tag>ace-thumbs</code> creates a set of thumbnails. If <doc-param>items</doc-param> param is provided, the thumbnails are automatically bound to a lightbox. If the thumbnails are provided using slot, you need to attach the desired behavior manually.
                     </p>
                 `,
                 js: `

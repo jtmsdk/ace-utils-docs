@@ -15,7 +15,7 @@ export default {
 
             <doc-desc>
                 <p>
-                    Use <doc-tag>ace-switch</doc-tag> to render a toggle switch input.
+                    Use <code tag>ace-switch</code> to render a toggle switch input.
                 </p>
             </doc-desc>
 
@@ -48,7 +48,7 @@ export default {
                 },
                 {
                     name: 'disabled', type: 'boolean', default: false,
-                    desc: `If <doc-value>true</doc-value>, input is disabled.`
+                    desc: `If <code val>true</code>, input is disabled.`
                 },
                 {
                     name: 'size', type: 'string', default: '40px',
@@ -72,7 +72,7 @@ export default {
             {
                 desc: `
                     <p>
-                        Use switch to toggle settings or features "on" or "off". Once touched, switch sets the bound model value either <doc-value>true</doc-value> or <doc-value>false</doc-value>.
+                        Use switch to toggle settings or features "on" or "off". Once touched, switch sets the bound model value either <code val>true</code> or <code val>false</code>.
                     </p>
                 `,
                 js: `

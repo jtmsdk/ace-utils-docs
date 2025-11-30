@@ -116,7 +116,7 @@ export default {
                         },
                         {
                             name: 'onclose', type: 'function',
-                            desc: `Callback to execute when modal <doc-event>close</doc-event> event is emitted.`
+                            desc: `Callback to execute when modal <code event>close</code> event is emitted.`
                         }
                     ]
                 }, 

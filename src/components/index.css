@@ -1,7 +1,6 @@
 @import "doc-api/doc-api.component";
 @import "doc-desc/doc-desc.component";
 @import "doc-directive/doc-directive.component";
-@import "doc-event/doc-event.component";
 @import "doc-events/doc-events.component";
 @import "doc-example/doc-example.component";
 @import "doc-examples/doc-examples.component";
@@ -18,5 +17,3 @@
 @import "doc-params/doc-params.component";
 @import "doc-service/doc-service.component";
 @import "doc-slots/doc-slots.component";
-@import "doc-tag/doc-tag.component";
-@import "doc-value/doc-value.component";

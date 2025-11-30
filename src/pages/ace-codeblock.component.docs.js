@@ -15,7 +15,7 @@ export default {
 
             <doc-desc>
                 <p> 
-                    Use <doc-tag>ace-codeblock</doc-tag> to render a block of code with syntax highlighting using <a href="https://prismjs.com/">prism.js</a> library.
+                    Use <code tag>ace-codeblock</code> to render a block of code with syntax highlighting using <a href="https://prismjs.com/">prism.js</a> library.
                 </p>
             </doc-desc>
 
@@ -37,7 +37,7 @@ export default {
                 {
                     name: 'language', type: 'string', default: 'javascript',
                     desc: `
-                        The code language, e.g.: <doc-value>html</doc-value>, or <doc-value>javascript</doc-value>. See prismjs <a href="https://prismjs.com/#supported-languages">documentation</a> for full list of supported languages. Notice that the language support must be included in the loaded prism.js bundle.
+                        The code language, e.g.: <code val>html</code>, or <code val>javascript</code>. See prismjs <a href="https://prismjs.com/#supported-languages">documentation</a> for full list of supported languages. Notice that the language support must be included in the loaded prism.js bundle.
                     `
                 },
                 {
@@ -65,7 +65,7 @@ export default {
                                 </ace-codeblock>
                 
                                 <p>
-                                    Next example contains javascript. Notice that <doc-param>language</doc-param> param doesn't need to be specified in this case, because <doc-value>javascript</doc-value> is the expected default.
+                                    Next example contains javascript. Notice that <doc-param>language</doc-param> param doesn't need to be specified in this case, because <code val>javascript</code> is the expected default.
                                 </p>
                 
                                 <ace-codeblock

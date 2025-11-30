@@ -1,7 +1,6 @@
 export * from './doc-api/doc-api.component';
 export * from './doc-desc/doc-desc.component';
 export * from './doc-directive/doc-directive.component';
-export * from './doc-event/doc-event.component';
 export * from './doc-events/doc-events.component';
 export * from './doc-example/doc-example.component';
 export * from './doc-examples/doc-examples.component';
@@ -18,6 +17,4 @@ export * from './doc-param/doc-param.component';
 export * from './doc-params/doc-params.component';
 export * from './doc-service/doc-service.component';
 export * from './doc-slots/doc-slots.component';
-export * from './doc-tag/doc-tag.component';
-export * from './doc-value/doc-value.component';
 export * from './v-style/v-style.component';

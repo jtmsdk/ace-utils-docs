@@ -18,7 +18,7 @@ export const DocEvents = {
                 <tbody>
                     <tr v-for="item in events" :key="item.name">
                         <td class="name"><doc-param>{{''+item.name}}</doc-param></td>
-                        <td class="event"><doc-value>{{''+(item.value || item.$event)}}</doc-value></td>
+                        <td class="event"><code val>{{''+(item.value || item.$event)}}</code></td>
                         <td class="desc"><component :is="{template: item.desc}"></component></td>
                     </tr>
                 </tbody>

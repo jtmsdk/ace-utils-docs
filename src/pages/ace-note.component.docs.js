@@ -15,7 +15,7 @@ export default {
 
             <doc-desc>
                 <p>
-                    Use <doc-tag>ace-note</doc-tag> to render a block of content used for highlighting additional information regarding current context.
+                    Use <code tag>ace-note</code> to render a block of content used for highlighting additional information regarding current context.
                 </p>
             </doc-desc>
 

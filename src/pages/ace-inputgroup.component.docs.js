@@ -18,7 +18,7 @@ export default {
 
             <doc-desc>
                 <p>
-                    Use <doc-tag>ace-inputgroup</doc-tag> to render a group of inputs or buttons, joined together with no space between.
+                    Use <code tag>ace-inputgroup</code> to render a group of inputs or buttons, joined together with no space between.
                 </p>
             </doc-desc>
 

@@ -15,7 +15,7 @@ export default {
 
             <doc-desc>
                 <p>
-                    Use <doc-tag>ace-footer</doc-tag> to render footer section used at the bottom of pages.
+                    Use <code tag>ace-footer</code> to render footer section used at the bottom of pages.
                 </p>
             </doc-desc>
             

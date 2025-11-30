@@ -15,7 +15,7 @@ export default {
 
             <doc-desc>
                 <p>
-                    Use <doc-tag>ace-progressbar</doc-tag> to render a progress bar.
+                    Use <code tag>ace-progressbar</code> to render a progress bar.
                 </p>
             </doc-desc>
 

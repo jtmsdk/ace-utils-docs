@@ -19,7 +19,7 @@ export default {
 
             <doc-desc>
                 <p>
-                    Use <doc-tag>ace-form</doc-tag> to render a form element.
+                    Use <code tag>ace-form</code> to render a form element.
                 </p>
             </doc-desc>
 
@@ -44,11 +44,11 @@ export default {
                 },
                 {
                     name: 'action', type: 'string', default: 'current URL', 
-                    desc: `The URL to which the form data is sent once submitted. By default sends data to current URL. To handle submit in custom way, bind <doc-event>submit</doc-event> event and prevent the default action.`
+                    desc: `The URL to which the form data is sent once submitted. By default sends data to current URL. To handle submit in custom way, bind <code event>submit</code> event and prevent the default action.`
                 },
                 {
                     name: 'method', type: 'string', default: 'get', 
-                    desc: `HTTP method used when sending data: <doc-value>get</doc-value> or <doc-value>post</doc-value>.`
+                    desc: `HTTP method used when sending data: <code val>get</code> or <code val>post</code>.`
                 },
                 {
                     name: 'target', type: 'string', default: '_self', 
@@ -60,7 +60,7 @@ export default {
                 },
                 {
                     name: 'autocomplete', type: 'string', default: 'on', 
-                    desc: `Either <doc-value>on</doc-value> to enable or <doc-value>off</doc-value> to disable. By default enabled.`
+                    desc: `Either <code val>on</code> to enable or <code val>off</code> to disable. By default enabled.`
                 }
             ],
             slots: [

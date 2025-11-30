@@ -15,7 +15,7 @@ export default {
 
             <doc-desc>
                 <p>
-                    Use <doc-tag>ace-figure</doc-tag> to render captions and title headers for images and other media.
+                    Use <code tag>ace-figure</code> to render captions and title headers for images and other media.
                 </p>
             </doc-desc>
 

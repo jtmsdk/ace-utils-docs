@@ -8,7 +8,7 @@ export const DocHeader = {
     },
     template: `
         <header class="doc-header">
-            <ace-button transparent
+            <ace-button text
                 @click="app.toggleMenu()"
                 icon="${menuIcon}">
             </ace-button>

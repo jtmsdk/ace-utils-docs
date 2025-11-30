@@ -23,7 +23,7 @@ export const DocParams = {
                             {{item.type}}
                         </td>
                         <td class="default">
-                            <doc-value :type="(typeof item.default)">{{item.default !== undefined ? item.default : 'undefined'}}</doc-value>
+                            <code val :type="(typeof item.default)">{{item.default !== undefined ? item.default : 'undefined'}}</code>
                         </td>
                         <td class="desc">
                             <component :is="{template: item.desc}"></component>

@@ -6,11 +6,11 @@ export const DocFunctions = {
                 <ace-accordion-item 
                     v-for="item in functions" 
                     :key="item.name">
-                    <template v-slot:header>
+                    <ace-accordion-item-header>
                         <doc-function>
                             {{item.name}}
                         </doc-function>
-                    </template>
+                    </ace-accordion-item-header>
                     <template v-slot:body>
                         <component 
                             :is="{template: item.desc}">

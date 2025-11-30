@@ -15,7 +15,7 @@ export default {
 
             <doc-desc>
                 <p>
-                    Use <doc-tag>ace-tabs</doc-tag> to render tab navigation buttons.
+                    Use <code tag>ace-tabs</code> to render tab navigation buttons.
                 </p>
             </doc-desc>
 
@@ -38,13 +38,13 @@ export default {
                 params: [
                     { 
                         name: 'modelValue', type: 'any', 
-                        desc: `Selected <doc-tag>ace-tab</doc-tag> <doc-param>value</doc-param>.`
+                        desc: `Selected <code tag>ace-tab</code> <doc-param>value</doc-param>.`
                     }
                 ],
                 slots: [
                     {
                         name: 'default',
-                        desc: `One or more <doc-tag>ace-tab</doc-tag> elements.`
+                        desc: `One or more <code tag>ace-tab</code> elements.`
                     }
                 ]
             },
@@ -55,7 +55,7 @@ export default {
                 params: [
                     { 
                         name: 'value', type: 'any', 
-                        desc: `Tab value. When selected, becomes the <doc-tag>ace-tabs</doc-tag> model value.`
+                        desc: `Tab value. When selected, becomes the <code tag>ace-tabs</code> model value.`
                     }
                 ],
                 slots: [

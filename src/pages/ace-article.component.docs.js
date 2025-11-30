@@ -2,7 +2,7 @@ const meta = {
     id: 'ace-article.component',
     name: 'ace-article',
     title: 'Article',
-    desc: `Renders an article, a self contained document or blog post, styled for readability.`
+    desc: `Renders an article, a self contained document or post.`
 };
 
 export default {
@@ -15,7 +15,7 @@ export default {
 
             <doc-desc>
                 <p>
-                    Use <doc-tag>ace-article</doc-tag> to render an article &mdash; a self contained document or blog post.
+                    Use <code tag>ace-article</code> to render an article &mdash; a self contained document or post.
                 </p>
             </doc-desc>
 
@@ -23,14 +23,14 @@ export default {
                 :api="api">
             </doc-api>
 
-            <h2>Import</h2>
+            <h2>Usage</h2>
 
             <p>
-                Import article and register it as global or local component.
+                Import article and register it globally or locally. Render article with meta data and content.
             </p>
 
             <ace-codeblock
-                :code="code.import"
+                :code="code.usage"
                 lang="javascript">
             </ace-codeblock>
 
@@ -49,7 +49,7 @@ export default {
                     name: 'meta', type: 'object',
                     desc: `
                         <p>
-                            Article meta data object. Generates the article header content. Can contain following values:
+                            Article meta data. Generates article header content. Can contain following values:
                         </p>
                         <ul>
                             <li>
@@ -62,10 +62,10 @@ export default {
                                 <doc-param>image</doc-param>: the article header image src.
                             </li>
                             <li>
-                                <doc-param>date</doc-param>: the article date.
+                                <doc-param>author</doc-param>: the article author name.
                             </li>
                             <li>
-                                <doc-param>author</doc-param>: the article author name.
+                                <doc-param>date</doc-param>: the article date, <code>string</code> or <code>Date</code>.
                             </li>
                         </ul>
                     `
@@ -74,26 +74,38 @@ export default {
             slots: [
                 {
                     name: 'header',
-                    desc: `The article header content. Overrides the <doc-param>meta</doc-param> param.`
+                    desc: `Article header content. Overrides content provided with <code>meta</code> param.`
                 },
                 {
                     name: 'body',
-                    desc: `The article body content.`
+                    desc: `Article main or body content. Same as default slot.`
                 },
                 {
                     name: 'default',
-                    desc: `The article body content.`
+                    desc: `Article main or body content.`
                 }
             ]
         },
         code: {
-            import: `
+            usage: `
                 import {AceArticle} from 'ace-article.component';
 
                 const MyComponent = {
                     components: {
                         AceArticle
-                    }
+                    },
+                    template: \`
+                        <ace-article
+                            :meta="{
+                                title: 'This is h1 title',
+                                subtitle: 'This is optional subtitle',
+                                image: 'my/article/image.jpg',
+                                date: new Date(2025, 9, 31),
+                                author: 'John Doe'
+                            }">
+                            ...
+                        </ace-article>
+                    \`
                 };
             `
         },
@@ -103,10 +115,13 @@ export default {
                     {
                         template: \`
                             <ace-article
-                                :title="title"
-                                :subtitle="subtitle"
-                                :date="date"
-                                image="assets/img/bird.jpg">
+                                :meta="{
+                                    title: 'This is h1 title',
+                                    subtitle: 'This is subtitle',
+                                    image: 'assets/img/bird.jpg',
+                                    date: new Date(),
+                                    author: 'Jane Doe'
+                                }">
 
                                 <p>
                                     {{lorem}}
@@ -129,14 +144,9 @@ export default {
                                 <p v-for="n in 2">
                                     {{lorem}}
                                 </p>
-
                             </ace-article>
                         \`,
                         data: () => ({
-                            title: 'This is h1 title',
-                            subtitle: 'This is optional subtitle',
-                            image: 'assets/img/bird.jpg',
-                            date: new Date(),
                             lorem: \`
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                                 sed do eiusmod tempor incididunt ut labore et dolore magna

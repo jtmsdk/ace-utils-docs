@@ -15,7 +15,7 @@ export default {
 
             <doc-desc>
                 <p>
-                    Use <doc-tag>ace-cols</doc-tag> to render responsive (CSS grid based) column layout, which can be collapsed using break points. The component responds to available space in container; not the overall device/viewport width.
+                    Use <code tag>ace-cols</code> to render responsive (CSS grid based) column layout, which can be collapsed using break points. The component responds to available space in container; not the overall device/viewport width.
                 </p>
             </doc-desc>
 

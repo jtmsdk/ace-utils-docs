@@ -2,7 +2,7 @@ const meta = {
     id: 'ace-blockquote.component',
     name: 'ace-blockquote',
     title: 'Blockquote',
-    desc: `Renders a block-style quote centered inside parent container.`
+    desc: `Renders a block-style quote.`
 }
 
 export default {
@@ -15,7 +15,7 @@ export default {
 
             <doc-desc>
                 <p>
-                    Use <doc-tag>ace-blockquote</doc-tag> to render block-style quotes.
+                    Use <code tag>ace-blockquote</code> to render block-style quotes.
                 </p>
             </doc-desc>
 
@@ -23,14 +23,14 @@ export default {
                 :api="api">
             </doc-api>
 
-            <h2>Import</h2>
+            <h2>Usage</h2>
 
             <p>
-                Import blockquote and register it as global or local component.
+                Import blockquote and register it globally or locally. Render quote with optional params.
             </p>
 
             <ace-codeblock
-                :code="code.import"
+                :code="code.usage"
                 lang="javascript">
             </ace-codeblock>
 
@@ -77,18 +77,24 @@ export default {
                 },
                 {
                     name: 'caption',
-                    desc: `The quote caption, including author, source, date, and description.`
+                    desc: `The quote caption or footer content. Use to provide custom caption instead of using params.`
                 }
             ]
         },
         code: {
-            import: `
+            usage: `
                 import {AceBlockquote} from 'ace-blockquote.component';
 
                 const MyComponent = {
                     components: {
                         AceBlockquote
-                    }
+                    },
+                    template: \`
+                        <ace-blockquote
+                            author="John Doe">
+                            Quote text content goes here.
+                        </ace-blockquote>
+                    \`
                 }
             ` 
         },

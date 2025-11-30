@@ -15,7 +15,7 @@ export default {
 
             <doc-desc>
                 <p>
-                    Use <doc-tag>ace-msg</doc-tag> to render inline messages for highlighting information.
+                    Use <code tag>ace-msg</code> to render inline messages for highlighting information.
                 </p>
             </doc-desc>
             
@@ -37,10 +37,10 @@ export default {
                 {
                     name: 'type', type: 'string', default: 'info',
                     desc: `Available type options:
-                        <doc-value>info</doc-value>,
-                        <doc-value>success</doc-value>,
-                        <doc-value>warning</doc-value>,
-                        <doc-value>critical</doc-value>. 
+                        <code val>info</code>,
+                        <code val>success</code>,
+                        <code val>warning</code>,
+                        <code val>critical</code>. 
                         Anything else results in default generic message style.
                     `
                 },
@@ -50,11 +50,11 @@ export default {
                 },
                 {
                     name: 'text', type: 'boolean', default: false,
-                    desc: `If <doc-value>true</doc-value>, renders the message in text variant style.`
+                    desc: `If <code val>true</code>, renders the message in text variant style.`
                 },
                 {
                     name: 'size', type: 'string', default: 'medium',
-                    desc: `Options: <doc-value>small</doc-value>, <doc-value>medium</doc-value>, <doc-value>large</doc-value>. Renders the message in the specified size variant style.`
+                    desc: `Options: <code val>small</code>, <code val>medium</code>, <code val>large</code>. Renders the message in the specified size variant style.`
                 }
             ],
             slots: [

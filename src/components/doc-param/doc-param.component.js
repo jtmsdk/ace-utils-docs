@@ -4,6 +4,6 @@ export const DocParam = {
         value: String
     },
     template: `
-        <span class="doc-param"><slot>{{name}}="<doc-value>{{value}}</doc-value>"</slot></span>
+        <span class="doc-param"><slot>{{name}}="<code val>{{value}}</code>"</slot></span>
     `    
 };

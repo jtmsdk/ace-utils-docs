@@ -7,7 +7,7 @@ const meta = {
     id: 'ace-button.component',
     name: 'ace-button',
     title: `Button`,
-    desc: `Renders action buttons.`
+    desc: `Renders action button.`
 };
 
 export default {
@@ -19,21 +19,21 @@ export default {
             </doc-meta>
 
             <doc-desc>
-                Use <doc-tag>ace-button</doc-tag> to render action buttons.
+                Use <code tag>ace-button</code> to render action buttons.
             </doc-desc>
 
             <doc-api 
                 :api="api">
             </doc-api>
 
-            <h2>Import</h2>
+            <h2>Usage</h2>
 
             <p>
-                Import button and register it as global or local component.
+                Import button and register it globally or locally. Render button, provide label with param or slot.
             </p>
 
             <ace-codeblock
-                :code="code.import"
+                :code="code.usage"
                 lang="javascript">
             </ace-codeblock>
 
@@ -50,7 +50,15 @@ export default {
             params: [
                 {
                     name: 'type', type: 'string', default: 'button',
-                    desc: `Button type: <doc-value>button</doc-value>, <doc-value>submit</doc-value>, <doc-value>reset</doc-value>.`
+                    desc: `Button type: <code val>button</code>, <code val>submit</code>, <code val>reset</code>.`
+                },
+                {
+                    name: 'variant', type: 'string',
+                    desc: `Button variant/style. You can set the style with e.g. <code>variant="primary"</code> or by applying boolean property <code>primary</code> on the button. Available variants:
+                    <code val>primary</code>, 
+                    <code val>text</code>, 
+                    <code val>outline</code>, 
+                    <code val>round</code>.`
                 },
                 {
                     name: 'label', type: 'string',
@@ -69,28 +77,16 @@ export default {
                     desc: `Function to execute when button is activated.`
                 },
                 {
-                    name: 'to', type: 'string, object',
+                    name: 'to', type: 'string | object',
                     desc: `Route to navigate to when the button is activated.`
                 },
                 {
                     name: 'size', type: 'string', default: 'medium',
                     desc: `Button size: 
-                        <doc-value>small</doc-value>,
-                        <doc-value>medium</doc-value>,
-                        <doc-value>large</doc-value>.
+                        <code val>small</code>,
+                        <code val>medium</code>,
+                        <code val>large</code>.
                     `
-                },
-                {
-                    name: 'primary', type: 'boolean', default: 'false',
-                    desc: `If true, adds primary color styling for the button.`
-                },
-                {
-                    name: 'transparent', type: 'boolean', default: 'false',
-                    desc: `If true, creates a transparent text-only button.`
-                },
-                {
-                    name: 'round', type: 'boolean', default: 'false',
-                    desc: `If true, makes the button round.`
                 }
             ],
             slots: [
@@ -101,13 +97,19 @@ export default {
             ]
         },
         code: {
-            import: `
+            usage: `
                 import {AceButton} from 'ace-button.component';
 
                 const MyComponent = {
                     components: {
                         AceButton
-                    }
+                    },
+                    template: \`
+                        <ace-button
+                            @click="onclick()">
+                            Button label
+                        </ace-button>
+                    \`
                 };
             `
         },
@@ -137,15 +139,27 @@ export default {
                 `
             },
             {
-                name: 'Transparent button',
+                name: 'Text button',
                 js: `
                     {
                         template: \`
-                            <ace-button transparent>
+                            <ace-button text>
                                 Section 1
                             </ace-button>
                         \`
                     }   
+                `
+            },
+            {
+                name: 'Outline button',
+                js: `
+                    {
+                        template: \`
+                            <ace-button outline>
+                                Outline button
+                            </ace-button>
+                        \`
+                    }
                 `
             },
             {
@@ -168,6 +182,33 @@ export default {
                             <ace-button round
                                 icon="${nextRoundIcon}">
                             </ace-button>
+                        \`
+                    }
+                `
+            },
+            {
+                name: 'Button sizes',
+                js: `
+                    {
+                        template: \`
+                            <div style="
+                                display: flex; 
+                                align-items: center; 
+                                gap: 1rem">
+
+                                <ace-button size="large">
+                                    Large button
+                                </ace-button>
+                
+                                <ace-button size="medium">
+                                    Medium button
+                                </ace-button>
+                
+                                <ace-button size="small">
+                                    Small button
+                                </ace-button>
+                                
+                            </div>
                         \`
                     }
                 `

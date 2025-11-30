@@ -15,7 +15,7 @@ export default {
 
             <doc-desc>
                 <p>
-                    Use <doc-tag>ace-parallax</doc-tag> to render a parallax-scrolling container. Uses CSS 3D transforms and animation frames for performant effect. 
+                    Use <code tag>ace-parallax</code> to render a parallax-scrolling container. Uses CSS 3D transforms and animation frames for performant effect. 
                 </p>
             </doc-desc>
 
@@ -62,16 +62,16 @@ export default {
                             </P>
                             <ul>
                                 <li>
-                                    <doc-value>0</doc-value> = no parallax effect at all; layer scrolls normally along the content.
+                                    <code val>0</code> = no parallax effect at all; layer scrolls normally along the content.
                                 </li>
                                 <li>
-                                    <doc-value>0.5</doc-value> = the layer moves at 50% of the scrolling speed, dragging behind other content.
+                                    <code val>0.5</code> = the layer moves at 50% of the scrolling speed, dragging behind other content.
                                 </li>
                                 <li>
-                                    <doc-value>-0.5</doc-value> = the layer moves at 50% of the scrolling speed &mdash; to the opposite direction of scrolling.
+                                    <code val>-0.5</code> = the layer moves at 50% of the scrolling speed &mdash; to the opposite direction of scrolling.
                                 </li>
                                 <li>
-                                    <doc-value>1</doc-value> = the layer moves at the same rate with scrolling, making it look like the layer is fixed scroll container. Similar in behavior as <code>background-attachment: fixed;</code> CSS rule.
+                                    <code val>1</code> = the layer moves at the same rate with scrolling, making it look like the layer is fixed scroll container. Similar in behavior as <code>background-attachment: fixed;</code> CSS rule.
                                 </li>
                             </ul>
                         `
@@ -89,7 +89,7 @@ export default {
             {
                 desc: `
                     <p>
-                        This example demonstrates parallax effect with different <doc-param>scrollfactors</doc-param>. The <doc-param>target</doc-param> of the component is bound to <doc-value>main</doc-value>, which is the scrolling container on this page. You can place any content onto the parallax layers, altough typically that would be images.
+                        This example demonstrates parallax effect with different <doc-param>scrollfactors</doc-param>. The <doc-param>target</doc-param> of the component is bound to <code val>main</code>, which is the scrolling container on this page. You can place any content onto the parallax layers, altough typically that would be images.
                     </p>
                     <p>
                         Notice that the parallax container is <b>500px high</b>, and the image inside is intentionally made <b>higher</b>. This is necessary for the image to fill the entire parallax container view even when it has been moved (=translated on Y-axis) up or down from its original position.

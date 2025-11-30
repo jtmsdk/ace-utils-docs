@@ -15,7 +15,7 @@ export default {
 
             <doc-desc>
                 <p>
-                    Use <doc-tag>ace-dialog</doc-tag> to render a dialog element. Used mainly in combination with <doc-link id="ace-modal.component">modal</doc-link> to create modal dialogs.
+                    Use <code tag>ace-dialog</code> to render a dialog element. Used mainly in combination with <doc-link id="ace-modal.component">modal</doc-link> to create modal dialogs.
                 </p>
             </doc-desc>
 
@@ -37,21 +37,21 @@ export default {
                 { 
                     name: 'type', type: 'string', 
                     desc: `Dialog type:
-                        <doc-value>confirm</doc-value>,
-                        <doc-value>info</doc-value>,
-                        <doc-value>success</doc-value>,
-                        <doc-value>warning</doc-value>,
-                        <doc-value>critical</doc-value>
+                        <code val>confirm</code>,
+                        <code val>info</code>,
+                        <code val>success</code>,
+                        <code val>warning</code>,
+                        <code val>critical</code>
                     ` 
                 },
                 {
                     name: 'size', type: 'string', default: 'auto',
                     desc: `Dialog size. Accepts following value options:
-                    <doc-value>auto</doc-value>,
-                    <doc-value>small</doc-value>,
-                    <doc-value>medium</doc-value>,
-                    <doc-value>large</doc-value>,
-                    <doc-value>xlarge</doc-value>`
+                    <code val>auto</code>,
+                    <code val>small</code>,
+                    <code val>medium</code>,
+                    <code val>large</code>,
+                    <code val>xlarge</code>`
                 },
                 {
                     name: 'icon', type: 'string',

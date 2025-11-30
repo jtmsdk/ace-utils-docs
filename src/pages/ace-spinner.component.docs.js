@@ -15,7 +15,7 @@ export default {
 
             <doc-desc>
                 <p>
-                    Use <doc-tag>ace-spinner</doc-tag> to render a spinning load indicator. See <doc-link id="ace-spinner.service">spinner service</doc-link> for programmatic use.
+                    Use <code tag>ace-spinner</code> to render a spinning load indicator. See <doc-link id="ace-spinner.service">spinner service</doc-link> for programmatic use.
                 </p>
             </doc-desc>
 

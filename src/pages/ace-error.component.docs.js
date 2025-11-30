@@ -15,7 +15,7 @@ export default {
 
             <doc-desc>
                 <p>
-                    Use <doc-tag>ace-error</doc-tag> to render error messages. Used mainly on error pages.
+                    Use <code tag>ace-error</code> to render error messages. Used mainly on error pages.
                 </p>
             </doc-desc>
 
@@ -36,7 +36,7 @@ export default {
             params: [
                 {
                     name: 'error', type: 'object', default: '404-error',
-                    desc: `The error object, expected to contain <doc-value>name</doc-value>, <doc-value>status</doc-value> and <doc-value>message</doc-value>. If not provided, a generic 404 Not Found -error is used as default.`
+                    desc: `The error object, expected to contain <code val>name</code>, <code val>status</code> and <code val>message</code>. If not provided, a generic 404 Not Found -error is used as default.`
                 }
             ],
         },

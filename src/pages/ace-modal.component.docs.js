@@ -16,7 +16,7 @@ export default {
             </doc-meta>
 
             <doc-desc>
-                Use <doc-tag>ace-modal</doc-tag> to render a modal popup. Used mainly in combination with <doc-link id="ace-dialog.component">dialog</doc-link> component. Opened modal blocks all underlying UI interaction until the modal is closed. See <doc-link id="ace-modal.service">modal service</doc-link> from programmatic use.
+                Use <code tag>ace-modal</code> to render a modal popup. Used mainly in combination with <doc-link id="ace-dialog.component">dialog</doc-link> component. Opened modal blocks all underlying UI interaction until the modal is closed. See <doc-link id="ace-modal.service">modal service</doc-link> from programmatic use.
             </doc-desc>
 
             <doc-api

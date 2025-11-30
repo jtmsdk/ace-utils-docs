@@ -15,7 +15,7 @@ export default {
 
             <doc-desc>
                 <p>
-                    Use <doc-tag>ace-popper</doc-tag> to render non-blocking popup content, such as tooltips and popovers. Allows positioning the popups relative to other elements or viewport coordinates.
+                    Use <code tag>ace-popper</code> to render non-blocking popup content, such as tooltips and popovers. Allows positioning the popups relative to other elements or viewport coordinates.
                 </p>
             </doc-desc>
 
@@ -40,23 +40,23 @@ export default {
                 },
                 {
                     name: 'relativeTo', type: 'HTMLElement, string', default: '"xy"',
-                    desc: `Relative to what popper is positioned. If <doc-value>"xy"</doc-value>, popper is positioned using <doc-param>clientX</doc-param> and <doc-param>clientY</doc-param> params. If an html element, popper is positioned relative to the element. If <doc-value>falsy</doc-value>, auto-positioning is disabled, and you need to position the popper manually.`
+                    desc: `Relative to what popper is positioned. If <code val>"xy"</code>, popper is positioned using <doc-param>clientX</doc-param> and <doc-param>clientY</doc-param> params. If an html element, popper is positioned relative to the element. If <code val>falsy</code>, auto-positioning is disabled, and you need to position the popper manually.`
                 },
                 {
                     name: 'placement', type: 'string', default: 'bottom-start',
                     desc: `Placement of the popper relative to the target element or coordinates. Available options:
-                        <doc-value>top</doc-value>,
-                        <doc-value>top-start</doc-value>,
-                        <doc-value>top-end</doc-value>,
-                        <doc-value>bottom</doc-value>,
-                        <doc-value>bottom-start</doc-value>,
-                        <doc-value>bottom-end</doc-value>,
-                        <doc-value>left</doc-value>,
-                        <doc-value>left-start</doc-value>,
-                        <doc-value>left-end</doc-value>,
-                        <doc-value>right</doc-value>,
-                        <doc-value>right-start</doc-value>,
-                        <doc-value>right-end</doc-value>.
+                        <code val>top</code>,
+                        <code val>top-start</code>,
+                        <code val>top-end</code>,
+                        <code val>bottom</code>,
+                        <code val>bottom-start</code>,
+                        <code val>bottom-end</code>,
+                        <code val>left</code>,
+                        <code val>left-start</code>,
+                        <code val>left-end</code>,
+                        <code val>right</code>,
+                        <code val>right-start</code>,
+                        <code val>right-end</code>.
                     `
                 },
                 {
@@ -77,7 +77,7 @@ export default {
                 },
                 {
                     name: 'backdrop', type: 'boolean', default: false,
-                    desc: `If <doc-value>true</doc-value>, popper is rendered with blocking backdrop. Clicking the backdrop emits <doc-event>close</doc-event> event.`
+                    desc: `If <code val>true</code>, popper is rendered with blocking backdrop. Clicking the backdrop emits <code event>close</code> event.`
                 },
                 {
                     name: 'background', type: 'string',

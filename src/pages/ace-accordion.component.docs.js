@@ -15,7 +15,7 @@ export default {
 
             <doc-desc>
                 <p>
-                    Use <doc-tag>ace-accordion</doc-tag> and <doc-tag>ace-accordion-item</doc-tag> to render a list of collapsible and expandable containers.
+                    Use <code tag>ace-accordion</code> to render a list of collapsible and expandable containers.
                 </p>
             </doc-desc>
 
@@ -23,14 +23,14 @@ export default {
                 :api="api">
             </doc-api>
 
-            <h2>Import</h2>
+            <h2>Usage</h2>
 
             <p>
-                Import accordion components and register them as global or local components.
+                Import all accordion component parts and register them as globally or locally. Render accordion with one or more accordion items inside.
             </p>
 
             <ace-codeblock
-                :code="code.import"
+                :code="code.usage"
                 lang="javascript">
             </ace-codeblock>
 
@@ -47,14 +47,24 @@ export default {
                 type: 'component',
                 params: [
                     {
-                        name: 'multiple', type: 'boolean', default: 'false',
+                        name: 'multiple', type: 'boolean', default: false,
                         desc: `If true, multiple items can be opened at the same time.`
                     }
                 ],
                 slots: [
                     {
                         name: 'default',
-                        desc: `Accordion items; one or more <doc-tag>ace-accordion-item</doc-tag> components.`
+                        desc: `Accordion items; one or more <code tag>ace-accordion-item</code> components.`
+                    }
+                ],
+                functions: [
+                    {
+                        name: 'closeAll()',
+                        desc: `Closes all accordion items.`
+                    },
+                    {
+                        name: 'openAll()',
+                        desc: `Opens all accordion items.`
                     }
                 ]
             },
@@ -63,31 +73,80 @@ export default {
                 type: 'component',
                 params: [
                     {
-                        name: 'open', type: 'boolean',
-                        desc: `If true, this item is initially opened when mounted in DOM.`
+                        name: 'header', type: 'string',
+                        desc: `Accordion item header text.`
                     },
+                    {
+                        name: 'disabled', type: 'boolean', default: false,
+                        desc: `If true, disables toggling of this item as well as all inputs/controls inside body.`
+                    },
+                    {
+                        name: 'expanded', type: 'boolean', default: false,
+                        desc: `If true, this item is initially opened.`
+                    }
                 ],
                 slots: [
                     {
-                        name: 'header',
-                        desc: `Accordion item header content.`
+                        name: 'default',
+                        desc: `Accordion header content using <code tag>ace-accordion-item-header</code>.`
                     },
                     {
                         name: 'body',
                         desc: `Accordion item body content.`
                     }
+                ],
+                functions: [
+                    {
+                        name: 'open()',
+                        desc: `Opens the accordion item.`
+                    },
+                    {
+                        name: 'close()',
+                        desc: `Closes the accordion item.`
+                    },
+                    {
+                        name: 'toggle()',
+                        desc: `Toggles the accordion item open/closed.`
+                    }
+                ]
+            },
+            {
+                name: `ace-accordion-item-header`,
+                type: 'component',
+                params: [
+                    {
+                        name: 'disabled', type: 'boolean', default: false,
+                        desc: `If true, disables toggling of this item.`
+                    }
+                ],
+                slots: [
+                    {
+                        name: 'default',
+                        desc: `Accordion item header content.`
+                    }
                 ]
             }
         ],
         code: {
-            import: `
-                import {AceAccordion, AceAccordionItem} from 'ace-accordion.component';
+            usage: `
+                import * as accordion from 'ace-accordion.component';
 
                 const MyComponent = {
                     components: {
-                        AceAccordion,
-                        AceAccordionItem
-                    }
+                        ...accordion
+                    },
+                    template: \`
+                        <ace-accordion>
+                            <ace-accordion-item>
+                                <ace-accordion-item-header>
+                                    This is header
+                                <ace-accordion-item-header>
+                                <template #body>
+                                    This is body
+                                </template>
+                            </ace-accordion-item>
+                        </ace-accordion>
+                    \`
                 }
             `
         },
@@ -97,10 +156,11 @@ export default {
                     {
                         template: \`
                             <ace-accordion>
-                                <ace-accordion-item v-for="item in items">
-                                    <template #header>
+                                <ace-accordion-item
+                                    v-for="item in items">
+                                    <ace-accordion-item-header>
                                         {{item.header}}
-                                    </template>
+                                    </ace-accordion-item-header>
                                     <template #body>
                                         {{item.body}}
                                     </template>

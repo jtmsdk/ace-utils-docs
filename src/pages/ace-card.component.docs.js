@@ -15,7 +15,7 @@ export default {
 
             <doc-desc>
                 <p>
-                    Use <doc-tag>ace-card</doc-tag> to render card containers. Cards are often clickable and display image in header area.
+                    Use <code tag>ace-card</code> to render card containers, which are often clickable and display images in header area.
                 </p>
             </doc-desc>
 
@@ -23,14 +23,14 @@ export default {
                 :api="api">
             </doc-api>
 
-            <h2>Import</h2>
+            <h2>Usage</h2>
 
             <p>
-                Import card and register it as global or local component.
+                Import card and register it globally or locally.
             </p>
 
             <ace-codeblock
-                :code="code.import"
+                :code="code.usage"
                 lang="javascript">
             </ace-codeblock>
 
@@ -46,8 +46,8 @@ export default {
             type: 'component',
             params: [
                 {
-                    name: 'imgsrc', type: 'string',
-                    desc: `Image <doc-value>src</doc-value> to show in card header.`
+                    name: 'image', type: 'string',
+                    desc: `Image <code val>src</code> to show in card header.`
                 },
                 {
                     name: 'action', type: 'function',
@@ -70,13 +70,19 @@ export default {
             ]
         },
         code: {
-            import: `
+            usage: `
                 import {AceCard} from 'ace-card.component';
 
                 const MyComponent = {
                     components: {
                         AceCard
-                    }
+                    },
+                    template: \`
+                        <ace-card
+                            image="my/image.jpg">
+                            <p>Card content goes here.</p>
+                        </ace-card>
+                    \`
                 };
             `,
         },
@@ -86,7 +92,7 @@ export default {
                     {
                         template: \`
                             <ace-card
-                                imgsrc="some/image.jpg"
+                                image="assets/img/coffee.jpg"
                                 style="width: 300px">
                                 <p>
                                     Lorem ipsum dolor sit amet, consectetur adipiscing 

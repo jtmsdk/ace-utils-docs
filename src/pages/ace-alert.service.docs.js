@@ -76,7 +76,7 @@ export default {
                         },
                         { 
                             name: 'autoclose', type: 'number, boolean', default: '5',
-                            desc: `Number of seconds until the alert is automatically closed, or <doc-value>false</doc-value> to disable auto-closing.`
+                            desc: `Number of seconds until the alert is automatically closed, or <code val>false</code> to disable auto-closing.`
                         }
                     ]
                 }, 

@@ -19,7 +19,7 @@ export default {
 
             <doc-desc>
                 <p>
-                    Use <doc-tag>ace-menu</doc-tag> to render a general purpose menu that contains one or more <doc-tag>ace-option</doc-tag> items. Used in navigation, context menus and drop menus.
+                    Use <code tag>ace-menu</code> to render a general purpose menu that contains one or more <code tag>ace-option</code> items. Used in navigation, context menus and drop menus.
                 </p>    
             </doc-desc>
 
@@ -48,7 +48,7 @@ export default {
                 events: [
                     {
                         name: 'option', value: 'any',
-                        desc: `Emitted when user selects an <doc-tag>ace-option</doc-tag> with <doc-param>value</doc-param>. The option <doc-param>value</doc-param> is emitted as <doc-value>$event</doc-value>.`
+                        desc: `Emitted when user selects an <code tag>ace-option</code> with <doc-param>value</doc-param>. The option <doc-param>value</doc-param> is emitted as <code val>$event</code>.`
                     },
                     {
                         name: 'focuswithinout',
@@ -105,7 +105,7 @@ export default {
                     }, 
                     {
                         name: 'value', type: 'any',
-                        desc: `Option value. If provided, this value is emitted in <doc-event>input</doc-event> event when this option is selected.`
+                        desc: `Option value. If provided, this value is emitted in <code event>input</code> event when this option is selected.`
                     }, 
                     {
                         name: 'icon', type: 'string',
@@ -125,7 +125,7 @@ export default {
                 events: [
                     {
                         name: 'option', value: 'any',
-                        desc: `Emitted when user selects this option (whether it has value or not). The option <doc-param>value</doc-param> is emitted as <doc-value>$event</doc-value>.`
+                        desc: `Emitted when user selects this option (whether it has value or not). The option <doc-param>value</doc-param> is emitted as <code val>$event</code>.`
                     }
                 ]
             }
@@ -135,7 +135,7 @@ export default {
                 name: 'Action items',
                 desc: `
                     <p>
-                        By default <doc-tag>ace-menu</doc-tag> is a list of options items with no additional built-in functionality.
+                        By default <code tag>ace-menu</code> is a list of options items with no additional built-in functionality.
                     </p>
                 `,
                 js: `
@@ -166,7 +166,7 @@ export default {
                 name: 'Selectable items',
                 desc: `
                     <p>
-                        Use boolean param <doc-param>selected</doc-param> to set an option selected. If <doc-param>value</doc-param> is provided for the option, both the menu component and the option itself will emit the selected value in <doc-event>option</doc-event> event. Try selecting a value and see console log.
+                        Use boolean param <doc-param>selected</doc-param> to set an option selected. If <doc-param>value</doc-param> is provided for the option, both the menu component and the option itself will emit the selected value in <code event>option</code> event. Try selecting a value and see console log.
                     </p>
                 `,
                 js: `
@@ -204,7 +204,7 @@ export default {
                 name: 'Headers and separators',
                 desc: `
                     <p>
-                        You can add <doc-tag>ace-option-header</doc-tag> headers and <doc-tag>hr</doc-tag> separator lines inside the menu.
+                        You can add <code tag>ace-option-header</code> headers and <code tag>hr</code> separator lines inside the menu.
                     </p>
                 `,
                 js: `
@@ -245,7 +245,7 @@ export default {
                 name: 'Option groups',
                 desc: `
                     <p>
-                        Options can be grouped under <doc-tag>ace-optiongroup</doc-tag> containers.
+                        Options can be grouped under <code tag>ace-optiongroup</code> containers.
                     </p>
                 `,
                 js: `

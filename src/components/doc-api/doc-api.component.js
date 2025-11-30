@@ -1,15 +1,7 @@
-import {AceAccordion, AceAccordionItem} from '@ace/components';
-import {AceTabs, AceTab} from '@ace/components';
 import {reactive} from 'vue';
 
 export const DocApi = {
     props: ['api'],
-    components: {
-        AceAccordion,
-        AceAccordionItem,
-        AceTabs,
-        AceTab
-    },
     computed: {
         apis() {
             let apis = reactive(Array.isArray(this.api) ? this.api : [this.api]);
@@ -25,12 +17,12 @@ export const DocApi = {
             <h2>API</h2>
             <ace-accordion>
                 <ace-accordion-item 
-                    v-for="a in apis" 
+                    v-for="a in apis"
                     :key="a.name"
                     :expanded="a.expanded">
 
-                    <template v-slot:header>
-                        <doc-tag v-if="a.type === 'component'">{{a.name}}</doc-tag>
+                    <ace-accordion-item-header>
+                        <code tag v-if="a.type === 'component'">{{a.name}}</code>
                         <doc-directive v-else-if="a.type === 'directive'">
                             {{a.name}}
                         </doc-directive>
@@ -44,7 +36,7 @@ export const DocApi = {
                             {{a.name}}: [ ... ]
                         </doc-param>
                         <doc-param v-else>{{a.name}}</doc-param>
-                    </template>
+                    </ace-accordion-item-header>
 
                     <template v-slot:body>
                         <doc-desc v-if="a.desc" 

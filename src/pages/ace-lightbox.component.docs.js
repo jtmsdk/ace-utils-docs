@@ -15,7 +15,7 @@ export default {
 
             <doc-desc>
                 <p>
-                    Use <doc-tag>ace-lightbox</doc-tag> to render a slide-show viewer for images and videos. Lightbox items can be provided with <doc-param>items</doc-param> param or using the default slot. See also <doc-link id="ace-lightbox.directive">lightbox directive</doc-link> for more convenient lightbox use.
+                    Use <code tag>ace-lightbox</code> to render a slide-show viewer for images and videos. Lightbox items can be provided with <doc-param>items</doc-param> param or using the default slot. See also <doc-link id="ace-lightbox.directive">lightbox directive</doc-link> for more convenient lightbox use.
                 </p>
             </doc-desc>
 
@@ -74,7 +74,7 @@ export default {
                     },
                     {
                         name: 'closeable', type: 'boolean', default: 'false',
-                        desc: `If <doc-value>true</doc-value>, a close button is displayed inside the lightbox. Once clicked, <doc-event>close</doc-event> event is emitted.` 
+                        desc: `If <code val>true</code>, a close button is displayed inside the lightbox. Once clicked, <code event>close</code> event is emitted.` 
                     }
                 ],
                 slots: [

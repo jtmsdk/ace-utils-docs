@@ -15,7 +15,7 @@ export default {
 
             <doc-desc>
                 <p>
-                    Use <doc-tag>ace-input</doc-tag> to render input fields. Supports all native input <a href="https://www.w3schools.com/html/html_form_input_types.asp">types</a>.
+                    Use <code tag>ace-input</code> to render input fields. Supports all native input <a href="https://www.w3schools.com/html/html_form_input_types.asp">types</a>.
                 </p>
                 <ul>
                     <li>
@@ -63,19 +63,19 @@ export default {
                 },
                 {
                     name: 'option', type: 'string|number|object',
-                    desc: `Option value, applicable when type is <doc-value>radio</doc-value>.` 
+                    desc: `Option value, applicable when type is <code val>radio</code>.` 
                 },
                 {
                     name: 'disabled', type: 'boolean',
-                    desc: `If <doc-value>true</doc-value>, sets the input in disabled state.`
+                    desc: `If <code val>true</code>, sets the input in disabled state.`
                 },
                 {
                     name: 'required', type: 'boolean',
-                    desc: `If <doc-value>true</doc-value>, makes the input value mandatory.`
+                    desc: `If <code val>true</code>, makes the input value mandatory.`
                 },
                 {
                     name: 'autocomplete', type: 'string',
-                    desc: `Browser autocomplete <doc-value>on</doc-value> or <doc-value>off</doc-value>.`
+                    desc: `Browser autocomplete <code val>on</code> or <code val>off</code>.`
                 },
                 {
                     name: 'placeholder', type: 'string',
@@ -152,7 +152,7 @@ export default {
                 `
             },
             {
-                name: 'Checkbox',
+                name: 'Checkbox input',
                 js: `
                     {
                         template: \`
@@ -176,7 +176,7 @@ export default {
                 `
             },
             {
-                name: 'Radio button',
+                name: 'Radio input',
                 js: `
                     {
                         template: \`
@@ -213,7 +213,7 @@ export default {
                 `
             },
             {
-                name: 'Color picker',
+                name: 'Color input',
                 js: `
                     {
                         template: \`
@@ -230,11 +230,12 @@ export default {
                 `
             },
             {
-                name: 'Range slider',
+                name: 'Range input',
                 js: `
                     {
                         template: \`
-                            <ace-input type="range"
+                            <ace-input 
+                                type="range"
                                 v-model="value">
                             </ace-input>
             
@@ -247,11 +248,12 @@ export default {
                 `
             },
             {
-                name: 'Date picker',
+                name: 'Date input',
                 js: `
                     {
                         template: \`
-                            <ace-input type="date"
+                            <ace-input 
+                                type="date"
                                 v-model="value">
                             </ace-input>
             
@@ -264,11 +266,12 @@ export default {
                 `
             },
             {
-                name: 'Time picker',
+                name: 'Time input',
                 js: `
                     {
                         template: \`
-                            <ace-input type="time"
+                            <ace-input 
+                                type="time"
                                 v-model="value">
                             </ace-input>
             
@@ -277,6 +280,24 @@ export default {
                         data: () => ({
                             value: null
                         })   
+                    }
+                `
+            },
+            {
+                name: 'Datetime input',
+                js: `
+                    {
+                        template: \`
+                            <ace-input 
+                                type="datetime-local"
+                                v-model="value">
+                            </ace-input>
+
+                            <p>value: {{''+value}}</p>
+                        \`,
+                        data: () => ({
+                            value: null
+                        })
                     }
                 `
             }

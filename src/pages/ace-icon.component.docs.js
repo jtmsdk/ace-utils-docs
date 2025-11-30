@@ -21,7 +21,7 @@ export default {
 
             <doc-desc>
                 <p>
-                    Use <doc-tag>${name}</doc-tag> to render an inline SVG icon by providing the target SVG file URL or embedded data URI.
+                    Use <code tag>${name}</code> to render an inline SVG icon by providing the target SVG file URL or embedded data URI.
                 </p>
 
                 <p>

@@ -23,7 +23,7 @@ export default {
 
             <doc-desc>
                 <p>
-                    Use <doc-tag>ace-select</doc-tag> to render a select input or a dropdown. Used for selecting value options or triggering actions from a list of available options.
+                    Use <code tag>ace-select</code> to render a select input or a dropdown. Used for selecting value options or triggering actions from a list of available options.
                 </p>
             </doc-desc>
 
@@ -69,19 +69,19 @@ export default {
                     },
                     {
                         name: 'optionicon', type: 'string', default: 'icon',
-                        desc: `Only applicable if options are objects. Defines which option property is shown as the option icon. If <doc-value>false</doc-value>, no icon is shown for the options.`
+                        desc: `Only applicable if options are objects. Defines which option property is shown as the option icon. If <code val>false</code>, no icon is shown for the options.`
                     },
                     {
                         name: 'clearable', type: 'boolean', default: true,
-                        desc: `If <doc-value>true</doc-value>, control for clearing the selected value is shown in the component.`
+                        desc: `If <code val>true</code>, control for clearing the selected value is shown in the component.`
                     },
                     {
                         name: 'disabled', type: 'boolean', default: false,
-                        desc: `If <doc-value>true</doc-value>, component is disabled.`
+                        desc: `If <code val>true</code>, component is disabled.`
                     },
                     {
                         name: 'required', type: 'boolean',
-                        desc: `If <doc-value>true</doc-value>, selecting a value is mandatory.`
+                        desc: `If <code val>true</code>, selecting a value is mandatory.`
                     }
                 ],
                 functions: [
@@ -101,7 +101,7 @@ export default {
                             desc: `Selected option.`
                         }, {
                             name: 'close', type: 'boolean', default: true,
-                            desc: `If <doc-value>true</doc-value>, select menu is closed after the selection.`
+                            desc: `If <code val>true</code>, select menu is closed after the selection.`
                         }]
                     }
                 ],
@@ -122,7 +122,7 @@ export default {
                 events: [
                     {
                         name: 'input', value: 'any',
-                        desc: `Emitted when user selects an option with the component. The selected option or optionvalue is passed as the <doc-value>$event</doc-value>.`
+                        desc: `Emitted when user selects an option with the component. The selected option or optionvalue is passed as the <code val>$event</code>.`
                     }
                 ]
             },
@@ -144,7 +144,7 @@ export default {
                     },
                     {
                         name: 'disabled', type: 'boolean',
-                        desc: `If <doc-value>true</doc-value>, option is disabled.`
+                        desc: `If <code val>true</code>, option is disabled.`
                     }
                 ]
             }

@@ -15,7 +15,7 @@ export default {
 
             <doc-desc>
                 <p>
-                    Use <doc-tag>ace-textarea</doc-tag> to render a multiline text input field.
+                    Use <code tag>ace-textarea</code> to render a multiline text input field.
                 </p>
             </doc-desc>
 
@@ -44,7 +44,7 @@ export default {
                 },
                 { 
                     name: 'autoresize', type: 'boolean', default: false, 
-                    desc: `If <doc-value>true</doc-value>, makes the component grow and shrink according to the text value height.`
+                    desc: `If <code val>true</code>, makes the component grow and shrink according to the text value height.`
                 },
                 {
                     name: 'minrows', type: 'number', default: 3,
@@ -60,15 +60,15 @@ export default {
                 },
                 {
                     name: 'spellcheck', type: 'boolean', default: 'true',
-                    desc: `If <doc-value>true</doc-value>, applies browser spellchecking for the text value.`
+                    desc: `If <code val>true</code>, applies browser spellchecking for the text value.`
                 },
                 {
                     name: 'disabled', type: 'boolean',
-                    desc: `If <doc-value>true</doc-value>, textarea is disabled.`
+                    desc: `If <code val>true</code>, textarea is disabled.`
                 },
                 {
                     name: 'required', type: 'boolean',
-                    desc: `If <doc-value>true</doc-value>, textarea value is mandatory.`
+                    desc: `If <code val>true</code>, textarea value is mandatory.`
                 }
             ],
             events: [

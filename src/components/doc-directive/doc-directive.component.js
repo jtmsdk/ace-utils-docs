@@ -6,7 +6,7 @@ export const DocDirective = {
     },
     template: `
         <span class="doc-directive">
-            <slot>{{name}}:{{arg}}="<doc-value>{{value}}</doc-value>"</slot>
+            <slot>{{name}}:{{arg}}="<code val>{{value}}</code>"</slot>
         </span>
     `
 };

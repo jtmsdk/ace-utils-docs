@@ -15,7 +15,7 @@ export default {
 
             <doc-desc>
                 <p>
-                    Use <doc-tag>ace-table</doc-tag> to render a table.
+                    Use <code tag>ace-table</code> to render a table.
                 </p>
             </doc-desc>
 
@@ -37,7 +37,7 @@ export default {
                 params: [
                     { 
                         name: 'striped', type: 'boolean', 
-                        desc: `If <doc-value>true</doc-value>, table is rendered with even-odd row colors.`
+                        desc: `If <code val>true</code>, table is rendered with even-odd row colors.`
                     }
                 ],
                 slots: [

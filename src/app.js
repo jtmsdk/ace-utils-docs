@@ -5,7 +5,6 @@ import * as ace from '@ace/index';
 import * as components from './components/index';
 import WelcomePage from './pages/doc-welcome.docs';
 
-
 const app = createSiteApp({
     globalComponents: {
         ...ace.components,

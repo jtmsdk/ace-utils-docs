@@ -15,7 +15,7 @@ export default {
 
             <doc-desc>
                 <p>
-                    Use <doc-tag>ace-search</doc-tag> to render a search field.
+                    Use <code tag>ace-search</code> to render a search field.
                 </p>
             </doc-desc>
 
@@ -40,7 +40,7 @@ export default {
                 },
                 { 
                     name: 'loading', type: 'boolean',
-                    desc: `If <doc-value>true</doc-value>, displays a load indicator.`
+                    desc: `If <code val>true</code>, displays a load indicator.`
                 },
                 {
                     name: 'placeholder', type: 'string',
@@ -52,13 +52,13 @@ export default {
                 },
                 {
                     name: 'disabled', type: 'boolean', default: false,
-                    desc: `If <doc-value>true</doc-value>, search field is disabled.`
+                    desc: `If <code val>true</code>, search field is disabled.`
                 }
             ],
             events: [
                 {
                     name: 'search', value: 'string',
-                    desc: `Emitted when user hits Enter key in the field. The field value is passed as the <doc-value>$event</doc-value>.`
+                    desc: `Emitted when user hits Enter key in the field. The field value is passed as the <code val>$event</code>.`
                 },
                 {
                     name: 'clear',

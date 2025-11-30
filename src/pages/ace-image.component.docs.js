@@ -18,7 +18,7 @@ export default {
 
             <doc-desc>
                 <p>
-                    Use <doc-tag>ace-image</doc-tag> to render an image.
+                    Use <code tag>ace-image</code> to render an image.
                 </p>
             </doc-desc>
 
@@ -47,7 +47,7 @@ export default {
                 },
                 {
                     name: 'loading', type: 'string', default: 'eager',
-                    desc: `Loading method of the image. By default <doc-value>eager</doc-value> meaning the image is loaded as soon as it is mounted. Use <doc-value>lazy</doc-value> to lazy-load the image.`
+                    desc: `Loading method of the image. By default <code val>eager</code> meaning the image is loaded as soon as it is mounted. Use <code val>lazy</code> to lazy-load the image.`
                 },
                 {
                     name: 'threshold', type: 'number', default: 0,
@@ -64,29 +64,29 @@ export default {
                 {
                     name: 'enter-effect', type: 'string',
                     desc: `Animation effect shown when image is mounted. Options:
-                        <doc-value>fadeincolor</doc-value>, 
-                        <doc-value>fadein</doc-value>
+                        <code val>fadeincolor</code>, 
+                        <code val>fadein</code>
                     `
                 },
                 {
                     name: 'object-fit', type: 'string',
                     desc: `CSS object-fit value. E.g.: 
-                        <doc-value>contain</doc-value>,
-                        <doc-value>cover</doc-value>,
-                        <doc-value>fill</doc-value>.
+                        <code val>contain</code>,
+                        <code val>cover</code>,
+                        <code val>fill</code>.
                     `
                 },
                 {
                     name: 'object-position', type: 'string',
                     desc: `CSS object-position value: x and y value pair. E.g.:
-                        <doc-value>50% 50%</doc-value>,
-                        <doc-value>center center</doc-value>,
-                        <doc-value>left center</doc-value>.
+                        <code val>50% 50%</code>,
+                        <code val>center center</code>,
+                        <code val>left center</code>.
                     `
                 },
                 {
                     name: 'placeholder', type: 'boolean', default: false,
-                    desc: `If <doc-value>true</doc-value>, placeholder is displayed while the image is loading.`
+                    desc: `If <code val>true</code>, placeholder is displayed while the image is loading.`
                 }
             ],
             events: [
@@ -105,7 +105,7 @@ export default {
                 name: 'Default use',
                 desc: `
                     <p>
-                        By default <doc-tag>ace-image</doc-tag> behaves just as native <doc-tag>img</doc-tag>: image loads eagerly and reserves the full size of the image up to the maximum size limited by parent container.
+                        By default <code tag>ace-image</code> behaves just as native <code tag>img</code>: image loads eagerly and reserves the full size of the image up to the maximum size limited by parent container.
                     </p>
                 `,
                 js: `

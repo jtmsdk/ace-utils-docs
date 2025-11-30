@@ -31,3 +31,27 @@ app {
         overflow: hidden;
     }
 }
+
+code {
+    &[val] {
+        color: var(--ace-doc-color-value);
+        font-style: italic;
+    }
+    &[event] {
+        color: var(--ace-doc-color-event);
+        background: transparent;
+        &:before {
+            content: "@";
+        }
+    }
+    &[tag] {
+        color: var(--ace-doc-color-tag);
+        background: transparent;
+        &:before {
+            content: "<";
+        }
+        &:after {
+            content: ">";
+        }
+    }
+}
