@@ -16,11 +16,9 @@ export default {
                 :meta="meta">
             </doc-meta>
             
-            <doc-desc>
-                <p>
-                    Use <doc-service>ace-alert.service</doc-service> for displaying <doc-link id="ace-alert.component">alert</doc-link> notifications programmatically. Alert notifications are used for action feedback and information tips.
-                </p>
-            </doc-desc>
+            <p>
+                Use <doc-service>ace-alert.service</doc-service> for displaying <doc-link id="ace-alert.component">alert</doc-link> notifications programmatically. Alert notifications are used for action feedback and information tips.
+            </p>
 
             <ace-codeblock 
                 :code="usage">

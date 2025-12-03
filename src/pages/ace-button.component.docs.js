@@ -18,9 +18,9 @@ export default {
                 :meta="meta">
             </doc-meta>
 
-            <doc-desc>
+            <p>
                 Use <code tag>ace-button</code> to render action buttons.
-            </doc-desc>
+            </p>
 
             <doc-api 
                 :api="api">
@@ -29,7 +29,7 @@ export default {
             <h2>Usage</h2>
 
             <p>
-                Import button and register it globally or locally. Render button, provide label with param or slot.
+                Import button and register it globally or locally. Place in template and and label with param or slot.
             </p>
 
             <ace-codeblock
@@ -187,7 +187,7 @@ export default {
                 `
             },
             {
-                name: 'Button sizes',
+                name: 'Button size',
                 js: `
                     {
                         template: \`
@@ -207,7 +207,6 @@ export default {
                                 <ace-button size="small">
                                     Small button
                                 </ace-button>
-                                
                             </div>
                         \`
                     }

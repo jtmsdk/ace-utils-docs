@@ -13,11 +13,9 @@ export default {
                 :meta="meta">
             </doc-meta>
 
-            <doc-desc>
-                <p>
-                    Use <code tag>ace-article</code> to render an article &mdash; a self contained document or post.
-                </p>
-            </doc-desc>
+            <p>
+                Use <code tag>ace-article</code> to render an article &mdash; a self contained document or post.
+            </p>
 
             <doc-api
                 :api="api">
@@ -26,7 +24,7 @@ export default {
             <h2>Usage</h2>
 
             <p>
-                Import article and register it globally or locally. Render article with meta data and content.
+                Import article and register it globally or locally. Place in template and provide metadata and content.
             </p>
 
             <ace-codeblock

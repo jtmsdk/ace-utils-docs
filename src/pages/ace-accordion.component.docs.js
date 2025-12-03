@@ -13,12 +13,10 @@ export default {
                 :meta="meta">
             </doc-meta>
 
-            <doc-desc>
-                <p>
-                    Use <code tag>ace-accordion</code> to render a list of collapsible and expandable containers.
-                </p>
-            </doc-desc>
-
+            <p>
+                Use <code tag>ace-accordion</code> to render a list of collapsible and expandable containers.
+            </p>
+   
             <doc-api
                 :api="api">
             </doc-api>
@@ -26,7 +24,7 @@ export default {
             <h2>Usage</h2>
 
             <p>
-                Import all accordion component parts and register them as globally or locally. Render accordion with one or more accordion items inside.
+                Import all accordion component parts and register them as globally or locally. Place in template and add one or more accordion items inside.
             </p>
 
             <ace-codeblock
@@ -147,7 +145,7 @@ export default {
                             </ace-accordion-item>
                         </ace-accordion>
                     \`
-                }
+                };
             `
         },
         examples: [

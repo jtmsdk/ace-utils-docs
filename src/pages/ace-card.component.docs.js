@@ -13,11 +13,9 @@ export default {
                 :meta="meta">
             </doc-meta>
 
-            <doc-desc>
-                <p>
-                    Use <code tag>ace-card</code> to render card containers, which are often clickable and display images in header area.
-                </p>
-            </doc-desc>
+            <p>
+                Use <code tag>ace-card</code> to render card containers, which are often clickable and display images in header area.
+            </p>
 
             <doc-api
                 :api="api">
@@ -26,7 +24,7 @@ export default {
             <h2>Usage</h2>
 
             <p>
-                Import card and register it globally or locally.
+                Import card and register it globally or locally. Place in template and add content with or without header image.
             </p>
 
             <ace-codeblock
@@ -37,6 +35,7 @@ export default {
             <doc-examples
                 :examples="examples">
             </doc-examples>
+
         </doc-page>
     `,
     data: () => ({
@@ -80,7 +79,7 @@ export default {
                     template: \`
                         <ace-card
                             image="my/image.jpg">
-                            <p>Card content goes here.</p>
+                            Content here
                         </ace-card>
                     \`
                 };

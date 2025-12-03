@@ -214,9 +214,9 @@ export default {
                         template: \`
                             <ace-select
                                 v-model="value">
-                                <ace-option-header>
+                                <ace-option-h>
                                     String values
-                                </ace-option-header>
+                                </ace-option-h>
                                 <ace-option value="First">
                                     This is <b>first</b>
                                 </ace-option>
@@ -226,9 +226,9 @@ export default {
                                 <ace-option value="Third">
                                     This is <b>third</b>
                                 </ace-option>
-                                <ace-option-header>
+                                <ace-option-h>
                                     Number values
-                                </ace-option-header>
+                                </ace-option-h>
                                 <ace-option :value="1">
                                     This is <b>1</b>
                                 </ace-option>

@@ -2,7 +2,7 @@ const meta = {
     id: 'ace-note.component',
     name: 'ace-note',
     title: 'Note',
-    desc: `Renders a highlighted block of content providing additional information.`
+    desc: `Renders a note block providing additional information.`
 };
 
 export default {
@@ -13,19 +13,28 @@ export default {
                 :meta="meta">
             </doc-meta>
 
-            <doc-desc>
-                <p>
-                    Use <code tag>ace-note</code> to render a block of content used for highlighting additional information regarding current context.
-                </p>
-            </doc-desc>
+            <p>
+                Use <code tag>ace-note</code> to render a highlighted block of content used for providing additional information.
+            </p>
 
             <doc-api
                 :api="api">
             </doc-api>
 
+            <h2>Usage</h2>
+
+            <p>
+                Import note and register it globally or locally. Place in template and add content with slot.
+            </p>
+
+            <ace-codeblock
+                :code="code.usage">
+            </ace-codeblock>
+
             <doc-examples
                 :examples="examples">
             </doc-examples>
+
         </doc-page>
     `,
     data: () => ({
@@ -46,15 +55,32 @@ export default {
                 }
             ]
         },
+        code: {
+            usage: `
+                import {AceNote} from 'ace-note.component';
+
+                const MyComponent = {
+                    components: {
+                        AceNote
+                    },
+                    template: \`
+                        <ace-note
+                            header="Hello there">
+                            <!-- Note content here -->
+                        </ace-note>
+                    \`
+                };
+            `
+        },
         examples: [
             {
                 js: `
                     {
                         template: \`
                             <ace-note
-                                header="For your information...">
+                                header="For your information">
                                 <p>
-                                    Note: this provides additional 
+                                    This provides additional 
                                     information for the current context.
                                     It is separated from the surrounding 
                                     text flow so that it can be understood 

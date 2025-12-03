@@ -19,41 +19,40 @@ export default {
                 :meta="meta">
             </doc-meta>
 
-            <doc-desc>
-                <p>
-                    Use <code tag>${name}</code> to render an inline SVG icon by providing the target SVG file URL or embedded data URI.
-                </p>
-
-                <p>
-                    Recommended approach is to load the icons during build, embedding them as inline data URIs in the compiled bundle. This ensures that the icons will be found in the build output, and that they render immediately, without needing to make additional network requests. This does, however, grow the bundle size.
-                </p>
-
-                <ace-codeblock
-                    :code="usage.bundler">
-                </ace-codeblock>
-
-                <p>
-                    Alternatively, icons can be loaded during runtime by providing the target SVG file URL. Successfully loaded icons are automatically cached, meaning consecutive instances render instantly.
-                </p>
-
-                <ace-codeblock
-                    :code="usage.runtime">
-                </ace-codeblock>
-
-                <p>
-                    Runtime icons can also be preloaded into cache. Once preloaded, icons will render instantly when mounted, even if the network connection would get lost.
-                </p>
-
-                <ace-codeblock
-                    :code="usage.preload">
-                </ace-codeblock>
-
-
-            </doc-desc>
+            <p>
+                Use <code tag>ace-icon</code> to render an inline SVG icon.
+            </p>
 
             <doc-api
                 :api="api">
             </doc-api>
+
+            <h2>Usage</h2>
+
+            <p>
+                Import icon and register it globally or locally. Place in template and provide the 
+                SVG icon <em>runtime</em> URL with <code param>src</code> param. While the icon is downloading, a placeholder is shown. Once the icon is downloaded, it will be cached so that subsequent renders are instant.
+            </p>
+
+            <ace-codeblock
+                :code="usage.usage">
+            </ace-codeblock>
+
+            <p>
+                If you're using a bundler (e.g. Vite), you can import icons directly in source code, which will automatically add the icon into the bundle, either as data URI (inline) or as a separate file in build output.
+            </p>
+
+            <ace-codeblock
+                :code="usage.bundler">
+            </ace-codeblock>
+
+            <p>
+                Runtime icons can also be preloaded into cache. If preloaded, icons will render instantly when they are mounted in DOM.
+            </p>
+
+            <ace-codeblock
+                :code="usage.preload">
+            </ace-codeblock>
 
             <doc-examples
                 :examples="examples">
@@ -64,36 +63,61 @@ export default {
     data: () => ({
         meta,
         usage: {
-            bundler: `
-                import myIcon from './my/assets/my-icon.svg?inline';
+            usage: `
+                import {AceIcon} from 'ace-icon.component';
 
-                export const MyComponent = {
+                const MyComponent = {
+                    components: {
+                        AceIcon 
+                    },
                     template: \`
-                        <ace-icon src="\${myIcon}"></ace-icon>
+                        <ace-icon 
+                            src="my/assets/my-icon.svg">
+                        </ace-icon>
                     \`
-                }
+                };
             `,
-            runtime: `
-                export const MyComponent = {
+            bundler: `
+                // Import icon as data URI (inline)
+                import myIcon1 from './my/assets/my-icon1.svg?inline';
+                // Import icon URL and add the file into bundle
+                import myIcon2 from './my/assets/my-icon2.svg?no-inline';
+
+                const MyComponent = {
+                    components: {
+                        AceIcon 
+                    },
                     template: \`
-                        <ace-icon src="my/assets/my-icon.svg"></ace-icon>
+                        <ace-icon 
+                            src="\${myIcon1}">
+                        </ace-icon>
+                        <ace-icon 
+                            src="\${myIcon2}">
+                        </ace-icon>
                     \`
-                }
+                };
             `,
             preload: `
-                import {loadIcons} from '@ace/services/ace-icon.service';
+                import {AceIcon} from 'ace-icon.component';
+                import {loadIcons} from 'ace-icon.service';
 
+                // Preload icons into cache
                 loadIcons([
                     'my/assets/my-icon-1.svg', 
                     'my/assets/my-icon-2.svg'
                 ]);
 
-                export const MyComponent = {
+                const MyComponent = {
+                    components: {
+                        AceIcon 
+                    },
                     template: \`
-                        <!-- This will now render from preloaded cache -->
-                        <ace-icon src="my/assets/my-icon-1.svg"></ace-icon>
+                        <!-- Loads from cache -->
+                        <ace-icon 
+                            src="my/assets/my-icon-1.svg">
+                        </ace-icon>
                     \`
-                }
+                };
             `
         },
         api: {
@@ -102,7 +126,7 @@ export default {
             params: [
                 {
                     name: 'src', type: 'string',
-                    desc: `Target SVG file URL or embedded data URI.`
+                    desc: `Target SVG file URL or data URI.`
                 },
                 { 
                     name: 'size', type: 'string', default: '1em',
@@ -120,9 +144,15 @@ export default {
                 js: `
                     {
                         template: \`
-                            <ace-icon src="${attachIcon}"></ace-icon>
-                            <ace-icon src="${commentInverseIcon}"></ace-icon>
-                            <ace-icon src="${cameraInverseIcon}"></ace-icon>
+                            <ace-icon 
+                                src="${attachIcon}">
+                            </ace-icon>
+                            <ace-icon 
+                                src="${commentInverseIcon}">
+                            </ace-icon>
+                            <ace-icon 
+                                src="${cameraInverseIcon}">
+                            </ace-icon>
                         \`
                     }
                     
@@ -153,13 +183,19 @@ export default {
                     {
                         template: \`
                             <ace-icon 
-                                src="${youtubeIcon}" size="34px" color="#ffa500">
+                                src="${youtubeIcon}" 
+                                size="34px" 
+                                color="red">
                             </ace-icon>
                             <ace-icon 
-                                src="${youtubeIcon}" size="34px" color="red">
+                                src="${youtubeIcon}" 
+                                size="34px" 
+                                color="green">
                             </ace-icon>
                             <ace-icon 
-                                src="${youtubeIcon}" size="34px" color="rgb(46, 184, 46)">
+                                src="${youtubeIcon}" 
+                                size="34px" 
+                                color="orange">
                             </ace-icon>
                         \`
                     }

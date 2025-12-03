@@ -13,11 +13,9 @@ export default {
                 :meta="meta">
             </doc-meta>
 
-            <doc-desc>
-                <p>
-                    Use <code tag>ace-alert</code> to render notifications or alerts that draw user attention. See <doc-link id="ace-alert.service">alert service</doc-link> for programmatic use.
-                </p>
-            </doc-desc>
+            <p>
+                Use <code tag>ace-alert</code> to render notifications or alerts that draw user attention. See <doc-link id="ace-alert.service">alert service</doc-link> for programmatic use.
+            </p>
 
             <doc-api
                 :api="api">
@@ -26,7 +24,7 @@ export default {
             <h2>Usage</h2>
 
             <p>
-                Import alert and register it globally or locally. Render component and provide content with params or slots.
+                Import alert and register it globally or locally. Place in template and add content with params or slots.
             </p>
 
             <ace-codeblock
@@ -112,7 +110,7 @@ export default {
                             </template>
                         </ace-alert>
                     \`
-                }
+                };
             `
         },
         examples: [

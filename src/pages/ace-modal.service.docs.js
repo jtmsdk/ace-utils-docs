@@ -19,12 +19,10 @@ export default {
             <doc-meta
                 :meta="meta">
             </doc-meta>
-
-            <doc-desc>
-                <p>
-                    Use <doc-service>ace-modal.service</doc-service> for opening <doc-link id="ace-modal.component">modal</doc-link> instances programmatically, directly from/within application logic without having to place them in any template.
-                </p>
-            </doc-desc>
+            
+            <p>
+                Use <doc-service>ace-modal.service</doc-service> for opening <doc-link id="ace-modal.component">modal</doc-link> instances programmatically, directly from/within application logic without having to place them in any template.
+            </p>
 
             <ace-codeblock 
                 :code="usage">

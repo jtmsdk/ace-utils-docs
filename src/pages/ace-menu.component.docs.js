@@ -17,19 +17,28 @@ export default {
                 :meta="meta">
             </doc-meta>
 
-            <doc-desc>
-                <p>
-                    Use <code tag>ace-menu</code> to render a general purpose menu that contains one or more <code tag>ace-option</code> items. Used in navigation, context menus and drop menus.
-                </p>    
-            </doc-desc>
+            <p>
+                Use <code tag>ace-menu</code> to render a general purpose menu that contains one or more <code tag>ace-option</code> items.
+            </p>    
 
             <doc-api
                 :api="api">
             </doc-api>
 
+            <h2>Usage</h2>
+
+            <p>
+                Import menu component parts and register them globally or locally. Place in template and add <code tag>ace-option</code> items inside.
+            </p>
+
+            <ace-codeblock
+                :code="code.usage">
+            </ace-codeblock>
+
             <doc-examples
                 :examples="examples">
             </doc-examples>
+            
         </doc-page>
     `,
     data: () => ({
@@ -38,17 +47,17 @@ export default {
             {
                 name: 'ace-menu',
                 type: 'component',
-                desc: `<p>Renders the menu root component inside which all of the following components below can be added.</p>`,
+                desc: `<p>Renders the menu root component, inside which all of the options, headers and option groups are added.</p>`,
                 slots: [
                     {
                         name: 'default',
-                        desc: `Menu body content.`
+                        desc: `Menu body content; options, headers and option groups.`
                     }
                 ],
                 events: [
                     {
                         name: 'option', value: 'any',
-                        desc: `Emitted when user selects an <code tag>ace-option</code> with <doc-param>value</doc-param>. The option <doc-param>value</doc-param> is emitted as <code val>$event</code>.`
+                        desc: `Emitted when user selects an <code tag>ace-option</code> with <code param>value</code>. The option <code param>value</code> is emitted as <code val>$event</code>.`
                     },
                     {
                         name: 'focuswithinout',
@@ -57,7 +66,7 @@ export default {
                 ]
             },
             {
-                name: 'ace-option-header',
+                name: 'ace-option-h',
                 type: 'component',
                 desc: `<p>Renders a menu header element.</p>`,
                 slots: [
@@ -80,16 +89,16 @@ export default {
                 slots: [
                     {
                         name: 'default',
-                        desc: `Group content.`
+                        desc: `Group content; options and headers.`
                     }
                 ],
                 functions: [
                     {
-                        name: 'open',
+                        name: 'open()',
                         desc: `Opens the option group.`
                     },
                     {
-                        name: 'close',
+                        name: 'close()',
                         desc: `Closes the option group.`
                     }
                 ]
@@ -105,11 +114,15 @@ export default {
                     }, 
                     {
                         name: 'value', type: 'any',
-                        desc: `Option value. If provided, this value is emitted in <code event>input</code> event when this option is selected.`
+                        desc: `Option value. If provided, this value is emitted in <code event>option</code> event when this option is selected.`
                     }, 
                     {
+                        name: 'selected', type: 'boolean', default: 'false',
+                        desc: `If <code val>true</code>, option is rendered in selected state.`
+                    },
+                    {
                         name: 'icon', type: 'string',
-                        desc: `Optional icon (icon name) to display for the option.`
+                        desc: `Optional icon <code param>src</code> to display for the option.`
                     }, 
                     {
                         name: 'iconsize', type: 'string',
@@ -130,12 +143,36 @@ export default {
                 ]
             }
         ],
+        code: {
+            usage: `
+                import * as menu from 'ace-menu.component';
+
+                const MyComponent = {
+                    components: {
+                        ...menu
+                    },
+                    template: \`
+                        <ace-menu>
+                            <ace-option value="1">
+                                Option 1
+                            </ace-option>
+                            <ace-option value="2">
+                                Option 2
+                            </ace-option>
+                            <ace-option value="3">
+                                Option 3
+                            </ace-option>
+                        </ace-menu>
+                    \`
+                };
+            `,
+        },
         examples: [
             {
                 name: 'Action items',
                 desc: `
                     <p>
-                        By default <code tag>ace-menu</code> is a list of options items with no additional built-in functionality.
+                        By default <code tag>ace-menu</code> is a list of options items with no built-in functionality. Just like with any elements, you can bind click etc. handlers for the options elements.
                     </p>
                 `,
                 js: `
@@ -144,21 +181,26 @@ export default {
                             <ace-menu>
                                 <ace-option 
                                     icon="${downloadIcon}"
-                                    value="1">
+                                    @click="handle('Download')">
                                     Download
                                 </ace-option>
                                 <ace-option 
                                     icon="${shareIcon}"
-                                    value="2">
+                                    @click="handle('Share')">
                                     Share
                                 </ace-option>
                                 <ace-option 
                                     icon="${removeIcon}"
-                                    value="3">
+                                    @click="handle('Remove')">
                                     Remove
                                 </ace-option>
                             </ace-menu>
-                        \`
+                        \`,
+                        methods: {
+                            handle(e) {
+                                window.alert('Action: ' + e);
+                            }
+                        }
                     }
                 `
             },
@@ -166,16 +208,17 @@ export default {
                 name: 'Selectable items',
                 desc: `
                     <p>
-                        Use boolean param <doc-param>selected</doc-param> to set an option selected. If <doc-param>value</doc-param> is provided for the option, both the menu component and the option itself will emit the selected value in <code event>option</code> event. Try selecting a value and see console log.
+                        Use boolean param <code param>selected</code> to set option selected. If <code param>value</code> is provided for the option, both the menu component and the option will emit selected option value in <code event>option</code> event. Try selecting a value and see console log.
                     </p>
                 `,
                 js: `
                     {
                         template: \`
                             <ace-menu
-                                @option="handle($event)">
+                                @option="handle($event, 'from menu')">
                                 <ace-option 
                                     v-for="option in options"
+                                    @option="handle($event, 'from option')"
                                     :selected="option.value === selected"
                                     :value="option.value">
                                     {{option.label}}
@@ -185,16 +228,16 @@ export default {
                         data: () => ({
                             selected: null,
                             options: [
-                                {label: 'First option', value: 1},
-                                {label: 'Second option', value: 2},
-                                {label: 'Third option', value: 3},
-                                {label: 'Fourth option', value: 4}
+                                {label: 'Select option 1', value: 1},
+                                {label: 'Select option 2', value: 2},
+                                {label: 'Select option 3', value: 3},
+                                {label: 'Select option 4', value: 4}
                             ]
                         }),
                         methods: {
-                            handle(event) {
-                                console.log('Option value', event);
-                                this.selected = event;
+                            handle(option, ...args) {
+                                console.log(option, ...args);
+                                this.selected = option;
                             }
                         }
                     }
@@ -204,25 +247,25 @@ export default {
                 name: 'Headers and separators',
                 desc: `
                     <p>
-                        You can add <code tag>ace-option-header</code> headers and <code tag>hr</code> separator lines inside the menu.
+                        You can add <code tag>ace-option-h</code> headers and <code tag>hr</code> separator lines inside the menu.
                     </p>
                 `,
                 js: `
                     {
                         template: \`
                             <ace-menu>
-                                <ace-option-header>
+                                <ace-option-h>
                                     Option set 1
-                                </ace-option-header>
+                                </ace-option-h>
                                 <ace-option>
                                     Some option 1
                                 </ace-option>
                                 <ace-option>
                                     Some option 2
                                 </ace-option>
-                                <ace-option-header>
+                                <ace-option-h>
                                     Option set 2
-                                </ace-option-header>
+                                </ace-option-h>
                                 <ace-option>
                                     Some option 1
                                 </ace-option>
@@ -245,7 +288,7 @@ export default {
                 name: 'Option groups',
                 desc: `
                     <p>
-                        Options can be grouped under <code tag>ace-optiongroup</code> containers.
+                        Options can be grouped under <code tag>ace-optiongroup</code> containers, which results in collapsible groups with headers.
                     </p>
                 `,
                 js: `

@@ -8,29 +8,37 @@ const meta = {
 export default {
     meta,
     template: `
-        <doc-page>
+        <doc-page
+            style="padding-bottom: 60vh">
+
             <doc-meta
                 :meta="meta">
             </doc-meta>
 
-            <doc-desc>
-                <p>
-                    Use <code tag>ace-parallax</code> to render a parallax-scrolling container. Uses CSS 3D transforms and animation frames for performant effect. 
-                </p>
-            </doc-desc>
+            <p>
+                Use <code tag>ace-parallax</code> to render a parallax-scrolling container. Uses CSS 3D transforms and animation frames for performant effect. 
+            </p>
 
             <doc-api
                 :api="api">
             </doc-api>
 
+            <h2>Usage</h2>
+
+            <p>
+                Import parallax and parallax-layer components and register them globally or locally. Place parallax-layers inside the parallax container, and use layer <code param>scrollfactor</code> params to tweak the effect.
+            </p>
+
+            <ace-codeblock
+                :code="code.usage">
+            </ace-codeblock>
+
             <doc-examples
                 :examples="examples">
             </doc-examples>
+
         </doc-page>
     `,
-    mounted() {
-        this.$el.parentElement.style.paddingBottom = '60vh';
-    },
     data: () => ({
         meta,
         api: [
@@ -71,7 +79,7 @@ export default {
                                     <code val>-0.5</code> = the layer moves at 50% of the scrolling speed &mdash; to the opposite direction of scrolling.
                                 </li>
                                 <li>
-                                    <code val>1</code> = the layer moves at the same rate with scrolling, making it look like the layer is fixed scroll container. Similar in behavior as <code>background-attachment: fixed;</code> CSS rule.
+                                    <code val>1</code> = the layer moves at the same rate with scrolling, making it look like the layer is fixed scroll container. Similar in behavior as <code>background-attachment: fixed</code> CSS rule.
                                 </li>
                             </ul>
                         `
@@ -85,11 +93,31 @@ export default {
                 ]
             }
         ],
+        code: {
+            usage: `
+                import * as parallax from 'ace-parallax.component';
+
+                const MyComponent = {
+                    components: {
+                        ...parallax
+                    },
+                    template: \`
+                        <ace-parallax 
+                            target="#scrolling-container"
+                            style="height: 400px">
+                            <ace-parallax-layer>
+                                <!-- layer content here -->
+                            </ace-parallax-layer>
+                        </ace-parallax>
+                    \`
+                };
+            `
+        },
         examples: [
             {
                 desc: `
                     <p>
-                        This example demonstrates parallax effect with different <doc-param>scrollfactors</doc-param>. The <doc-param>target</doc-param> of the component is bound to <code val>main</code>, which is the scrolling container on this page. You can place any content onto the parallax layers, altough typically that would be images.
+                        This example demonstrates parallax effect with different <code param>scrollfactors</code>. The <code param>target</code> of the component is bound to <code val>main</code>, which is the scrolling container on this page. You can place any content onto the parallax layers, altough typically that would be images.
                     </p>
                     <p>
                         Notice that the parallax container is <b>500px high</b>, and the image inside is intentionally made <b>higher</b>. This is necessary for the image to fill the entire parallax container view even when it has been moved (=translated on Y-axis) up or down from its original position.

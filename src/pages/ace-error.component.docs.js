@@ -13,19 +13,28 @@ export default {
                 :meta="meta">
             </doc-meta>
 
-            <doc-desc>
-                <p>
-                    Use <code tag>ace-error</code> to render error messages. Used mainly on error pages.
-                </p>
-            </doc-desc>
+            <p>
+                Use <code tag>ace-error</code> to render error messages.
+            </p>
 
             <doc-api
                 :api="api">
             </doc-api>
 
+            <h2>Usage</h2>
+
+            <p>
+                Import error component and register it globally or locally. Place in template and provide the <code>Error</code> object as param.
+            </p>
+
+            <ace-codeblock
+                :code="code.usage">
+            </ace-codeblock>
+
             <doc-examples
                 :examples="examples">
             </doc-examples>
+
         </doc-page>
     `,
     data: () => ({
@@ -35,10 +44,26 @@ export default {
             type: 'component',
             params: [
                 {
-                    name: 'error', type: 'object', default: '404-error',
+                    name: 'error', type: 'Error', default: '404-error',
                     desc: `The error object, expected to contain <code val>name</code>, <code val>status</code> and <code val>message</code>. If not provided, a generic 404 Not Found -error is used as default.`
                 }
             ],
+        },
+        code: {
+            usage: `
+                import {AceError} from 'ace-error.component';
+
+                const MyComponent = {
+                    components: {
+                        AceError
+                    },
+                    template: \`
+                        <ace-error
+                            :error="error">
+                        </ace-error>
+                    \`
+                };
+            `
         },
         examples: [
             {

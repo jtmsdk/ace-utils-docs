@@ -13,15 +13,23 @@ export default {
                 :meta="meta">
             </doc-meta>
 
-            <doc-desc>
-                <p>
-                    Use <code tag>ace-dialog</code> to render a dialog element. Used mainly in combination with <doc-link id="ace-modal.component">modal</doc-link> to create modal dialogs.
-                </p>
-            </doc-desc>
+            <p>
+                Use <code tag>ace-dialog</code> to render a dialog element &mdash; not to be confused with native <code tag>dialog</code>. This is normal block element that is intended as the content for native dialogs or <doc-link id="ace-modal.component">modals</doc-link>.
+            </p>
 
             <doc-api 
                 :api="api">
             </doc-api>
+
+            <h2>Usage</h2>
+
+            <p>
+                Import dialog and register it globally or locally. Place in template and provide content using slots or params.
+            </p>
+
+            <ace-codeblock
+                :code="code.usage">
+            </ace-codeblock>
 
             <doc-examples
                 :examples="examples">
@@ -37,17 +45,17 @@ export default {
                 { 
                     name: 'type', type: 'string', 
                     desc: `Dialog type:
+                        <code val>default</code>,
                         <code val>confirm</code>,
                         <code val>info</code>,
                         <code val>success</code>,
                         <code val>warning</code>,
-                        <code val>critical</code>
+                        <code val>critical</code>. If not provided, uses default type.
                     ` 
                 },
                 {
-                    name: 'size', type: 'string', default: 'auto',
+                    name: 'size', type: 'string', default: null,
                     desc: `Dialog size. Accepts following value options:
-                    <code val>auto</code>,
                     <code val>small</code>,
                     <code val>medium</code>,
                     <code val>large</code>,
@@ -85,9 +93,36 @@ export default {
                 },
                 {
                     name: 'default',
-                    desc: `Dialog root content.`
+                    desc: `Dialog root element content; for providing complete custom content structure.`
                 }
             ]
+        },
+        code: {
+            usage: `
+                import {AceDialog} from 'ace-dialog.component';
+
+                const MyComponent = {
+                    components: {
+                        AceDialog
+                    },
+                    template: \`
+                        <ace-dialog
+                            type="info">
+                            <template #header>
+                                This is header
+                            </template>
+                            <template #body>
+                                This is body
+                            </template>
+                            <template #footer>
+                                <ace-button>
+                                    Close
+                                </ace-button>
+                            </template>
+                        </ace-dialog>
+                    \`
+                };
+            `,
         },
         examples: [
             {
@@ -97,19 +132,10 @@ export default {
                         template: \`
                             <ace-dialog 
                                 v-for="type in types"
-                                :type="type">
-                                <template v-slot:header>
-                                    This is {{type}} dialog
-                                </template>
-                                <template v-slot:body>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                </template>
-                                <template v-slot:footer>
-                                    <ace-button
-                                        primary>
-                                        Close
-                                    </ace-button>
-                                </template>
+                                :type="type"
+                                header="This is header"
+                                body="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                                :buttons="[{label: 'Close', primary: true}]">
                             </ace-dialog>
                         \`,
                         data: () => ({
@@ -134,7 +160,7 @@ export default {
                 name: 'Dialog size',
                 desc: `
                     <p>
-                        Use <doc-param>size</doc-param> to render dialog in fixed size options. Notice that dialog max-width is always limited by the parent container. For custom sizing, modify the dialog <doc-param>style</doc-param> directly.
+                        Use <code param>size</code> to render dialog in fixed size options. Notice that dialog max-width is always limited by the parent container. For custom sizing, modify the dialog <code param>style</code> (width, height) directly.
                     </p>
                 `,
                 js: `

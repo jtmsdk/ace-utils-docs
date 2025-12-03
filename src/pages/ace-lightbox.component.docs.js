@@ -2,7 +2,7 @@ const meta = {
     id: 'ace-lightbox.component',
     name: 'ace-lightbox',
     title: 'Lightbox',
-    desc: `Renders a slide-show image viewer.`
+    desc: `Renders a slide-show viewer for media.`
 };
 
 export default {
@@ -13,52 +13,40 @@ export default {
                 :meta="meta">
             </doc-meta>
 
-            <doc-desc>
-                <p>
-                    Use <code tag>ace-lightbox</code> to render a slide-show viewer for images and videos. Lightbox items can be provided with <doc-param>items</doc-param> param or using the default slot. See also <doc-link id="ace-lightbox.directive">lightbox directive</doc-link> for more convenient lightbox use.
-                </p>
-            </doc-desc>
-
-            <ace-codeblock
-                header="Items param"
-                :code="usage">
-            </ace-codeblock>
+            <p>
+                Use <code tag>ace-lightbox</code> to render a slide-show viewer for images, videos or custom content.
+            </p>
 
             <doc-api
                 :api="api">
             </doc-api>
 
+            <h2>Usage</h2>
+
+            <p>
+                Import lightbox and register it globally or locally. Place in template and provide content with <code param>items</code> param or default slot.
+            </p>
+
+            <ace-codeblock
+                :code="code.usage">
+            </ace-codeblock>
+
+            <p>
+                If <code param>items</code> param is used, each item can be a href, or an object containing item details.
+            </p>
+
+            <ace-codeblock
+                :code="code.items">
+            </ace-codeblock>
+
             <doc-examples
                 :examples="examples">
             </doc-examples>
+
         </doc-page>
     `,
     data: () => ({
         meta,
-        usage: `
-            // In most simple case, the items can be plain 
-            // href-strings for media.
-            items = [
-                'my/image1.jpg', 
-                'my/image2.jpg'
-            ];
-
-            // However, you can provide also the id, alt, title 
-            // and caption for the items. See the  items API above 
-            // for all possible values.
-            items = [
-                {id: 1, title: '...', href: 'my/image1.jpg', ...},
-                {id: 2, title: '...', href: 'my/image2.jpg', ...}
-            ];
-
-            // Items can also be provided as components. 
-            // This approach allows you to inject custom content 
-            // into the lightbox.
-            items = [ 
-                {id: 1, title: '...', component: {...}},
-                {id: 2, title: '...', component: {...}}
-            ];
-        `,
         api: [
             {
                 name: 'ace-lightbox',
@@ -66,22 +54,25 @@ export default {
                 params: [
                     {
                         name: 'items', type: 'array',
-                        desc: `Array of objects describing the images to be shown in the lightbox. See <doc-param>item</doc-param> API below to see what parameters each item object can have.`
+                        desc: `Array of objects describing the content to be shown in lightbox. See <code param>items</code> API below to which properties items can have.`
                     },
                     {
                         name: 'item', type: 'object, string, number', default: 'items[0]',
-                        desc: `The item to display as pre-selected in lightbox. Can be the item itself, item ID or the item index. If not provided, the first item (index 0) is selected.`
+                        desc: `The item to display as initially selected. Can be the item object itself, item ID or the index. If not provided, the first item (index 0) is selected.`
                     },
                     {
                         name: 'closeable', type: 'boolean', default: 'false',
                         desc: `If <code val>true</code>, a close button is displayed inside the lightbox. Once clicked, <code event>close</code> event is emitted.` 
+                    },
+                    {
+                        name: 'keyboard', type: 'boolean', default: 'false',
+                        desc: `If <code val>true</code>, the lightbox can be controlled with keyboard arrows (left/right to navigate slides) and esc to close.`
                     }
                 ],
                 slots: [
                     {
                         name: 'default',
-                        desc: `The lighbox content of one or more <doc-link id="ace-image.component">images</doc-link>. Alternative way to provide the lighbox content (overrides the <doc-param>items</doc-param> param).
-                        Each image can have params listed in the <doc-param>item</doc-param> API below.`
+                        desc: `The lighbox content, each child representing one slide. Alternative way to provide the lighbox content, overrides the <code param>items</code> param.`
                     }
                 ],
                 events: [
@@ -116,12 +107,52 @@ export default {
                     },
                     {
                         name: 'component', type: 'object',
-                        desc: `A component object to be rendered as the lightbox item. If provided, overrides other item params.`
+                        desc: `A component object to be rendered as the lightbox item.`
                     }
                 ]
             }
     
         ],
+        code: {
+            usage: `
+                import {AceLightbox} from 'ace-lightbox.component';
+
+                const MyComponent = {
+                    components: {
+                        AceLightbox
+                    },
+                    template: \`
+                        <ace-lightbox
+                            :items="items">
+                        </ace-lightbox>
+                    \`
+                };
+            `,
+            items: `
+                // In most simple case, the items can be plain 
+                // href-strings for media.
+                items = [
+                    'my/image1.jpg', 
+                    'my/image2.jpg'
+                ];
+
+                // However, you can provide also the id, alt, title 
+                // and caption for the items. See the  items API above 
+                // for all possible values.
+                items = [
+                    {id: 1, title: '...', href: 'my/image1.jpg', ...},
+                    {id: 2, title: '...', href: 'my/image2.jpg', ...}
+                ];
+
+                // Items can also be provided as components. 
+                // This approach allows you to inject custom content 
+                // into the lightbox.
+                items = [ 
+                    {id: 1, title: '...', component: {...}},
+                    {id: 2, title: '...', component: {...}}
+                ];
+            `,
+        },
         examples: [
             {
                 desc: `

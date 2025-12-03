@@ -13,11 +13,9 @@ export default {
                 :meta="meta">
             </doc-meta>
 
-            <doc-desc>
-                <p>
-                    Use <code tag>ace-popper</code> to render non-blocking popup content, such as tooltips and popovers. Allows positioning the popups relative to other elements or viewport coordinates.
-                </p>
-            </doc-desc>
+            <p>
+                Use <code tag>ace-popper</code> to render non-blocking popup content, such as tooltips and popovers. Allows positioning the popups relative to other elements or viewport coordinates.
+            </p>
 
             <doc-api
                 :api="api">

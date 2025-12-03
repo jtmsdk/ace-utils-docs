@@ -13,19 +13,28 @@ export default {
                 :meta="meta">
             </doc-meta>
 
-            <doc-desc>
-                <p>
-                    Use <code tag>ace-link</code> to render hyperlinks and router-links.
-                </p>
-            </doc-desc>
+            <p>
+                Use <code tag>ace-link</code> to render hyperlinks and router-links.
+            </p>
 
             <doc-api
                 :api="api">
             </doc-api>
+
+            <h2>Usage</h2>
+
+            <p>
+                Import link and register it globally or locally. Place in template and provide either <code param>to</code>, <code param>href</code> or <code param>hash</code> param to define the link target.
+            </p>
+
+            <ace-codeblock
+                :code="code.usage">
+            </ace-codeblock>
             
             <doc-examples
                 :examples="examples">
             </doc-examples>
+
         </doc-page>
     `,
     data: () => ({
@@ -77,12 +86,29 @@ export default {
                 }
             ]
         },
+        code: {
+            usage: `
+                import {AceLink} from 'ace-link.component';
+              
+                const MyComponent = {
+                    components: {
+                        AceLink
+                    },
+                    template: \`
+                        <ace-link
+                            href="https://www.example.com">
+                            Example Link
+                        </ace-link>
+                    \`
+                };
+            `,
+        },
         examples: [
             {
                 name: 'Router-links',
                 desc: `
                     <p>
-                        Provide <doc-param>to</doc-param> param in order to render a Vue <code tag>router-link</code>. Router-links are used for navigating inside current app views. Router-links take into account current hash mode and/or HTML5 history mode and route the application accordingly without reloading the page.
+                        Provide <code param>to</code> param to render <code tag>router-link</code>. Router-links are used for navigating inside current SPA. Router-links take into account current hash mode and/or HTML5 history mode and route the application accordingly without reloading the page.
                     </p>
                 `,
                 js: `
@@ -100,7 +126,7 @@ export default {
                 name: 'Hyper-links',
                 desc: `
                     <p>
-                        Provide <doc-param>href</doc-param> param to render a regular <code tag>a</code> hyperlink. Hyperlinks are used for navigating or loading resources outside of the current app or site.
+                        Provide <code param>href</code> param to render a regular <code tag>a</code> hyperlink. Hyperlinks are used for navigating or loading resources outside of the current app.
                     </p>
                 `,
                 js: `
@@ -116,6 +142,11 @@ export default {
             },
             {
                 name: 'Disabled',
+                desc: `
+                    <p>
+                        Links can be disabled with <code param>disabled</code> param.
+                    </p>
+                `,
                 js: `
                     {
                         template: \`

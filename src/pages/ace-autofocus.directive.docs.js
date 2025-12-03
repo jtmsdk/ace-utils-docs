@@ -13,15 +13,14 @@ export default {
                 :meta="meta">
             </doc-meta>
 
-            <doc-desc>
-                <p>
-                    Use <doc-directive>v-ace-autofocus</doc-directive> directive to set focus into the target element or &mdash; if it cannot be focused &mdash; to the first focusable element inside it. The directive has no parameters.
-                </p>
-            </doc-desc>
+            <p>
+                Use <doc-directive>v-ace-autofocus</doc-directive> directive to set focus into the target element or &mdash; if it cannot be focused &mdash; to the first focusable element inside it. The directive has no parameters.
+            </p>
 
             <doc-examples
                 :examples="examples">
             </doc-examples>
+            
         </doc-page>
     `,
     data: () => ({

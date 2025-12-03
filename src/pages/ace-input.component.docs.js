@@ -2,7 +2,7 @@ const meta = {
     id: 'ace-input.component',
     name: 'ace-input',
     title: 'Input',
-    desc: `Renders an input field.`
+    desc: `Renders an input form field.`
 };
 
 export default {
@@ -13,30 +13,40 @@ export default {
                 :meta="meta">
             </doc-meta>
 
-            <doc-desc>
-                <p>
-                    Use <code tag>ace-input</code> to render input fields. Supports all native input <a href="https://www.w3schools.com/html/html_form_input_types.asp">types</a>.
-                </p>
-                <ul>
-                    <li>
-                        For multiline text input, see <doc-link id="ace-textarea.component">textarea</doc-link>. 
-                    </li>
-                    <li>
-                        For value option selection, see <doc-link id="ace-select.component">select</doc-link>.
-                    </li>
-                    <li>
-                        For value on/off toggling, see <doc-link id="ace-switch.component">switch</doc-link>.
-                    </li>
-                </ul>
-            </doc-desc>
+            <p>
+                Use <code tag>ace-input</code> to render input fields. Supports all native input <a href="https://www.w3schools.com/html/html_form_input_types.asp">types</a>.
+            </p>
+
+            <ul>
+                <li>
+                    For multiline text input, see <doc-link id="ace-textarea.component">textarea</doc-link>. 
+                </li>
+                <li>
+                    For value option selection, see <doc-link id="ace-select.component">select</doc-link>.
+                </li>
+                <li>
+                    For value on/off toggling, see <doc-link id="ace-switch.component">switch</doc-link>.
+                </li>
+            </ul>
 
             <doc-api
                 :api="api">
             </doc-api>
 
+            <h2>Usage</h2>
+
+            <p>
+                Import input and register it globally or locally. Place in template and bind value using <code param>v-model</code>.
+            </p>
+
+            <ace-codeblock
+                :code="code.usage">
+            </ace-codeblock>
+
             <doc-examples
                 :examples="examples">
             </doc-examples>
+
         </doc-page>
     `,
     data: () => ({
@@ -58,11 +68,11 @@ export default {
                     desc: `Input label text.`
                 },
                 {
-                    name: 'v-model', type: 'any',
-                    desc: `Use v-model to bind input value.`
+                    name: 'modelValue', type: 'any',
+                    desc: `The input value; use with <code param>v-model</code> directive.`
                 },
                 {
-                    name: 'option', type: 'string|number|object',
+                    name: 'option', type: 'any',
                     desc: `Option value, applicable when type is <code val>radio</code>.` 
                 },
                 {
@@ -91,7 +101,7 @@ export default {
                 },
                 {
                     name: 'min', type: 'number',
-                    desc: `Minumum allowed value.`
+                    desc: `Minimum allowed value.`
                 },
                 {
                     name: 'max', type: 'number',
@@ -115,9 +125,26 @@ export default {
                 }
             ]
         },
+        code: {
+            usage: `
+                import {AceInput} from 'ace-input.component';
+
+                const MyComponent = {
+                    components: {
+                        AceInput
+                    },
+                    template: \`
+                        <ace-input 
+                            type="text"
+                            v-model="value">
+                        </ace-input>
+                    \`
+                };
+            `
+        },
         examples: [
             {
-                name: 'Text input',
+                name: 'Type: text',
                 js: `
                     {
                         template: \`
@@ -134,7 +161,7 @@ export default {
                 `
             },
             {
-                name: 'Number input',
+                name: 'Type: number',
                 js: `
                     {
                         template: \`
@@ -152,7 +179,7 @@ export default {
                 `
             },
             {
-                name: 'Checkbox input',
+                name: 'Type: checkbox',
                 js: `
                     {
                         template: \`
@@ -176,7 +203,7 @@ export default {
                 `
             },
             {
-                name: 'Radio input',
+                name: 'Type: radio',
                 js: `
                     {
                         template: \`
@@ -213,7 +240,7 @@ export default {
                 `
             },
             {
-                name: 'Color input',
+                name: 'Type: color',
                 js: `
                     {
                         template: \`
@@ -230,7 +257,7 @@ export default {
                 `
             },
             {
-                name: 'Range input',
+                name: 'Type: range',
                 js: `
                     {
                         template: \`
@@ -248,7 +275,7 @@ export default {
                 `
             },
             {
-                name: 'Date input',
+                name: 'Type: date',
                 js: `
                     {
                         template: \`
@@ -266,7 +293,7 @@ export default {
                 `
             },
             {
-                name: 'Time input',
+                name: 'Type: time',
                 js: `
                     {
                         template: \`
@@ -284,7 +311,7 @@ export default {
                 `
             },
             {
-                name: 'Datetime input',
+                name: 'Type: datetime-local',
                 js: `
                     {
                         template: \`

@@ -2,7 +2,7 @@ const meta = {
     id: 'ace-msg.component',
     name: 'ace-msg',
     title: 'Message',
-    desc: `Renders an inline message used for highlighting information.`
+    desc: `Renders an inline message.`
 };
 
 export default {
@@ -13,19 +13,28 @@ export default {
                 :meta="meta">
             </doc-meta>
 
-            <doc-desc>
-                <p>
-                    Use <code tag>ace-msg</code> to render inline messages for highlighting information.
-                </p>
-            </doc-desc>
+            <p>
+                Use <code tag>ace-msg</code> to render inline messages for highlighting information.
+            </p>
             
             <doc-api
                 :api="api">
             </doc-api>
 
+            <h2>Usage</h2>
+
+            <p>
+                Import message and register it globally or locally. Place in template and add content with slot.
+            </p>
+
+            <ace-codeblock
+                :code="code.usage">
+            </ace-codeblock>
+
             <doc-examples
                 :examples="examples">
             </doc-examples>
+
         </doc-page>
     `,
     data: () => ({
@@ -41,16 +50,12 @@ export default {
                         <code val>success</code>,
                         <code val>warning</code>,
                         <code val>critical</code>. 
-                        Anything else results in default generic message style.
+                        Anything else results in default generic style.
                     `
                 },
                 {
                     name: 'icon', type: 'string', 
                     desc: `Icon for the message. Overrides the icon associated with type. Use null or empty string to disable the icon.`
-                },
-                {
-                    name: 'text', type: 'boolean', default: false,
-                    desc: `If <code val>true</code>, renders the message in text variant style.`
                 },
                 {
                     name: 'size', type: 'string', default: 'medium',
@@ -63,9 +68,26 @@ export default {
                 }
             ]
         },
+        code: {
+            usage: `
+                import {AceMsg} from 'ace-msg.component';
+                
+                const MyComponent = {
+                    components: {
+                        AceMsg
+                    },
+                    template: \`
+                        <ace-msg 
+                            type="info">
+                            This is message
+                        </ace-msg>
+                    \`
+                };
+            `
+        },
         examples: [
             {
-                name: 'Default messages',
+                name: 'Message types',
                 js: `
                     {
                         template: \`
@@ -90,7 +112,7 @@ export default {
                 `
             },
             {
-                name: 'Size',
+                name: 'Small messages',
                 js: `
                     {
                         template: \`
@@ -113,33 +135,7 @@ export default {
                         })
                     }
                 `
-            },
-            {
-                name: 'Text variants',
-                js: `
-                    {
-                        template: \`
-                            <div 
-                                v-for="type in types"
-                                style="margin-bottom: 4px">
-                                <ace-msg text
-                                    :type="type">
-                                    This is {{''+type}}
-                                </ace-msg>
-                            </div>
-                        \`,
-                        data: () => ({
-                            types: [
-                                undefined,
-                                'info',
-                                'success',
-                                'warning',
-                                'critical'
-                            ]
-                        })
-                    }
-                `
-            },
+            }
         ] 
     })
 };

@@ -16,19 +16,28 @@ export default {
                 :meta="meta">
             </doc-meta>
 
-            <doc-desc>
-                <p>
-                    Use <code tag>ace-image</code> to render an image.
-                </p>
-            </doc-desc>
+            <p>
+                Use <code tag>ace-image</code> to render an image.
+            </p>
 
             <doc-api
                 :api="api">
             </doc-api>
 
+            <h2>Usage</h2>
+            
+            <p>
+                Import image and register it globally or locally. Place in template and provide image source with <code param>src</code> param.
+            </p>
+
+            <ace-codeblock
+                :code="code.usage">
+            </ace-codeblock>
+
             <doc-examples
                 :examples="examples">
             </doc-examples>
+
         </doc-page>
     `,
     data: () => ({
@@ -39,7 +48,7 @@ export default {
             params: [
                 {
                     name: 'src', type: 'string',
-                    desc: `The src path of the image to display.`
+                    desc: `The target image URL or data URI.`
                 },
                 {
                     name: 'ratio', type: 'string',
@@ -59,11 +68,11 @@ export default {
                 },
                 {
                     name: 'alt', type: 'string',
-                    desc: `Alternate text for image in case it cannot be displayed or in case user uses a screen reader.`
+                    desc: `Alternate text for image in case it cannot be displayed or in case using a screen reader.`
                 },
                 {
                     name: 'enter-effect', type: 'string',
-                    desc: `Animation effect shown when image is mounted. Options:
+                    desc: `Animation effect to show when image is viewed in viewport. Options:
                         <code val>fadeincolor</code>, 
                         <code val>fadein</code>
                     `
@@ -83,29 +92,41 @@ export default {
                         <code val>center center</code>,
                         <code val>left center</code>.
                     `
-                },
-                {
-                    name: 'placeholder', type: 'boolean', default: false,
-                    desc: `If <code val>true</code>, placeholder is displayed while the image is loading.`
                 }
             ],
             events: [
                 {
                     name: 'load', value: 'Event',
-                    desc: `Emitted when the src target image has been loaded.`
+                    desc: `Emitted when the image has been loaded.`
                 },
                 {
                     name: 'error', value: 'Event',
-                    desc: `Emitted if loading of the src target image fails.`
+                    desc: `Emitted if loading of the image fails.`
                 }
             ]
         },
+        code: {
+            usage: `
+                import {AceImage} from 'ace-image.component';
+
+                const MyComponent = {
+                    components: {
+                        AceImage
+                    },
+                    template: \`
+                        <ace-image 
+                            src="my/assets/image.jpg">
+                        </ace-image>
+                    \`
+                };
+            `
+        },
         examples: [
             {
-                name: 'Default use',
+                name: 'Example',
                 desc: `
                     <p>
-                        By default <code tag>ace-image</code> behaves just as native <code tag>img</code>: image loads eagerly and reserves the full size of the image up to the maximum size limited by parent container.
+                        By default <code tag>ace-image</code> behaves just like native <code tag>img</code>. Image loads eagerly and expands to its full size or up to the maximum size limited by the parent container.
                     </p>
                 `,
                 js: `
@@ -122,7 +143,7 @@ export default {
                 name: 'Enter effects',
                 desc: `
                     <p>
-                        The component allows applying an animation effect to how the image is shown. Try toggling between the options below to see how the effect behaves.
+                        Enter effect is an animation that is shown when the image becomes visible. Try the options below to see each effect ...in effect.
                     </p>
                 `,
                 js: `
@@ -130,23 +151,23 @@ export default {
                         template: \`
                             <ace-image 
                                 src="assets/img/porvoo.jpg" 
-                                :enter-effect="selected">
+                                :enter-effect="effect">
                             </ace-image>
-            
+
                             <br>
             
-                            <div v-for="option in options">
+                            <div v-for="option in effects">
                                 <ace-input 
                                     type="radio"
-                                    v-model="selected" 
+                                    v-model="effect" 
                                     :option="option">
                                     {{option}}
                                 </ace-input>
                             </div>
                         \`,
                         data: () => ({
-                            selected: 'fadeincolor',
-                            options: [
+                            effect: 'fadeincolor',
+                            effects: [
                                 'fadeincolor',
                                 'fadein'
                             ]
@@ -155,10 +176,10 @@ export default {
                 `
             },
             {
-                name: 'Error placeholder',
+                name: 'Error fallback',
                 desc: `
                     <p>
-                        If the target image does not exist or fails to load, an error placeholder image will be displayed instead.
+                        If the target image does not exist or fails to load, an error fallback image will be shown instead.
                     </p>
                 `,
                 js: `
@@ -175,37 +196,24 @@ export default {
                 name: 'Lazy-loading',
                 desc: `
                     <p>
-                        Set <doc-param name="loading" value="lazy"></doc-param> to lazy-load the image. Lazy-loaded images are not loaded until they intersect with the viewport; i.e. until user scrolls them into view.
+                        Set <code param>loading="lazy"</code> to lazy-load the image, meaning the image is downloaded only once it is about to enter the viewport. This is useful for optimizing page load performance when there are many images on the page. In this example, an alert is shown once the image has been loaded. Use <code param>threshold</code> to define how much of the image must be within viewport before it gets loaded.
                     </p>
                 `,
                 js: `
                     {
                         template: \`
-                            <p>
-                                There's an image with lazy-loading at the bottom of this example. Once you scroll down, the image will be loaded and an alert will be shown on top of the screen.
-                            </p>
-            
-                            <p style="height: 60vh">
-                                So, keep scrolling...
-                            </p>
-            
-                            <p>
-                                ...and here it is:
-                            </p>
-            
                             <ace-image
-                                enter-effect="fadeincolors"
-                                src="assets/img/nature.jpg"
-                                loading="lazy"
+                                loading="lazy"    
+                                src="assets/img/nature.jpg"    
+                                enter-effect="fadein"
                                 @load="onload($event)">
                             </ace-image> 
                         \`,
                         methods: {
                             onload(event) {
-                                console.log('onload', event);
                                 aceAlertService.open({
                                     type: 'info', 
-                                    header: 'Lazy-loading: image loaded!'
+                                    header: 'Lazy-loading example: image loaded!'
                                 });
                             }
                         }

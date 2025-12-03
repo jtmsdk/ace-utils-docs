@@ -13,11 +13,9 @@ export default {
                 :meta="meta">
             </doc-meta>
 
-            <doc-desc>
-                <p>
-                    Use <code tag>ace-blockquote</code> to render block-style quotes.
-                </p>
-            </doc-desc>
+            <p>
+                Use <code tag>ace-blockquote</code> to render block-style quotes.
+            </p>
 
             <doc-api
                 :api="api">
@@ -26,7 +24,7 @@ export default {
             <h2>Usage</h2>
 
             <p>
-                Import blockquote and register it globally or locally. Render quote with optional params.
+                Import blockquote and register it globally or locally. Place in template and provide content.
             </p>
 
             <ace-codeblock
@@ -37,6 +35,7 @@ export default {
             <doc-examples
                 :examples="examples">
             </doc-examples>
+
         </doc-page>
     `,
     data: () => ({
@@ -92,10 +91,10 @@ export default {
                     template: \`
                         <ace-blockquote
                             author="John Doe">
-                            Quote text content goes here.
+                            Text content here.
                         </ace-blockquote>
                     \`
-                }
+                };
             ` 
         },
         examples: [

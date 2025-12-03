@@ -1,10 +1,8 @@
-import plusRoundIcon from '@ace.icons/plus-round-inverse.svg?no-inline';
-
 const meta = {
     id: 'ace-modal.component',
     name: 'ace-modal',
     title: 'Modal',
-    desc: `Renders a modal popup.`
+    desc: `Renders a modal dialog.`
 };
 
 export default {
@@ -15,17 +13,28 @@ export default {
                 :meta="meta">
             </doc-meta>
 
-            <doc-desc>
-                Use <code tag>ace-modal</code> to render a modal popup. Used mainly in combination with <doc-link id="ace-dialog.component">dialog</doc-link> component. Opened modal blocks all underlying UI interaction until the modal is closed. See <doc-link id="ace-modal.service">modal service</doc-link> from programmatic use.
-            </doc-desc>
+            <p>
+                Use <code tag>ace-modal</code> to render a modal popup. Used mainly in combination with <doc-link id="ace-dialog.component">dialog</doc-link>. Modal opens on top of all other page content, blocking the underlying UI interaction until the modal is closed. See <doc-link id="ace-modal.service">modal service</doc-link> for programmatic use.
+            </p>
 
             <doc-api
                 :api="api">
             </doc-api>
 
+            <h2>Usage</h2>
+
+            <p>
+                Import modal and register it globally or locally. Place modal in template and toggle it visible using <code>v-if</code>.
+            </p>
+
+            <ace-codeblock
+                :code="code.usage">
+            </ace-codeblock>
+
             <doc-examples
                 :examples="examples">
             </doc-examples>
+
         </doc-page>
     `,
     data: () => ({
@@ -39,8 +48,8 @@ export default {
                     desc: `Optional ID for the opened modal element.`
                 },
                 {
-                    name: 'appendTo', type: 'HTMLElement', default: 'default',
-                    desc: `Target element into which modal is appended. By default app specific container.`
+                    name: 'closeable', type: 'boolean', default: 'true',
+                    desc: `If true, modal emits <code>close</code> event when user tries to dismiss it by pressing ESC or clicking the backdrop.`
                 },
                 {
                     name: 'animation', type: 'string', default: 'default',
@@ -48,14 +57,14 @@ export default {
                 },
                 {
                     name: 'background', type: 'string', default: 'default',
-                    desc: `CSS background value for the modal container.`
+                    desc: `CSS background value for the modal backdrop.`
                 },
                 {
                     name: 'place-items', type: 'string', default: 'start center',
                     desc: `CSS grid place-items value for positioning the modal content.`
                 },
                 {
-                    name: 'margin', type: 'string', default: '10vh 2rem',
+                    name: 'margin', type: 'string', default: '10vh 1rem',
                     desc: `CSS margin for the modal content.`
                 }
             ],
@@ -68,15 +77,35 @@ export default {
             events: [
                 {
                     name: 'close',
-                    desc: `Emitted when user clicks the modal backdrop or background.`
+                    desc: `Emitted when user hits ESC or clicks the backdrop. Only applicable if <code param>closeable</code> is true.`
                 }
             ]
+        },
+        code: {
+            usage: `
+                import {AceModal} from 'ace-modal.component';
+
+                const MyComponent = {
+                    components: {
+                        AceModal
+                    },
+                    data: () => ({
+                        isOpen: false
+                    }),
+                    template: \`
+                        <ace-modal
+                            v-if="isOpen">
+                            <!-- modal content here -->
+                        </ace-modal>
+                    \`
+                };
+            `
         },
         examples: [
             {
                 desc: `
                     <p>
-                        This example opens a modal dialog &mdash; a dialog within a modal container. Notice that modal automatically applies auto-focus and focus-trapping for the content inside. Interaction with the underlying UI is prevented until the modal is closed.
+                        This example opens a modal dialog &mdash; a dialog within a modal. Notice that modal automatically applies auto-focus and focus-trapping for the content inside. Interaction with the underlying UI is prevented until the modal is closed.
                     </p>
                 `,
                 js: `
@@ -86,8 +115,7 @@ export default {
                         }),
                         template: \`
                             <ace-button
-                                @click="isOpen=true"
-                                icon="${plusRoundIcon}">
+                                @click="isOpen=true">
                                 Open modal
                             </ace-button>
 
@@ -102,10 +130,9 @@ export default {
                                     </template>
                                     <template #body>
                                         <p>
-                                            This is a dialog element placed inside 
-                                            modal container. Underlying UI cannot 
-                                            be interacted with until this modal is 
-                                            closed.
+                                            This is a dialog placed inside modal. 
+                                            Underlying UI cannot be interacted 
+                                            with until this modal is closed.
                                         </p>
                                     </template>
                                     <template #footer>

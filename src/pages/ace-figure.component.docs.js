@@ -2,7 +2,7 @@ const meta = {
     id: 'ace-figure.component',
     name: 'ace-figure',
     title: 'Figure',
-    desc: `Renders captions and headers for images and other media.`
+    desc: `Renders captions and headers for images and media.`
 };
 
 export default {
@@ -13,19 +13,28 @@ export default {
                 :meta="meta">
             </doc-meta>
 
-            <doc-desc>
-                <p>
-                    Use <code tag>ace-figure</code> to render captions and title headers for images and other media.
-                </p>
-            </doc-desc>
+            <p>
+                Use <code tag>ace-figure</code> to render captions and title headers for images and other media.
+            </p>
 
             <doc-api
                 :api="api">
             </doc-api>
 
+            <h2>Usage</h2>
+
+            <p>
+                Import figure and register it globally or locally. Place in template and provide header, caption and content.
+            </p>
+
+            <ace-codeblock
+                :code="code.usage">
+            </ace-codeblock>
+
             <doc-examples
                 :examples="examples">
             </doc-examples>
+
         </doc-page>
     `,
     data: () => ({
@@ -40,13 +49,13 @@ export default {
                 },
                 {
                     name: 'caption', type: 'string',
-                    desc: `Caption or description text/HTML content.`
+                    desc: `Caption or footer text/HTML content.`
                 }
             ],
             slots: [
                 {
                     name: 'header',
-                    desc : `Figure header (title) content.`
+                    desc : `Figure header content.`
                 },
                 {
                     name: 'default',
@@ -54,9 +63,29 @@ export default {
                 },
                 {
                     name: 'footer',
-                    desc: `Figure footer (caption) content.`
+                    desc: `Figure footer or caption content.`
                 }
             ]
+        },
+        code: {
+            usage: `
+                import {AceFigure} from 'ace-figure.component';
+
+                const MyComponent = {
+                    components: {
+                        AceFigure
+                    },
+                    template: \`
+                        <ace-figure
+                            header="This is header title."
+                            caption="This is caption.">
+                            <ace-image
+                                src="my/image.jpg">
+                            </ace-image>
+                        </ace-figure>
+                    \`
+                };
+            `
         },
         examples: [
             {

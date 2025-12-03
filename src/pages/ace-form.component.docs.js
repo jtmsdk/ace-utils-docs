@@ -1,4 +1,3 @@
-import sendIcon from '@ace.icons/send.svg?no-inline';
 import aceAlertService from 'ace-alert.service';
 window.aceAlertService = aceAlertService;
 
@@ -17,15 +16,23 @@ export default {
                 :meta="meta">
             </doc-meta>
 
-            <doc-desc>
-                <p>
-                    Use <code tag>ace-form</code> to render a form element.
-                </p>
-            </doc-desc>
+            <p>
+                Use <code tag>ace-form</code> to render a form element.
+            </p>
 
             <doc-api
                 :api="api">
             </doc-api>
+
+            <h2>Usage</h2>
+
+            <p>
+                Import form and register it globally or locally. Place in template and add form fields inside.
+            </p>
+
+            <ace-codeblock
+                :code="code.usage">
+            </ace-codeblock>
 
             <doc-examples
                 :examples="examples">
@@ -40,7 +47,7 @@ export default {
             params: [
                 {
                     name: 'name', type: 'string', 
-                    desc: `Name of the form.`
+                    desc: `Name of the form, used for reference in scripts.`
                 },
                 {
                     name: 'action', type: 'string', default: 'current URL', 
@@ -51,8 +58,12 @@ export default {
                     desc: `HTTP method used when sending data: <code val>get</code> or <code val>post</code>.`
                 },
                 {
+                    name: 'enctype', type: 'string', default: 'application/x-www-form-urlencoded', 
+                    desc: `Encoding type used when sending form data. Possible values: <code val>application/x-www-form-urlencoded</code>, <code val>multipart/form-data</code> (for file uploads), and <code val>text/plain</code>.`
+                },
+                {
                     name: 'target', type: 'string', default: '_self', 
-                    desc: `Target where the form submission response is displayed.`
+                    desc: `Target where the form submission response is opened and displayed.`
                 },
                 {
                     name: 'novalidate', type: 'boolean', 
@@ -60,7 +71,7 @@ export default {
                 },
                 {
                     name: 'autocomplete', type: 'string', default: 'on', 
-                    desc: `Either <code val>on</code> to enable or <code val>off</code> to disable. By default enabled.`
+                    desc: `Either <code val>on</code> to enable or <code val>off</code> to disable.`
                 }
             ],
             slots: [
@@ -81,17 +92,54 @@ export default {
                 {
                     name: 'reset()',
                     desc: `Resets all form field values.`
+                },
+                {
+                    name: 'submit()',
+                    desc: `Submits the form programmatically.`
+                },
+                {
+                    name: 'checkValidity()',
+                    desc: `Checks the form's fields validity and returns <code val>true</code> if all fields are valid, otherwise returns <code val>false</code>.`
+                },
+                {
+                    name: 'reportValidity()',
+                    desc: `Checks the form's fields validity and returns <code val>true</code> if all fields are valid, otherwise returns <code val>false</code>. If any field is invalid, the browser will display the validation error messages.`
                 }
             ],
             events: [
                 {
-                    name: 'submit', $event: 'Event', desc: `Emitted when user submits the form. The native event is passed as <code>$event</code>. Use <code>preventDefault()</code> to prevent the default behavior (which send the form data to <doc-param>action</doc-param> URL) and to handle the submit without using <doc-param>action</doc-param>.`
+                    name: 'submit', $event: 'Event', desc: `Emitted when user submits the form. The native event is passed as <code>$event</code>. Use <code>preventDefault()</code> to prevent the default behavior (which send the form data to <code param>action</code> URL) and to handle the submit without using <code param>action</code>.`
                 }
             ]
         },
+        code: {
+            usage: `
+                import {AceForm} from 'ace-form.component';
+
+                const MyComponent = {
+                    components: {
+                        AceForm
+                    },
+                    template: \`
+                        <ace-form
+                            @submit.prevent="onsubmit()">
+        
+                            ...
+        
+                            <template #footer>
+                                <button
+                                    type="submit">
+                                    Submit
+                                </button>
+                            </template>
+                        </ace-form>
+                    \`,
+                }
+            `
+        },
         examples: [
             {
-                name: 'Default use (browser validation)',
+                name: 'Example',
                 js: `
                     // import aceAlertService from 'ace-alert.service';
                     {
@@ -117,11 +165,11 @@ export default {
                                     required>
                                 </ace-textarea>
             
-                                <template v-slot:footer>
-                                    <ace-button primary
+                                <template #footer>
+                                    <ace-button 
+                                        primary
                                         type="submit">
-                                        <ace-icon src="${sendIcon}"></ace-icon>
-                                        <span>Submit</span>
+                                        Submit
                                     </ace-button>
                                 </template>
                             </ace-form>

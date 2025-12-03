@@ -44,6 +44,10 @@ code {
             content: "@";
         }
     }
+    &[param] {
+        color: var(--ace-doc-color-param);
+        
+    }
     &[tag] {
         color: var(--ace-doc-color-tag);
         background: transparent;

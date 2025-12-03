@@ -13,15 +13,14 @@ export default {
                 :meta="meta">
             </doc-meta>
 
-            <doc-desc>
-                <p>
-                    Use <doc-directive>v-ace-focustrap</doc-directive> directive to trap tab-navigation focus inside the target container. I.e. prevents focus from leaving the element when navigating with tab key.
-                </p>
-            </doc-desc>
+            <p>
+                Use <doc-directive>v-ace-focustrap</doc-directive> directive to trap tab-navigation focus inside the target container. I.e. prevents focus from leaving the element when navigating with tab key.
+            </p>
 
             <doc-examples
                 :examples="examples">
             </doc-examples>
+            
         </doc-page>
     `,
     data: () => ({
