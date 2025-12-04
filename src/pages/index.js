@@ -27,7 +27,7 @@ import AceModalServiceDoc from './ace-modal.service.docs';
 import AceMsgDoc from './ace-msg.component.docs';
 import AceNoteDoc from './ace-note.component.docs';
 import AceParallaxDoc from './ace-parallax.component.docs';
-import AcePopperDoc from './ace-popper.component.docs';
+import AcePopoverDoc from './ace-popover.component.docs';
 import AceProgressbarDoc from './ace-progressbar.component.docs';
 import AceSearchDoc from './ace-search.component.docs';
 import AceSelectDoc from './ace-select.component.docs';
@@ -94,7 +94,7 @@ export const sections = [
             AceMsgDoc,
             AceNoteDoc,
             AceParallaxDoc,
-            AcePopperDoc,
+            AcePopoverDoc,
             AceProgressbarDoc,
             AceSearchDoc,
             AceSelectDoc,

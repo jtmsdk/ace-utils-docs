@@ -13,19 +13,28 @@ export default {
                 :meta="meta">
             </doc-meta>
 
-            <doc-desc>
-                <p>
-                    Use <code tag>ace-progressbar</code> to render a progress bar.
-                </p>
-            </doc-desc>
+            <p>
+                Use <code tag>ace-progressbar</code> to render a progress bar.
+            </p>
 
             <doc-api
                 :api="api">
             </doc-api>
 
+            <h2>Usage</h2>
+
+            <p>
+                Import progressbar and register it globally or locally. Place in template and provide <code param>value</code> to set progress.
+            </p>
+
+            <ace-codeblock
+                :code="code.usage">
+            </ace-codeblock>
+
             <doc-examples
                 :examples="examples">
             </doc-examples>
+
         </doc-page>
     `,
     data: () => ({
@@ -54,9 +63,24 @@ export default {
                 }
             ]
         },
+        code: {
+            usage: `
+                import {AceProgressbar} from 'ace-progressbar.component';
+
+                const MyComponent = {
+                    components: {
+                        AceProgressbar
+                    },
+                    template: \`
+                        <ace-progressbar
+                            :value="50">
+                        </ace-progressbar>
+                    \`
+                };
+            `
+        },
         examples: [
             {
-                name: 'value',
                 js: `
                     {
                         template: \`
