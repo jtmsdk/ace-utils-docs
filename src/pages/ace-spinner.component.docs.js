@@ -13,15 +13,15 @@ export default {
                 :meta="meta">
             </doc-meta>
 
-            <doc-desc>
-                <p>
-                    Use <code tag>ace-spinner</code> to render a spinning load indicator. See <doc-link id="ace-spinner.service">spinner service</doc-link> for programmatic use.
-                </p>
-            </doc-desc>
+            <p>
+                Use <code tag>ace-spinner</code> to render a spinning load indicator. See <doc-link id="ace-spinner.service">spinner service</doc-link> for programmatic use.
+            </p>
 
             <doc-api
                 :api="api">
             </doc-api>
+
+            <h2>Usage</h2>
 
             <doc-examples
                 :examples="examples">

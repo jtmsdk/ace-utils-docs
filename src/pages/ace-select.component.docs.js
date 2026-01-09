@@ -21,19 +21,28 @@ export default {
                 :meta="meta">
             </doc-meta>
 
-            <doc-desc>
-                <p>
-                    Use <code tag>ace-select</code> to render a select input or a dropdown. Used for selecting value options or triggering actions from a list of available options.
-                </p>
-            </doc-desc>
-
+            <p>
+                Use <code tag>ace-select</code> to render a select input or a dropdown. Used for selecting value options or triggering actions from a list of available options.
+            </p>
+        
             <doc-api
                 :api="api">
             </doc-api>
 
+            <h2>Usage</h2>
+
+            <p>
+                Import the component and register it globally or locally. Place in template, and provide available options through <code param>options</code> param or through default slot.
+            </p>
+
+            <ace-codeblock
+                :code="code.usage">
+            </ace-codeblock>
+
             <doc-examples
                 :examples="examples">
             </doc-examples>
+
         </doc-page>
     `,
     data: () => ({
@@ -45,11 +54,11 @@ export default {
                 params: [
                     {
                         name: 'name', type: 'string',
-                        desc: `Form field name.`
+                        desc: `Form field name; applicable when used inside a form.`
                     },
                     {
                         name: 'label', type: 'string',
-                        desc: `Label text for this field.`
+                        desc: `Label text for the select input.`
                     },
                     {
                         name: 'modelValue', type: 'any',
@@ -57,7 +66,7 @@ export default {
                     },
                     {
                         name: 'options', type: 'array',
-                        desc: `Array of available menu options. Options can be primitive values or objects. In case they are objects, check the <doc-param>option</doc-param> API below for available option object properties.`
+                        desc: `Array of available menu options. Options can be primitive values or objects. If objects, check the <code param>option</code> API below for supported properties.`
                     },
                     {
                         name: 'optionlabel', type: 'string', default: 'label',
@@ -70,6 +79,10 @@ export default {
                     {
                         name: 'optionicon', type: 'string', default: 'icon',
                         desc: `Only applicable if options are objects. Defines which option property is shown as the option icon. If <code val>false</code>, no icon is shown for the options.`
+                    },
+                    {
+                        name: 'autoclose', type: 'boolean', default: true,
+                        desc: `If <code val>true</code>, select menu is closed automatically when user selects an option or clicks outside the menu. If <code val>false</code>, menu stays open until closed programmatically.`
                     },
                     {
                         name: 'clearable', type: 'boolean', default: true,
@@ -129,6 +142,11 @@ export default {
             {
                 name: 'option',
                 type: 'object',
+                desc: `
+                    <p>
+                        When providing options through <code param>options</code> param, following properties are used by default by the component:
+                    </p>
+                `,
                 params: [
                     {
                         name: 'label', type: 'string',
@@ -140,7 +158,7 @@ export default {
                     },
                     {
                         name: 'action', type: 'function',
-                        desc: `Callback action to be executed when the option is selected. The option or optionvalue is passed as parameter for the callback.`
+                        desc: `Callback action to execute when the option is selected. The option or <code param>optionvalue</code> is passed as parameter for the callback.`
                     },
                     {
                         name: 'disabled', type: 'boolean',
@@ -149,12 +167,29 @@ export default {
                 ]
             }
         ],
+        code: {
+            usage: `
+                import {AceSelect} from 'ace-select.component';
+
+                const MyComponent = {
+                    components: {
+                        AceSelect
+                    },
+                    template: \`
+                        <ace-select
+                            v-model="myValue"
+                            :options="myOptions">
+                        </ace-select>
+                    \`
+                };            
+            `
+        },
         examples: [
             {
                 name: 'Selecting primitive values',
                 desc: `
                     <p>
-                        If the provided <doc-param>options</doc-param> are primitive values, the values are displayed and selected as they are.
+                        If the provided <code param>options</code> are primitive values, the values are displayed and selected as they are.
                     </p>
                 `,
                 js: `
@@ -178,7 +213,7 @@ export default {
                 name: 'Selecting objects',
                 desc: `
                     <p>
-                        If the provided <doc-param>options</doc-param> are objects, the <doc-param>optionlabel</doc-param> property will be displayed as the option label. When user selects an option, the <doc-param>optionvalue</doc-param> property or (if optionvalue is not provided) the option object itself is set as the model value.
+                        If the provided <code param>options</code> are objects, the <code param>optionlabel</code> property will be displayed as the option label. When user selects an option, the <code param>optionvalue</code> property or (if optionvalue is not provided) the option object itself is set as the model value.
                     </p>
                 `,
                 js: `
@@ -206,7 +241,7 @@ export default {
                 name: 'Custom options using slot',
                 desc: `
                     <p>
-                        Use the <doc-param>default</doc-param> slot to provide the select menu options through the template. With this approach you can fully customize the menu contents, styling and behavior. If the slotted options have <doc-param>value</doc-param>, that value becomes the component model value when selected.
+                        Use the <code slot>default</code> slot to provide the select menu options through the template. With this approach you can fully customize the menu contents, styling and behavior. If the slotted options have <code param>value</code>, that value becomes the component model value when selected.
                     </p>
                 `,
                 js: `
@@ -252,7 +287,7 @@ export default {
                 name: 'Custom value using slot',
                 desc: `
                     <p>
-                        Use <doc-param>value</doc-param> slot to provide the selected value content. This allows you to customize the how the selected option value is displayed inside the select button.
+                        Use <code slot>value</code> slot to provide the selected value content. This allows you to customize the how the selected option value is displayed inside the select button.
                     </p>
                 `,
                 js: `
@@ -261,8 +296,8 @@ export default {
                             <ace-select 
                                 v-model="value"
                                 :options="options">
-                                <template v-slot:value>
-                                    <span>{{value ? 'Start at '+value : ''}}</span>
+                                <template #value>
+                                    {{value ? 'Start at '+value : ''}}
                                 </template>
                             </ace-select>
                         \`,
@@ -282,7 +317,7 @@ export default {
                 name: 'Custom trigger using slot',
                 desc: `
                     <p>
-                        Use <doc-param>trigger</doc-param> slot to replace the default select button. This allows you to trigger the menu from any custom element.
+                        Use <code slot>trigger</code> slot to replace the default select button. This allows you use to any element to trigger drop menus.
                     </p>
                 `,
                 js: `
@@ -290,7 +325,7 @@ export default {
                         template: \`
                             <ace-select 
                                 ref="select">
-                                <template v-slot:trigger>
+                                <template #trigger>
                                     <ace-button text
                                         @click="$refs.select.open()"
                                         icon="${menuIcon}">
