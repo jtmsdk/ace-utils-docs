@@ -80,6 +80,10 @@ export default {
                     desc: `If <code val>true</code>, sets the input in disabled state.`
                 },
                 {
+                    name: 'readonly', type: 'boolean',
+                    desc: `If <code val>true</code>, makes the input value read-only.`
+                },
+                {
                     name: 'required', type: 'boolean',
                     desc: `If <code val>true</code>, makes the input value mandatory.`
                 },

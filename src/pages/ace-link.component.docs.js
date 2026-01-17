@@ -48,6 +48,10 @@ export default {
                     desc: `Target route, exactly as with <code tag>router-link</code> component. Use this param when the link is used for routing inside app.`
                 },
                 {
+                    name: 'replace', type: 'boolean',
+                    desc: `If <code val>true</code>, navigates to target route by replacing current history entry instead of pushing a new one. Only applicable when <code param>to</code> param is used.`
+                },
+                {
                     name: 'href', type: 'string',
                     desc: `Target href URL, exactly as with <code tag>a</code> element. Use this param when the link is used for external hyperlinks outside app.`
                 },

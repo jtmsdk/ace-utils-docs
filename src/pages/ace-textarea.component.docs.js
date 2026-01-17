@@ -69,6 +69,10 @@ export default {
                 {
                     name: 'required', type: 'boolean',
                     desc: `If <code val>true</code>, textarea value is mandatory.`
+                },
+                {
+                    name: 'placeholder', type: 'string',
+                    desc: `Placeholder text shown when textarea is empty.`
                 }
             ],
             events: [
